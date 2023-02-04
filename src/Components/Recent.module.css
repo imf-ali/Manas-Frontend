@@ -1,0 +1,28 @@
+.mainDiv{
+  display: flex;
+  margin-bottom: 50px;
+}
+.recentContainer{
+  display: flex;
+  width: 55%;
+  height: 65%;
+  border: .5px solid gray;
+  padding: 2px;
+  border-radius: 7px;
+  color: #4a4a4a;
+  min-height: 200px;
+  box-shadow: 0 2px 4px #00000026;
+  background: #f6f8fb;
+  border: 1px solid #d2d9e7;
+  margin: auto;
+}
+.advertisement{
+  width: 100%;
+  margin: 30px auto;
+  color: #4a4a4a;
+}
+
+.image{
+  height: 600px;
+  width: 100%;
+}

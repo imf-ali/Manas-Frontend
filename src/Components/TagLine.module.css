@@ -1,0 +1,35 @@
+.contestsMain{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #f6f8fb;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  width: 100%;
+  color: #4a4a4a;
+  padding: 20px 0;
+  outline: 0;
+  letter-spacing: 0;
+}
+.contestsMain > h2{
+  width: 100%;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  text-decoration: underline;
+}
+.contestNames {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 2%;
+}
+.contestLinks{
+  margin: 5px;
+}
+.contestLinks  > a{
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 4PX;
+  text-decoration: none;
+  color: #363636;
+}

@@ -1,0 +1,15 @@
+.mainDiv{
+  display: flex;
+  padding: 0% 12%;
+  color: #4A4A4A;
+}
+
+.subdiv{
+  margin: 10px;
+  padding: 5px;
+  color: #4A4A4A;
+}
+
+.heading{
+  margin-bottom: 10px;
+}
