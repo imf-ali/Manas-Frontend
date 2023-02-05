@@ -1,16 +1,20 @@
 {
   "files": {
     "main.css": "/Manas-Frontend/static/css/main.56730983.css",
-    "main.js": "/Manas-Frontend/static/js/main.d09dcb0c.js",
+    "main.js": "/Manas-Frontend/static/js/main.f296f2f9.js",
+    "static/media/profile2.png": "/Manas-Frontend/static/media/profile2.3317ce526e031670c486.png",
+    "static/media/profile4.png": "/Manas-Frontend/static/media/profile4.c5578d6d92a40617f217.png",
+    "static/media/profile3.png": "/Manas-Frontend/static/media/profile3.11e87546c1471a17abbb.png",
+    "static/media/profile1.png": "/Manas-Frontend/static/media/profile1.341be0f437e1441ce6c9.png",
     "static/media/front-1.jpeg": "/Manas-Frontend/static/media/front-1.5101b2cd08d5d98f4ca3.jpeg",
     "static/media/manas-logo.jpeg": "/Manas-Frontend/static/media/manas-logo.6701a4a54d919874f703.jpeg",
     "static/media/freeTution.jpeg": "/Manas-Frontend/static/media/freeTution.b5008fe4b569b2fd8494.jpeg",
     "index.html": "/Manas-Frontend/index.html",
     "main.56730983.css.map": "/Manas-Frontend/static/css/main.56730983.css.map",
-    "main.d09dcb0c.js.map": "/Manas-Frontend/static/js/main.d09dcb0c.js.map"
+    "main.f296f2f9.js.map": "/Manas-Frontend/static/js/main.f296f2f9.js.map"
   },
   "entrypoints": [
     "static/css/main.56730983.css",
-    "static/js/main.d09dcb0c.js"
+    "static/js/main.f296f2f9.js"
   ]
 }
