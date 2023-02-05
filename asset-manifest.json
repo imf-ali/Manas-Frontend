@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Manas-Frontend/static/css/main.56730983.css",
-    "main.js": "/Manas-Frontend/static/js/main.14b47061.js",
+    "main.js": "/Manas-Frontend/static/js/main.2e80b922.js",
     "static/media/profile2.png": "/Manas-Frontend/static/media/profile2.3317ce526e031670c486.png",
     "static/media/profile4.png": "/Manas-Frontend/static/media/profile4.c5578d6d92a40617f217.png",
     "static/media/profile3.png": "/Manas-Frontend/static/media/profile3.11e87546c1471a17abbb.png",
@@ -11,10 +11,10 @@
     "static/media/freeTution.jpeg": "/Manas-Frontend/static/media/freeTution.b5008fe4b569b2fd8494.jpeg",
     "index.html": "/Manas-Frontend/index.html",
     "main.56730983.css.map": "/Manas-Frontend/static/css/main.56730983.css.map",
-    "main.14b47061.js.map": "/Manas-Frontend/static/js/main.14b47061.js.map"
+    "main.2e80b922.js.map": "/Manas-Frontend/static/js/main.2e80b922.js.map"
   },
   "entrypoints": [
     "static/css/main.56730983.css",
-    "static/js/main.14b47061.js"
+    "static/js/main.2e80b922.js"
   ]
 }
