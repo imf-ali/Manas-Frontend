@@ -1,22 +1,25 @@
-.advertisement{
+.whoarewe {
+  margin: 5%;
+}
+
+.advertisement {
   width: 100%;
-  margin: 30px auto;
+  margin: 1% auto;
+  /* margin: 30px auto; */
   color: #4a4a4a;
 }
 
-.description{
+.description {
   display: flex;
-  margin: auto;
 }
 
-.image{
-  width: 50%;
-  padding: 4% 10%;
-}
-
-.paragraph{
+.image {
   width: 40%;
-  margin: 4% 0%;
+  /* padding: 4% 5%; */
+}
+
+.paragraph {
+  /* margin: 4% 4% 4% 0%; */
   padding: 4% 4%;
   text-align: left;
   font-size: 20px;
@@ -24,16 +27,19 @@
   background: #f6f8fb;
 }
 
-.paragraph2{
-  width: 100%;
-  margin: 4% 0%;
+.paragraph2 {
+  /* width: 100%; */
+  margin: 4%;
   padding: 4% 4%;
   text-align: left;
   font-size: 20px;
   background: #f6f8fb;
 }
+ul {
+  list-style: none;
+}
 
-.listBlock{
+.listBlock {
   margin: 0% 0% 3% 0%;
   line-height: 1.5;
   color: #4a4a4a;
@@ -41,4 +47,18 @@
 
 .heading {
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .description {
+    display: flex;
+    flex-direction: column;
+  }
+  .image {
+    width: 50%;
+    margin: 2% auto;
+  }
+  .paragraph {
+    margin-top: 5%;
+  }
 }

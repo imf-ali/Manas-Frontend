@@ -10,7 +10,6 @@ import image2 from '../resource/freeTution.jpeg';
 function Admissions() {
   return (
     <div>
-      <NavBar />
       <Courses />
       <Excellence 
         mainheading="Excellence in JEE" 

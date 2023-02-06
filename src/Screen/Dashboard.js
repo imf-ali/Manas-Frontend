@@ -8,7 +8,6 @@ import ReviewsSlider from "../Components/ReviewsSlider";
 function Dashboard() {
   return (
     <div>
-      <NavBar />
       <Recent />
       <TagLine />
       <ReviewsSlider />

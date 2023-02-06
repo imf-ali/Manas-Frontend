@@ -6,7 +6,6 @@ import WhoAreWe from "../Components/WhoAreWe";
 const About = () => {
   return (
     <div>
-      <NavBar />
       <WhoAreWe />
       <Aim />
       <Contact />
