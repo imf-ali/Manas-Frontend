@@ -4,6 +4,7 @@ import Dashboard from "./Screen/Dashboard";
 import Admissions from "./Screen/Admissions";
 import About from "./Screen/About";
 import NavBar from "./Components/NavBar";
+import Contact from "./Components/Contact";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
+      <Contact />
     </Router>
   );
 }

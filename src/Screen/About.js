@@ -1,6 +1,4 @@
 import Aim from "../Components/Aim";
-import Contact from "../Components/Contact";
-import NavBar from "../Components/NavBar";
 import WhoAreWe from "../Components/WhoAreWe";
 
 const About = () => {
@@ -8,7 +6,6 @@ const About = () => {
     <div>
       <WhoAreWe />
       <Aim />
-      <Contact />
     </div>
   )
 };
