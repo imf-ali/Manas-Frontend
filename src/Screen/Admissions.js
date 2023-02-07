@@ -4,6 +4,7 @@ import Excellence from "../Components/Excellence";
 import Teaching from "../Components/Teaching";
 import image1 from "../resource/programFocus.png";
 import image2 from "../resource/freeTution.jpeg";
+import Contact from "../Components/Contact";
 
 function Admissions() {
   return (
@@ -25,6 +26,7 @@ function Admissions() {
         ]}
         image={image2}
       />
+      <Contact />
     </div>
   );
 }
