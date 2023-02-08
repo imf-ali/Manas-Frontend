@@ -1,14 +1,73 @@
 .loginMain {
+  height: 75vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.btn {
+  position: absolute;
+  border-bottom: 1px solid rebeccapurple;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  transition: 0.5s;
+}
+
+.toggle {
+  margin-bottom: 3vh;
+  position: relative;
+  display: flex;
+  height: 5vh;
+  /* box-shadow: 0 0 10px 5px rgb(199, 199, 199); */
+}
+
+.toggle > button {
+  font-size: 20px;
+  width: 50%;
+  cursor: pointer;
+  position: relative;
+  height: 5vh;
+  border: none;
+  background: transparent;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.formContainer {
+  position: relative;
+}
+.loginFormAdmin {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  /* padding: 0 vh; */
+  transition: 0.5s;
+}
+.loginFormStudent {
+  position: absolute;
+  width: 100%;
+  left: 121%;
+  /* padding: 0 3vh; */
+  transition: 0.5s;
+}
 .loginContainer {
-  margin: 10vh auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 40vh;
+  height: 50vh;
+  margin: auto 20%;
   /* background-color: #696363; */
   padding: 3%;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+  /* margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); */
 }
 /* .loginContainer {
 
@@ -30,11 +89,6 @@
   box-shadow: 0 20px 25px 5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   transition: 300ms ease-in-out all;
-}
-
-.loginForm {
-  display: flex;
-  flex-direction: column;
 }
 
 .loginButton {
