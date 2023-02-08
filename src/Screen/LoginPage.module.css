@@ -53,13 +53,21 @@
   /* padding: 0 3vh; */
   transition: 0.5s;
 }
+.signFormAdmin {
+  position: absolute;
+  width: 100%;
+  left: -121%;
+  /* padding: 0 3vh; */
+  transition: 0.5s;
+}
 .loginContainer {
-  overflow: hidden;
+  /* overflow: hidden; */
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 40vh;
-  height: 50vh;
-  margin: auto 20%;
+  height: 45vh;
+  margin: auto 10%;
   /* background-color: #696363; */
   padding: 3%;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6);

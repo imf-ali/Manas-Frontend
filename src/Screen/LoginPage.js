@@ -76,20 +76,27 @@ const LoginPage = () => {
   };
 
   const switchStudent = () => {
-    // document.getElementById("admin").style.display = "none";
     document.getElementById("student").style.left = "0";
     document.getElementById("btn").style.left = "50%";
-    document.getElementById("admin").style.left = "-121%";
+    document.getElementById("adminLogin").style.left = "-121%";
   };
   const switchAdmin = () => {
-    document.getElementById("admin").style.left = "0";
-    document.getElementById("btn").style.left = "0";
+    document.getElementById("adminLogin").style.left = "0";
+    document.getElementById("btn").style.left = "0%";
     document.getElementById("student").style.left = "121%";
+  };
+  const switchSignUp = () => {
+    document.getElementById("adminLogin").style.left = "121%";
+    document.getElementById("adminSign").style.left = "0%";
+  };
+  const switchLogin = () => {
+    document.getElementById("adminLogin").style.left = "0";
+    document.getElementById("adminSign").style.left = "-121%";
   };
 
   return (
     <div className={styles.loginMain}>
-      <div className={styles.loginContainer}>
+      <div className={styles.loginContainer} id="container">
         <div className={styles.toggle}>
           <div id="btn" className={styles.btn}></div>
           <button onClick={switchAdmin}>Admin</button>
@@ -121,17 +128,17 @@ const LoginPage = () => {
               value={passwordState.value}
               isValid={passwordState.isValid}
             />
-            <Input
+            {/* <Input
               className={styles.radio}
               id="radio"
               type="checkbox"
               label="Admin"
               onChange={adminChangeHandler}
-            />
+            /> */}
             <button className={styles.loginButton}>Submit</button>
           </form>
           <form
-            id="admin"
+            id="adminLogin"
             className={styles.loginFormAdmin}
             onSubmit={submitHandler}
           >
@@ -153,13 +160,86 @@ const LoginPage = () => {
               value={passwordState.value}
               isValid={passwordState.isValid}
             />
-            <Input
+            {/* <Input
               className={styles.radio}
               id="radio"
               type="checkbox"
               label="Admin"
               onChange={adminChangeHandler}
+            /> */}
+            <span>
+              {" "}
+              New User?{" "}
+              <a href="#" onClick="">
+                Sign Up
+              </a>
+            </span>
+            <button className={styles.loginButton}>Submit</button>
+          </form>
+          <form
+            id="adminSign"
+            className={styles.signFormAdmin}
+            onSubmit={submitHandler}
+          >
+            <Input
+              id="firstName"
+              type="firstName"
+              label="First Name"
+              onChange={passwordChangeHandler}
+              onBlur={validatePasswordHandler}
+              value={passwordState.value}
+              isValid={passwordState.isValid}
             />
+            <Input
+              id="lastName"
+              type="lastName"
+              label="Last Name"
+              onChange={passwordChangeHandler}
+              onBlur={validatePasswordHandler}
+              value={passwordState.value}
+              isValid={passwordState.isValid}
+            />
+            <Input
+              id="email"
+              type="email"
+              label="E-Mail Admin Sign"
+              onChange={emailChangeHandler}
+              onBlur={validateEmailHandler}
+              value={emailState.value}
+              isValid={emailState.isValid}
+            />
+            <Input
+              id="password"
+              type="password"
+              label="Password"
+              onChange={passwordChangeHandler}
+              onBlur={validatePasswordHandler}
+              value={passwordState.value}
+              isValid={passwordState.isValid}
+            />
+            <Input
+              id="confirmPassword"
+              type="confirmPassword"
+              label="Confirm Password"
+              onChange={passwordChangeHandler}
+              onBlur={validatePasswordHandler}
+              value={passwordState.value}
+              isValid={passwordState.isValid}
+            />
+            {/* <Input
+              className={styles.radio}
+              id="radio"
+              type="checkbox"
+              label="Admin"
+              onChange={adminChangeHandler}
+            /> */}
+            <span>
+              {" "}
+              Already a user?
+              <a href="#adminLogin" onClick="">
+                Login
+              </a>
+            </span>
             <button className={styles.loginButton}>Submit</button>
           </form>
         </div>
