@@ -1,3 +1,45 @@
+.noticeUploadForm {
+  display: flex;
+  flex-direction: row;
+  gap: 5vh;
+}
+
+.uploadHeading,
+.uploadContent {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  text-align: left;
+}
+.uploadHeading > label,
+.uploadContent > label {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.uploadContent > textarea {
+  height: 15vh;
+  overflow-y: scroll;
+  font-size: 15px;
+  padding: 8px;
+}
+
+.uploadHeading > input {
+  height: 5vh;
+  font-size: 18px;
+  padding: 8px;
+}
+
+.noticeUploadForm > button {
+  margin: auto;
+  padding: 10px 15px;
+  font-size: 15px;
+  position: relative;
+  border: none;
+  background-color: rgb(2, 131, 116);
+  color: white;
+  cursor: pointer;
+}
+
 .noticeCard {
   display: flex;
   height: 20vh;
@@ -58,6 +100,16 @@
 }
 
 @media screen and (max-width: 764px) {
+  .noticeUploadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
+  }
+  .uploadHeading,
+  .uploadContent {
+    width: 100%;
+  }
   .noticeCard {
     display: flex;
     flex-direction: column;

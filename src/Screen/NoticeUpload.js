@@ -19,11 +19,15 @@ const NoticeUpload = () => {
 
   const UploadNoticeForm = () => {
     return (
-      <form onSubmit={noticeSubmitHandler}>
-        <label>Notice Heading</label>
-        <input type="text" ref={headingRef} />
-        <label>Content</label>
-        <textarea ref={textRef} />
+      <form className={styles.noticeUploadForm} onSubmit={noticeSubmitHandler}>
+        <div className={styles.uploadHeading}>
+          <label>Notice Heading</label>
+          <input type="text" ref={headingRef} />
+        </div>
+        <div className={styles.uploadContent}>
+          <label>Content</label>
+          <textarea ref={textRef} />
+        </div>
         <button>Add notice</button>
       </form>
     );
