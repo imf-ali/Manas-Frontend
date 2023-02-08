@@ -76,7 +76,7 @@ const LoginPage = () => {
       <div className={styles.loginMain}>
         <div className={styles.loginContainer}>
           <h2 className={styles.headingLogin}>Log In</h2>
-          <form onSubmit={submitHandler}>
+          <form className={styles.loginForm} onSubmit={submitHandler}>
             <Input
               id="email"
               type="email"
@@ -95,7 +95,7 @@ const LoginPage = () => {
               value={passwordState.value}
               isValid={passwordState.isValid}
             />
-            <Input
+            <Input className={styles.radio}
               id="radio"
               type="checkbox"
               label="Admin"
