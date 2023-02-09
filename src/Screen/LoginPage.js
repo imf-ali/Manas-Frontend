@@ -26,6 +26,7 @@ const passwordReducer = (state, actions) => {
 
 const LoginPage = () => {
   const setIsLogin = userStore((state) => state.setIsLogin);
+  const setIsPaid = userStore((state) => state.setIsPaid);
 
   const { manasInstance } = useContext(AuthContext);
 
@@ -64,14 +65,12 @@ const LoginPage = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    const user = adminValue ? "admin" : "student";
-    const res = await manasInstance.loginHandler(
-      emailState.value,
-      passwordState.value,
-      user
-    );
-    if (res.status === 201) {
-      setIsLogin(true, false);
+    const user = adminValue ? 'admin' : 'student';
+    const res = await manasInstance.loginHandler(emailState.value, passwordState.value, user);
+    console.log(res.data);
+    if(res.status === 201) {
+      adminValue ? setIsLogin(true, false, res.data.user._id) : setIsLogin(false, true, res.data.user._id);
+      setIsPaid(res.data.user.isPaymentDone)
     }
   };
 

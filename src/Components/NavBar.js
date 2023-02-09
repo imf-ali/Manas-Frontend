@@ -12,11 +12,12 @@ function NavBar() {
   const { isAdmin, isStudent } = userStore((state) => ({ isAdmin: state.isAdmin, isStudent: state.isStudent}));
   const setIsLogin = userStore((state) => state.setIsLogin);
 
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
     const user = localStorage.getItem('user');
-    const res = manasInstance.logoutHandler(user);
-    if(res.status === 200)
-      setIsLogin(false,false);
+    const res = await manasInstance.logoutHandler(user);
+    if(res.status === 200) {
+      setIsLogin(false,false,undefined);
+    }
   }
 
   return (
@@ -45,6 +46,9 @@ function NavBar() {
             </Link>}
             {(isAdmin || isStudent) && <Link to="/notice" className={styles.heading}>
               Notice
+            </Link>}
+            {(isStudent) && <Link to="/mtspage" className={styles.heading}>
+              MTS
             </Link>}
             {isAdmin && <Link to="/uploadnotice" className={styles.heading}>
               Notice Upload

@@ -5,14 +5,22 @@ class ManasInstance {
     this.host = host;
   };
 
-  setToken(token, user) {
+  setToken(token, user, userId, isPaid) {
     localStorage.setItem('token', token);
     localStorage.setItem('user', user);
+    localStorage.setItem('userId', userId);
+    localStorage.setItem('isPaid', isPaid);
   };
+
+  setPaymentToken() {
+    localStorage.setItem('isPaid', true);
+  }
 
   removeToken() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('isPaid');
   };
 
   getToken() {
@@ -31,7 +39,8 @@ class ManasInstance {
       };
       const res = await axios(options);
       if(res.status === 201) {
-        this.setToken(res.data.token, user);
+        this.setToken(res.data.token, user, res.data.user._id);
+        this.setPaymentToken(res.data.user.isPaymentDone);
       }
       return res;
     } catch (e) {
@@ -49,7 +58,6 @@ class ManasInstance {
         },
       };
       const res = await axios(options);
-      console.log(res)
       if(res.status === 200) {
         this.removeToken();
       }
@@ -138,6 +146,58 @@ class ManasInstance {
         data: {
           id: noticeId,
           show: show
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async updateData(studentId, payload){
+    try {
+      const options = {
+        method: 'PATCH',
+        url: `${this.host}/student/${studentId}/update`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: payload
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async getUserData(userId){
+    try {
+      const options = {
+        method: 'GET',
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        url: `${this.host}/student/${userId}/me`,
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async makePayment(amount){
+    try {
+      const options = {
+        method: 'POST',
+        url: `${this.host}/student/payment`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: {
+          amount: amount
         }
       };
       const res = await axios(options);
