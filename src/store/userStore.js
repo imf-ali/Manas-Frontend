@@ -3,7 +3,10 @@ import { create } from "zustand";
 const userStore = create((set) => ({
   isAdmin: false,
   isStudent: false,
-  setIsLogin: (isAdmin, isStudent) => set((state) => ({ isAdmin , isStudent })),
+  isPaid: false,
+  userId: '',
+  setIsLogin: (isAdmin, isStudent, userId) => set((state) => ({ isAdmin , isStudent, userId })),
+  setIsPaid: (isPaid) => set(() => ({ isPaid })),
 }));
 
 export default userStore;
