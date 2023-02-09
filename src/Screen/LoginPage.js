@@ -88,13 +88,13 @@ const LoginPage = () => {
     document.getElementById("studentLogin").style.left = "121%";
     document.getElementById("studentSign").style.left = "0%";
     document.getElementById("btn").style.left = "50%";
-    document.getElementById("container").style.height = "70vh";
+    document.getElementById("container").style.height = "90%";
   };
   const switchLogin = () => {
     document.getElementById("studentLogin").style.left = "0";
     document.getElementById("studentSign").style.left = "-121%";
     document.getElementById("btn").style.left = "0%";
-    document.getElementById("container").style.height = "45vh";
+    document.getElementById("container").style.height = "60%";
   };
 
   return (

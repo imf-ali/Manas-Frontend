@@ -1,5 +1,5 @@
 .loginMain {
-  height: 75vh;
+  height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -61,12 +61,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 40vh;
-  height: 45vh;
-  margin: auto 5%;
+  width: 50vh;
+  height: 70vh;
+  /* height: 80%; */
+  /* height: 45vh; */
+  /* margin: auto 5%; */
   /* background-color: #696363; */
-  padding: 3%;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+  /* padding: 3%; */
+  /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6); */
   /* margin: 0;
   position: absolute;
   top: 50%;
@@ -89,11 +91,11 @@
   z-index: 1;
   
 } */
-.loginContainer:hover {
+/* .loginContainer:hover {
   box-shadow: 0 20px 25px 5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   transition: 300ms ease-in-out all;
-}
+} */
 
 .loginButton {
   display: block;
