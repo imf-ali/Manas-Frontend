@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import userStore from "./store/userStore";
 import Notice from "./Screen/Notice";
 import MTSpage from "./Screen/MTSpage";
+import LoginPageAdmin from "./Screen/LoginPageAdmin";
 
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
@@ -42,6 +43,7 @@ function App() {
             <Route path="/admissions" element={<Admissions />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/admin" element={<LoginPageAdmin />} />
             <Route path="/notice" element={<Notice />} />
             <Route path="/uploadnotice" element={<NoticeUpload />} />
             <Route path="/mtspage" element={<MTSpage />} />

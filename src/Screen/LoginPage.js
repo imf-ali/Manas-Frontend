@@ -74,77 +74,49 @@ const LoginPage = () => {
     }
   };
 
-  const switchStudent = () => {
-    document.getElementById("student").style.left = "0";
-    document.getElementById("btn").style.left = "50%";
-    document.getElementById("adminLogin").style.left = "-121%";
-  };
-  const switchAdmin = () => {
-    document.getElementById("adminLogin").style.left = "0";
-    document.getElementById("btn").style.left = "0%";
-    document.getElementById("student").style.left = "121%";
-  };
+  // const switchStudent = () => {
+  //   document.getElementById("student").style.left = "0";
+  //   document.getElementById("btn").style.left = "50%";
+  //   document.getElementById("adminLogin").style.left = "-121%";
+  // };
+  // const switchAdmin = () => {
+  //   document.getElementById("adminLogin").style.left = "0";
+  //   document.getElementById("btn").style.left = "0%";
+  //   document.getElementById("student").style.left = "121%";
+  // };
   const switchSignUp = () => {
-    document.getElementById("adminLogin").style.left = "121%";
-    document.getElementById("adminSign").style.left = "0%";
+    document.getElementById("studentLogin").style.left = "121%";
+    document.getElementById("studentSign").style.left = "0%";
+    document.getElementById("btn").style.left = "50%";
+    document.getElementById("container").style.height = "70vh";
   };
   const switchLogin = () => {
-    document.getElementById("adminLogin").style.left = "0";
-    document.getElementById("adminSign").style.left = "-121%";
+    document.getElementById("studentLogin").style.left = "0";
+    document.getElementById("studentSign").style.left = "-121%";
+    document.getElementById("btn").style.left = "0%";
+    document.getElementById("container").style.height = "45vh";
   };
 
   return (
     <div className={styles.loginMain}>
       <div className={styles.loginContainer} id="container">
+        <h2 className={styles.headingStudent}>Student Panel</h2>
         <div className={styles.toggle}>
           <div id="btn" className={styles.btn}></div>
-          <button onClick={switchAdmin}>Admin</button>
+          <button onClick={switchLogin}>Login</button>
           {/* <hr></hr> */}
-          <button onClick={switchStudent}>Student</button>
+          <button onClick={switchSignUp}>Register</button>
         </div>
-        <h2 className={styles.headingLogin}>Log In</h2>
         <div className={styles.formContainer}>
           <form
-            id="student"
-            className={styles.loginFormStudent}
-            onSubmit={submitHandler}
-          >
-            <Input
-              id="email"
-              type="email"
-              label="E-Mail"
-              onChange={emailChangeHandler}
-              onBlur={validateEmailHandler}
-              value={emailState.value}
-              isValid={emailState.isValid}
-            />
-            <Input
-              id="password"
-              type="password"
-              label="Password"
-              onChange={passwordChangeHandler}
-              onBlur={validatePasswordHandler}
-              value={passwordState.value}
-              isValid={passwordState.isValid}
-            />
-            {/* <Input
-              className={styles.radio}
-              id="radio"
-              type="checkbox"
-              label="Admin"
-              onChange={adminChangeHandler}
-            /> */}
-            <button className={styles.loginButton}>Submit</button>
-          </form>
-          <form
-            id="adminLogin"
+            id="studentLogin"
             className={styles.loginFormAdmin}
             onSubmit={submitHandler}
           >
             <Input
               id="email"
               type="email"
-              label="E-Mail Admin"
+              label="E-Mail Student"
               onChange={emailChangeHandler}
               onBlur={validateEmailHandler}
               value={emailState.value}
@@ -166,17 +138,10 @@ const LoginPage = () => {
               label="Admin"
               onChange={adminChangeHandler}
             /> */}
-            <span>
-              {" "}
-              New User?{" "}
-              <a href="#" onClick="">
-                Sign Up
-              </a>
-            </span>
             <button className={styles.loginButton}>Submit</button>
           </form>
           <form
-            id="adminSign"
+            id="studentSign"
             className={styles.signFormAdmin}
             onSubmit={submitHandler}
           >
@@ -201,7 +166,7 @@ const LoginPage = () => {
             <Input
               id="email"
               type="email"
-              label="E-Mail Admin Sign"
+              label="E-Mail Student Sign"
               onChange={emailChangeHandler}
               onBlur={validateEmailHandler}
               value={emailState.value}
@@ -232,13 +197,6 @@ const LoginPage = () => {
               label="Admin"
               onChange={adminChangeHandler}
             /> */}
-            <span>
-              {" "}
-              Already a user?
-              <a href="#adminLogin" onClick="">
-                Login
-              </a>
-            </span>
             <button className={styles.loginButton}>Submit</button>
           </form>
         </div>
