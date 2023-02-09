@@ -6,27 +6,24 @@ import About from "./Screen/About";
 import NavBar from "./Components/NavBar";
 import LoginPage from "./Screen/LoginPage";
 import NoticeUpload from "./Screen/NoticeUpload";
-import { AuthContextProvider } from './store/AuthContext';
+import { AuthContextProvider } from "./store/AuthContext";
 import ManasInstance from "./lib/api";
 import { useEffect } from "react";
 import userStore from "./store/userStore";
 import Notice from "./Screen/Notice";
 
 function App() {
+  const setIsLogin = userStore((state) => state.setIsLogin);
 
-  const setIsLogin = userStore(state => state.setIsLogin);
-
-  const manasInstance = new ManasInstance(process.env.REACT_APP_BACKEND_URL);
+  const manasInstance = new ManasInstance("http://localhost:9008");
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
-    if(localStorage.getItem('token')){
-      if(user === 'admin')
-        setIsLogin(true, false);
-      else if (user === 'student')
-        setIsLogin(false, true);
+    const user = localStorage.getItem("user");
+    if (localStorage.getItem("token")) {
+      if (user === "admin") setIsLogin(true, false);
+      else if (user === "student") setIsLogin(false, true);
     }
-  },[setIsLogin])
+  }, [setIsLogin]);
 
   return (
     <AuthContextProvider value={{ manasInstance }}>

@@ -1,0 +1,126 @@
+.noticeUploadForm {
+  display: flex;
+  flex-direction: row;
+  gap: 5vh;
+}
+
+.uploadHeading,
+.uploadContent {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  text-align: left;
+}
+.uploadHeading > label,
+.uploadContent > label {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.uploadContent > textarea {
+  height: 15vh;
+  overflow-y: scroll;
+  font-size: 15px;
+  padding: 8px;
+}
+
+.uploadHeading > input {
+  height: 5vh;
+  font-size: 18px;
+  padding: 8px;
+}
+
+.noticeUploadForm > button {
+  margin: auto;
+  padding: 10px 15px;
+  font-size: 15px;
+  position: relative;
+  border: none;
+  background-color: rgb(2, 131, 116);
+  color: white;
+  cursor: pointer;
+}
+
+.noticeCard {
+  display: flex;
+  height: 20vh;
+  /* background-color: #00ffff; */
+  margin: 4vh auto;
+  padding: 2vh;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cardLeft {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  overflow-y: scroll;
+}
+.noticeHeading {
+  font-size: 25px;
+}
+
+.cardRight {
+  margin: 1vh;
+  justify-content: center;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardRight > button {
+  padding: 5px 10px;
+  margin: 4px 2vh;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.cardRight > button:hover {
+  border: 1px solid black;
+}
+.show {
+  background-color: #357a38;
+}
+.show:disabled {
+  background-color: #bdbdbd;
+  color: black;
+}
+.hide {
+  background-color: #1769aa;
+}
+
+.hide:disabled {
+  background-color: #bdbdbd;
+  color: black;
+}
+
+.delete {
+  background-color: #b2102f;
+}
+
+@media screen and (max-width: 764px) {
+  .noticeUploadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
+  }
+  .uploadHeading,
+  .uploadContent {
+    width: 100%;
+  }
+  .noticeCard {
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+  }
+  .cardLeft {
+    height: 20vh;
+  }
+  .cardRight {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+  }
+}
