@@ -1,27 +1,15 @@
-import React, { useReducer, useState, useContext } from "react";
+import React, { useReducer, useContext } from "react";
 import styles from "./LoginPage.module.css";
 import Input from "../UI/Input";
 import AuthContext from "../store/AuthContext";
 import userStore from "../store/userStore";
 
-const emailReducer = (state, actions) => {
-  if (actions.type === "USER_INPUT") {
-    return { value: actions.val, isValid: actions.val.includes("@") };
+const inputReducer = (state, actions) => {
+  if (actions.type === "INPUT_CHANGE") {
+    console.log(actions.input.name,actions.input.value)
+    return { ...state, [actions.input.name] : actions.input.value };
   }
-  if (actions.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state.value.includes("@") };
-  }
-  return { value: "", isValid: false };
-};
-
-const passwordReducer = (state, actions) => {
-  if (actions.type === "USER_INPUT") {
-    return { value: actions.val, isValid: actions.val.trim().length > 8 };
-  }
-  if (actions.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state.value.trim().length > 8 };
-  }
-  return { value: "", isValid: false };
+  return { ...state };
 };
 
 const LoginPage = () => {
@@ -30,47 +18,34 @@ const LoginPage = () => {
 
   const { manasInstance } = useContext(AuthContext);
 
-  const [adminValue, setAdminValue] = useState(false);
+  const [inputValue, dispatchInput] = useReducer(inputReducer, {
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    confirmpassword: '',
+  })
 
-  const [emailState, dispatchEmail] = useReducer(emailReducer, {
-    value: "",
-    isValid: null,
-  });
+  const inputChangeHandler = (e) => {
+    dispatchInput({ type: 'INPUT_CHANGE', input: e.target })
+    console.log(inputValue);
+  }
 
-  const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
-    value: "",
-    isValid: null,
-  });
-
-  const emailChangeHandler = (event) => {
-    dispatchEmail({ type: "USER_INPUT", val: event.target.value });
-  };
-
-  const passwordChangeHandler = (event) => {
-    dispatchPassword({ type: "USER_INPUT", val: event.target.value });
-  };
-
-  const validateEmailHandler = () => {
-    dispatchEmail({ type: "INPUT_BLUR" });
-  };
-
-  const validatePasswordHandler = () => {
-    dispatchPassword({ type: "INPUT_BLUR" });
-  };
-
-  const adminChangeHandler = () => {
-    console.log(adminValue);
-    setAdminValue((value) => !value);
-  };
-
-  const submitHandler = async (event) => {
+  const submitHandler = async (event, signup) => {
     event.preventDefault();
-    const user = adminValue ? 'admin' : 'student';
-    const res = await manasInstance.loginHandler(emailState.value, passwordState.value, user);
-    console.log(res.data);
-    if(res.status === 201) {
-      adminValue ? setIsLogin(true, false, res.data.user._id) : setIsLogin(false, true, res.data.user._id);
-      setIsPaid(res.data.user.isPaymentDone)
+    if(!signup) {
+      const res = await manasInstance.loginHandler(inputValue.email, inputValue.password, 'student');
+      if(res.status === 201) {
+        setIsLogin(false, true, res.data.user._id);
+        setIsPaid(res.data.user.isPaymentDone)
+      }
+    }
+    else {
+      const res = await manasInstance.signUpHandler(inputValue);
+      if(res.status === 201) {
+        setIsLogin(false, true, res.data.user._id);
+        setIsPaid(res.data.user.isPaymentDone)
+      }
     }
   };
 
@@ -111,25 +86,23 @@ const LoginPage = () => {
           <form
             id="studentLogin"
             className={styles.loginFormAdmin}
-            onSubmit={submitHandler}
+            onSubmit={(e) => submitHandler(e,false)}
           >
             <Input
               id="email"
               type="email"
+              name="email"
               label="E-Mail Student"
-              onChange={emailChangeHandler}
-              onBlur={validateEmailHandler}
-              value={emailState.value}
-              isValid={emailState.isValid}
+              onChange={inputChangeHandler}
+              value={inputValue.email}
             />
             <Input
               id="password"
               type="password"
+              name="password"
               label="Password"
-              onChange={passwordChangeHandler}
-              onBlur={validatePasswordHandler}
-              value={passwordState.value}
-              isValid={passwordState.isValid}
+              onChange={inputChangeHandler}
+              value={inputValue.password}
             />
             {/* <Input
               className={styles.radio}
@@ -143,52 +116,47 @@ const LoginPage = () => {
           <form
             id="studentSign"
             className={styles.signFormAdmin}
-            onSubmit={submitHandler}
+            onSubmit={(e) => submitHandler(e,true)}
           >
             <Input
               id="firstName"
               type="firstName"
+              name="firstname"
               label="First Name"
-              onChange={passwordChangeHandler}
-              onBlur={validatePasswordHandler}
-              value={passwordState.value}
-              isValid={passwordState.isValid}
+              onChange={inputChangeHandler}
+              value={inputValue.firstname}
             />
             <Input
               id="lastName"
               type="lastName"
+              name="lastname"
               label="Last Name"
-              onChange={passwordChangeHandler}
-              onBlur={validatePasswordHandler}
-              value={passwordState.value}
-              isValid={passwordState.isValid}
+              onChange={inputChangeHandler}
+              value={inputValue.lastname}
             />
             <Input
               id="email"
               type="email"
+              name="email"
               label="E-Mail Student Sign"
-              onChange={emailChangeHandler}
-              onBlur={validateEmailHandler}
-              value={emailState.value}
-              isValid={emailState.isValid}
+              onChange={inputChangeHandler}
+              value={inputValue.email}
             />
             <Input
               id="password"
               type="password"
+              name="password"
               label="Password"
-              onChange={passwordChangeHandler}
-              onBlur={validatePasswordHandler}
-              value={passwordState.value}
-              isValid={passwordState.isValid}
+              onChange={inputChangeHandler}
+              value={inputValue.password}
             />
             <Input
               id="confirmPassword"
               type="confirmPassword"
+              name="confirmpassword"
               label="Confirm Password"
-              onChange={passwordChangeHandler}
-              onBlur={validatePasswordHandler}
-              value={passwordState.value}
-              isValid={passwordState.isValid}
+              onChange={inputChangeHandler}
+              value={inputValue.confirmpassword}
             />
             {/* <Input
               className={styles.radio}

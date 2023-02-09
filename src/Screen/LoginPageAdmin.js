@@ -1,27 +1,15 @@
-import React, { useReducer, useState, useContext } from "react";
+import React, { useReducer, useContext } from "react";
 import styles from "./LoginPage.module.css";
 import Input from "../UI/Input";
 import AuthContext from "../store/AuthContext";
 import userStore from "../store/userStore";
 
-const emailReducer = (state, actions) => {
-  if (actions.type === "USER_INPUT") {
-    return { value: actions.val, isValid: actions.val.includes("@") };
+const inputReducer = (state, actions) => {
+  if (actions.type === "INPUT_CHANGE") {
+    console.log(actions.input.name,actions.input.value)
+    return { ...state, [actions.input.name] : actions.input.value };
   }
-  if (actions.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state.value.includes("@") };
-  }
-  return { value: "", isValid: false };
-};
-
-const passwordReducer = (state, actions) => {
-  if (actions.type === "USER_INPUT") {
-    return { value: actions.val, isValid: actions.val.trim().length > 8 };
-  }
-  if (actions.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state.value.trim().length > 8 };
-  }
-  return { value: "", isValid: false };
+  return { ...state };
 };
 
 const LoginPageAdmin = () => {
@@ -29,47 +17,19 @@ const LoginPageAdmin = () => {
 
   const { manasInstance } = useContext(AuthContext);
 
-  const [adminValue, setAdminValue] = useState(false);
+  const [inputValue, dispatchInput] = useReducer(inputReducer, {
+    email: '',
+    password: '',
+  })
 
-  const [emailState, dispatchEmail] = useReducer(emailReducer, {
-    value: "",
-    isValid: null,
-  });
-
-  const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
-    value: "",
-    isValid: null,
-  });
-
-  const emailChangeHandler = (event) => {
-    dispatchEmail({ type: "USER_INPUT", val: event.target.value });
-  };
-
-  const passwordChangeHandler = (event) => {
-    dispatchPassword({ type: "USER_INPUT", val: event.target.value });
-  };
-
-  const validateEmailHandler = () => {
-    dispatchEmail({ type: "INPUT_BLUR" });
-  };
-
-  const validatePasswordHandler = () => {
-    dispatchPassword({ type: "INPUT_BLUR" });
-  };
-
-  const adminChangeHandler = () => {
-    console.log(adminValue);
-    setAdminValue((value) => !value);
-  };
+  const inputChangeHandler = (e) => {
+    dispatchInput({ type: 'INPUT_CHANGE', input: e.target })
+    console.log(inputValue);
+  }
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    const user = adminValue ? "admin" : "student";
-    const res = await manasInstance.loginHandler(
-      emailState.value,
-      passwordState.value,
-      user
-    );
+    const res = await manasInstance.loginHandler(inputValue.email, inputValue.password,'admin');
     if (res.status === 201) {
       setIsLogin(true, false);
     }
@@ -83,20 +43,18 @@ const LoginPageAdmin = () => {
             <Input
               id="email"
               type="email"
+              name="email"
               label="E-Mail"
-              onChange={emailChangeHandler}
-              onBlur={validateEmailHandler}
-              value={emailState.value}
-              isValid={emailState.isValid}
+              onChange={inputChangeHandler}
+              value={inputValue.email}
             />
             <Input
               id="password"
               type="password"
+              name="password"
               label="Password"
-              onChange={passwordChangeHandler}
-              onBlur={validatePasswordHandler}
-              value={passwordState.value}
-              isValid={passwordState.isValid}
+              onChange={inputChangeHandler}
+              value={inputValue.password}
             />
             {/* <Input
               className={styles.radio}

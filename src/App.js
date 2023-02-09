@@ -18,7 +18,7 @@ function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
   const setIsPaid = userStore(state => state.setIsPaid);
 
-  const manasInstance = new ManasInstance(process.env.REACT_APP_BACKEND_URL);
+  const manasInstance = new ManasInstance('http://localhost:9007');
 
   useEffect(() => {
     const user = localStorage.getItem('user');

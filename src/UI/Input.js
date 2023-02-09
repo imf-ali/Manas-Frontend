@@ -27,6 +27,7 @@ const Input = props => {
       </label>
       <input
         className={styles.inputControl}
+        name={props.name}
         type={props.type}
         id={props.id}
         value={props.value}

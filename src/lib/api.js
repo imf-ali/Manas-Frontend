@@ -27,6 +27,26 @@ class ManasInstance {
     return localStorage.getItem('token');
   }
 
+  async signUpHandler(data){
+    try {
+      const options = {
+        method: 'POST',
+        url: `${this.host}/student`,
+        data: {
+          ...data,
+        }
+      };
+      const res = await axios(options);
+      if(res.status === 201) {
+        this.setToken(res.data.token, 'student', res.data.user._id);
+        this.setPaymentToken(res.data.user.isPaymentDone);
+      }
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   async loginHandler(email, password, user){
     try {
       const options = {
