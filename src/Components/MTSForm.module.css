@@ -1,0 +1,73 @@
+.mtsForm {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  font-size: 18px;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 2vh;
+  width: 100%;
+}
+
+.containerLeft {
+  width: 70%;
+}
+
+.containerRight {
+  width: 20%;
+  margin: auto;
+}
+.avatarBox {
+  margin: auto;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  height: 170px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px dashed #555;
+  color: #444;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
+}
+
+.avatarBox:hover {
+  border: 2px solid #111;
+}
+.avatarBox > p {
+  margin: auto;
+}
+.avatar {
+  display: none;
+}
+.inputBox {
+  margin: 0.7vh;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBox > label {
+  text-align: left;
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+
+.inputBox > input {
+  height: 7vh;
+  padding: 1vh;
+  font-size: 18px;
+}
+
+.mtsForm > button {
+  width: 10vh;
+  height: 4vh;
+  margin: 3vh auto;
+}
