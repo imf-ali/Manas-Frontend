@@ -113,18 +113,20 @@
   border-radius: 10px;
   background-color: aquamarine;
   box-shadow: 0px 5px 20px rgb(186, 186, 186);
+  cursor: pointer;
 }
 .admitCard {
-    margin: 5vh auto;
-    font-size: 30px;
+  margin: 5vh auto;
+  font-size: 30px;
 }
-.admitCard >button{
-    font-size: 25px;
-    border: none;
-    padding: 2vh 3vh;
-    background-color: cornflowerblue;
-    border-radius: 30px;
-    margin: 2vh 5vh;
+.admitCard > button {
+  font-size: 25px;
+  border: none;
+  padding: 2vh 3vh;
+  background-color: cornflowerblue;
+  border-radius: 30px;
+  margin: 2vh 5vh;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

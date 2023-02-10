@@ -24,12 +24,13 @@ const MTSpage = () => {
 
   return (
     <>
-      <MTSForm/>
-      {/* {!showPayment && !paid && <MTSForm paymentHandler={showPaymentHandler} />}
-      {showPayment && !paid && <Payment paymentHandler={showPaymentHandler} />} */}
-      {isPaid && <AdmitCard/>}
+      {/* <MTSForm/> */}
+      <Payment paymentHandler={showPaymentHandler} />
+      {!showPayment && !paid && <MTSForm paymentHandler={showPaymentHandler} />}
+      {showPayment && !paid && <Payment paymentHandler={showPaymentHandler} />}
+      {isPaid && <AdmitCard />}
     </>
-  )
+  );
 };
 
 export default MTSpage;

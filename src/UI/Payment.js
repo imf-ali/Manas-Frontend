@@ -4,9 +4,8 @@ import AuthContext from "../store/AuthContext";
 import userStore from "../store/userStore";
 
 const Payment = (props) => {
-
   const { manasInstance } = useContext(AuthContext);
-  const userId = userStore(state => state.userId);
+  const userId = userStore((state) => state.userId);
 
   const displayRazorpay = async () => {
     const data = await manasInstance.makePayment(1);
@@ -17,10 +16,11 @@ const Payment = (props) => {
       description: "Solution transaction",
       order_id: data.data.id,
       handler: async function (response) {
-        const res = await manasInstance.updateData(userId, { isPaymentDone: true });
+        const res = await manasInstance.updateData(userId, {
+          isPaymentDone: true,
+        });
         manasInstance.setPaymentToken();
-        if(res.status === 201)
-          props.paymentHandler(true)
+        if (res.status === 201) props.paymentHandler(true);
       },
       prefill: {
         name: props.name,
@@ -28,7 +28,7 @@ const Payment = (props) => {
         contact: props.contact,
       },
     };
-  
+
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
@@ -53,14 +53,23 @@ const Payment = (props) => {
 
   return (
     <React.Fragment>
-      <button onClick={() => { props.paymentHandler(false) }}>Back</button>
-      <button
-        className={styles.getSolutionButton}
-        type="button"
-        onClick={displayRazorpay}
-      >
-        Make Payment
-      </button>
+      <div className={styles.container}>
+        <button
+          className={styles.back}
+          onClick={() => {
+            props.paymentHandler(false);
+          }}
+        >
+          Back
+        </button>
+        <button
+          className={styles.makePayment}
+          type="button"
+          onClick={displayRazorpay}
+        >
+          Make Payment
+        </button>
+      </div>
     </React.Fragment>
   );
 };
