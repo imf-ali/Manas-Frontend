@@ -2,9 +2,11 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  width: 90%;
+  width: 80%;
   margin: auto;
   font-size: 18px;
+  background-color: azure;
+  padding: 3vh 5vh;
 }
 .applyFor {
   display: flex;
@@ -112,6 +114,18 @@
   background-color: aquamarine;
   box-shadow: 0px 5px 20px rgb(186, 186, 186);
 }
+.admitCard {
+    margin: 5vh auto;
+    font-size: 30px;
+}
+.admitCard >button{
+    font-size: 25px;
+    border: none;
+    padding: 2vh 3vh;
+    background-color: cornflowerblue;
+    border-radius: 30px;
+    margin: 2vh 5vh;
+}
 
 @media screen and (max-width: 768px) {
   .container,
@@ -120,6 +134,9 @@
     width: 100%;
     /* flex-direction: column; */
     flex-wrap: wrap;
+  }
+  .mtsForm {
+    width: 90%;
   }
 
   .radioInput {
