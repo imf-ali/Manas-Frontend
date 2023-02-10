@@ -67,15 +67,31 @@ const MTSForm = (props) => {
 
   return (
     <form onSubmit={submitHandler} className={styles.mtsForm}>
-      <div>
-        Applying for:
-        <label>Xth pass</label>
-        <input required type="radio" name="class" value="10" />
-        <label>XIth pass</label>
-        <input type="radio" name="class" value="11" />
-        <label>XIIth pass</label>
-        <input type="radio" name="class" value="12" />
+      <div className={styles.container}>
+        <h3>
+          <span>
+            Registration No. : <input />
+          </span>
+        </h3>
+        <div className={styles.applyFor}>
+          <h3>Applying for:</h3>
+          <div className={styles.radioInput}>
+            {" "}
+            <label>Xth pass</label>
+            <input required type="radio" name="class" value="10" />
+          </div>
+          <div className={styles.radioInput}>
+            {" "}
+            <label>XIth pass</label>
+            <input type="radio" name="class" value="11" />
+          </div>
+          <div className={styles.radioInput}>
+            <label>XIIth pass</label>
+            <input type="radio" name="class" value="12" />
+          </div>
+        </div>
       </div>
+
       <div className={styles.container}>
         <div className={styles.inputBox}>
           <label>First Name</label>
@@ -111,12 +127,16 @@ const MTSForm = (props) => {
                 onChange={inputChangeHandler}
               />
             </div>
-            Gender:
             <div className={styles.container}>
-              <label>Male</label>
-              <input required type="radio" name="gender" value="male" />
-              <label>Female</label>
-              <input type="radio" name="gender" value="female" />
+              Gender:
+              <div className={styles.radioInput}>
+                <label>Male</label>
+                <input required type="radio" name="gender" value="male" />
+              </div>
+              <div className={styles.radioInput}>
+                <label>Female</label>
+                <input type="radio" name="gender" value="female" />
+              </div>
             </div>
           </div>
           <div className={styles.inputBox}>
@@ -164,7 +184,7 @@ const MTSForm = (props) => {
           onChange={inputChangeHandler}
         />
       </div>
-      <div className={styles.container}>
+      <div className={styles.containerD}>
         <div className={styles.inputBox}>
           <label>City</label>
           <input
@@ -233,14 +253,22 @@ const MTSForm = (props) => {
         </div>
         <div className={styles.container}>
           Category:
-          <label>Gen</label>
-          <input required type="radio" name="category" value="general" />
-          <label>OBC (NC)</label>
-          <input type="radio" name="category" value="obc" />
-          <label>SC/ST</label>
-          <input type="radio" name="category" value="sc/st" />
-          <label>PD</label>
-          <input type="radio" name="category" value="pd" />
+          <div className={styles.radioInput}>
+            <label>Gen</label>
+            <input required type="radio" name="category" value="general" />
+          </div>
+          <div className={styles.radioInput}>
+            <label>OBC (NC)</label>
+            <input type="radio" name="category" value="obc" />
+          </div>
+          <div className={styles.radioInput}>
+            <label>SC/ST</label>
+            <input type="radio" name="category" value="sc/st" />
+          </div>
+          <div className={styles.radioInput}>
+            <label>PD</label>
+            <input type="radio" name="category" value="pd" />
+          </div>
         </div>
       </div>
 

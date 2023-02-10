@@ -1,9 +1,20 @@
 .mtsForm {
   display: flex;
+  position: relative;
   flex-direction: column;
-  width: 70%;
+  width: 90%;
   margin: auto;
   font-size: 18px;
+}
+.applyFor {
+  display: flex;
+}
+
+.applyFor > h3 {
+  margin-left: 100px;
+  margin-right: 20px;
+  font-size: 18px;
+  align-self: center;
 }
 
 .container {
@@ -12,6 +23,31 @@
   flex-direction: row;
   gap: 2vh;
   width: 100%;
+}
+
+.containerD {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 3%;
+  /* width: 70%; */
+}
+.containerD > .inputBox {
+  width: 30%;
+}
+
+.radioInput {
+  display: flex;
+  padding: 5px;
+  margin-right: 10px;
+}
+.radioInput > label {
+  margin-right: 10px;
+}
+.radioInput > input[type="radio"] {
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .containerLeft {
@@ -67,7 +103,35 @@
 }
 
 .mtsForm > button {
-  width: 10vh;
-  height: 4vh;
+  width: 20vh;
+  height: 7vh;
+  font-size: 25px;
   margin: 3vh auto;
+  border: none;
+  border-radius: 10px;
+  background-color: aquamarine;
+  box-shadow: 0px 5px 20px rgb(186, 186, 186);
+}
+
+@media screen and (max-width: 768px) {
+  .container,
+  .containerLeft,
+  .containerRight {
+    width: 100%;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+  }
+
+  .radioInput {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-self: center;
+  }
+  .radioInput > label {
+    margin-bottom: 4px;
+    margin-right: 0;
+  }
+  .applyFor > h3 {
+    margin: 0;
+  }
 }
