@@ -12,8 +12,8 @@ class ManasInstance {
     localStorage.setItem('isPaid', isPaid);
   };
 
-  setPaymentToken() {
-    localStorage.setItem('isPaid', true);
+  setPaymentToken(isPaid) {
+    localStorage.setItem('isPaid', isPaid);
   }
 
   removeToken() {
@@ -219,6 +219,22 @@ class ManasInstance {
         data: {
           amount: amount
         }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async generateAdmitCard(){
+    try {
+      const options = {
+        method: 'POST',
+        url: `${this.host}/student/renderadmitcard`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
       };
       const res = await axios(options);
       return res;

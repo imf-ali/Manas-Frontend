@@ -43,12 +43,12 @@ function NavBar() {
             <Link to="/about" className={styles.heading}>
               About us
             </Link>
-            {!isStudent && (
+            {!isStudent && !isAdmin && (
               <Link to="/login" className={styles.heading}>
                 Student
               </Link>
             )}
-            {!isAdmin && (
+            {!isAdmin && !isStudent && (
               <Link to="/admin" className={styles.heading}>
                 Admin
               </Link>

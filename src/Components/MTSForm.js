@@ -30,28 +30,35 @@ const MTSForm = (props) => {
     phone: undefined,
     guardianPhone: undefined,
     email: '',
+    avatar: '',
+    signature: '',
+    parentsign: '',
   })
 
   const inputChangeHandler = (e) => {
     dispatchInput({ type: 'INPUT_CHANGE', input: e.target })
-    console.log(inputValue);
   }
 
   const submitHandler = async (e) => {
     e.preventDefault();
     const res = await manasInstance.updateData(userId, inputValue)
     if(res.status === 201){
-      console.log('here');
       props.paymentHandler();
     }
   }
 
+  const profilePicHandler = async (e) => {
+    const file = e.target.files[0];
+    console.log(e.target.name, e.target.files[0]);
+    const buffer = await file.arrayBuffer();
+    const bytes = new Uint8Array(buffer);
+    console.log(bytes);
+  }
+
   useEffect(() => {
     const loadUser = async () => {
-      console.log(userId);
       const res = await manasInstance.getUserData(userId);
       if(res.status === 200) {
-        console.log(res.data);
         dispatchInput({ type: 'INPUT_LOAD', input: res.data.userRes })
       }
     }
@@ -116,6 +123,9 @@ const MTSForm = (props) => {
         <label>PD</label>
         <input type="radio" name="category" value="pd" />
       </div>
+      <input type="file" name="avatar" accept="image/*" onChange={profilePicHandler} />
+      <input type="file" name="signature" accept="image/*" onChange={profilePicHandler} />
+      <input type="file" name="parentsign" accept="image/*" onChange={profilePicHandler} />
       <button>Next</button>
     </form>
   )

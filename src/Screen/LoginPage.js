@@ -6,7 +6,6 @@ import userStore from "../store/userStore";
 
 const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_CHANGE") {
-    console.log(actions.input.name,actions.input.value)
     return { ...state, [actions.input.name] : actions.input.value };
   }
   return { ...state };
@@ -28,7 +27,6 @@ const LoginPage = () => {
 
   const inputChangeHandler = (e) => {
     dispatchInput({ type: 'INPUT_CHANGE', input: e.target })
-    console.log(inputValue);
   }
 
   const submitHandler = async (event, signup) => {
