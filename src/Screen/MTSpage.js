@@ -24,8 +24,6 @@ const MTSpage = () => {
 
   return (
     <>
-      {/* <MTSForm/> */}
-      <Payment paymentHandler={showPaymentHandler} />
       {!showPayment && !paid && <MTSForm paymentHandler={showPaymentHandler} />}
       {showPayment && !paid && <Payment paymentHandler={showPaymentHandler} />}
       {isPaid && <AdmitCard />}
