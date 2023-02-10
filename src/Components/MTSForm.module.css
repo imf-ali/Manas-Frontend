@@ -11,6 +11,10 @@
 .applyFor {
   display: flex;
 }
+.mtsForm > button:hover {
+  box-shadow: 0 10px 15px 5px rgba(0, 0, 0, 0.1);
+  transition: 300ms ease-in-out all;
+}
 
 .applyFor > h3 {
   margin-left: 100px;
@@ -129,6 +133,10 @@
   cursor: pointer;
 }
 
+.admitCard > button:hover {
+  box-shadow: 0 10px 15px 5px rgba(0, 0, 0, 0.1);
+  transition: 300ms ease-in-out all;
+}
 @media screen and (max-width: 768px) {
   .container,
   .containerLeft,
