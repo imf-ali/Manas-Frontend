@@ -10,7 +10,7 @@ function Dashboard() {
       <Recent />
       <TagLine />
       <ReviewsSlider />
-      <Contact />
+      {/* <Contact /> */}
     </div>
   );
 }
