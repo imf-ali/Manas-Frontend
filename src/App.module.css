@@ -2,6 +2,9 @@
   background-color: #fff;
   font-family: sans-serif;
   text-align: center;
+  margin-top: 10%;
+  padding: 0 4%;
+  /* width: 100%; */
 }
 
 .FooterBottom {
@@ -12,11 +15,17 @@
   margin-top: 10px;
 }
 
-.LinkBottom{
+.LinkBottom {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #4a4a4a;
   justify-content: center;
   padding: 10px;
+}
+
+@media screen and (max-width: 764px) {
+  .App {
+    margin-top: 14%;
+  }
 }

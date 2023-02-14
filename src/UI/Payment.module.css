@@ -1,0 +1,27 @@
+.container {
+  justify-content: center;
+  display: flex;
+  height: 30vh;
+  background-color: rgb(204, 208, 243);
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgb(206, 206, 206);
+}
+
+.container > button {
+  border: none;
+  padding: 3vh 4vh;
+  margin: 0 10vh;
+  border-radius: 15px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.back {
+  background-color: red;
+}
+
+.makePayment{
+    background-color: rgb(2, 183, 2);
+}

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Recent.module.css";
 import { displayPic } from "../lib/displayPhoto";
 
 function Recent() {
 
-  const [index, setIndex] = useState(0);
-  const image = displayPic[index];
+  const image = displayPic[0];
 
   // setTimeout(() => {
   //   setIndex((index) => {
