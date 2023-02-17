@@ -19,10 +19,6 @@ function Recent() {
 
   return (
     <div className={styles.mainContainer}>
-      <h1>Manas Education Centre</h1>
-      <h3>
-        Manas Education Centre Preprare for IIT under the Guidance of IITians.
-      </h3>
       <div className={styles.container}>
         <div className={styles.advertisement}>
           <div className={styles.wrapper}>

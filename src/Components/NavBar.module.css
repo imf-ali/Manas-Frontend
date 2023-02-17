@@ -23,52 +23,12 @@
   align-items: center;
   text-decoration: none;
   padding: 15px;
-  color: #4a4a4a;
+  color: #0b1c39;
   height: inherit;
-}
-.uploadContestButton {
-  display: flex;
-  margin-top: 20px;
-  padding: 8px 8px;
-  color: white;
-  font-size: 1.25rem;
-  cursor: pointer;
-  border: transparent;
-  border-radius: 0.25rem;
-  font-weight: 700;
-  height: 35px;
-  letter-spacing: 1px;
-  overflow: visible;
-  font-family: "Cabin", Sans-Serif;
-  font-size: 100%;
-  line-height: 1.15;
-  background-color: #4a4a4a;
-  margin-left: 10px;
-}
-.uploadContestButton:hover {
-  background-color: #696363;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transition: 300ms ease-in-out all;
-}
-.linkTextButton {
-  text-decoration: none;
-}
-.logoutButton {
-  float: right;
-  margin-top: -52px !important;
-  margin-right: 40px !important;
-}
-.logoutButtonLink {
-  text-decoration: none;
+  font-weight: bold;
+  font-family: "Poppins", Sans-Serif;
 }
 
 .image {
   width: 13%;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
 }

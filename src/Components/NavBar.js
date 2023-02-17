@@ -24,7 +24,7 @@ function NavBar() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <nav className={styles.navbar} id="navbar">
         <img src={image} alt="" className={styles.image} />
         <div className={styles.links}>
@@ -106,7 +106,7 @@ function NavBar() {
         </div>
         <img src={mts} alt="" className={styles.image} />
       </nav>
-    </React.Fragment>
+    </>
   );
 }
 

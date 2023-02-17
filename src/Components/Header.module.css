@@ -15,13 +15,18 @@ header {
   flex-direction: row;
   width: 50%;
   /* padding: 1vh; */
-  line-height: 5vh;
+  line-height: 4vh;
+  font-family: Poppins, sans-serif;
+  color: #0B1C39;
+  font-size: 14px;
 }
 
 .headerLeft > a,
 .headerRight > a {
   text-decoration: none;
-  color: #5e5f60;
+  font-family: Poppins, sans-serif;
+  color: #0B1C39;
+  font-size: 14px;
 }
 
 .vl {
