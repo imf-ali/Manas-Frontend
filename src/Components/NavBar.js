@@ -45,14 +45,6 @@ function NavBar() {
           <Link to="/about" className={styles.heading}>
             About us
           </Link>
-          {!isStudent && !isAdmin && (
-            <Link to="/login" className={styles.heading}>
-              Student
-            </Link>)}
-          {!isStudent && !isAdmin && (
-          <Link to="/admin" className={styles.heading}>
-            Admin
-          </Link>)}
           <Link to="/admissions" className={styles.heading}>
             Admissions
           </Link>
@@ -70,12 +62,23 @@ function NavBar() {
           {isStudent && (
             <Link to="/mtspage" className={styles.heading}>
               MTS
-            </Link>)}
-            {(isAdmin || isStudent) && (
-              <div className={styles.heading} onClick={logoutHandler}>
-                Logout
-              </div>
-            )}
+            </Link>
+          )}
+          {!isStudent && !isAdmin && (
+            <Link to="/login" className={styles.heading}>
+              Student
+            </Link>
+          )}
+          {!isStudent && !isAdmin && (
+            <Link to="/admin" className={styles.heading}>
+              Admin
+            </Link>
+          )}
+          {(isAdmin || isStudent) && (
+            <div className={styles.heading} onClick={logoutHandler}>
+              Logout
+            </div>
+          )}
           </div>
         </nav>
     </React.Fragment>
