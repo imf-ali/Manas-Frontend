@@ -13,6 +13,8 @@ import userStore from "./store/userStore";
 import Notice from "./Screen/Notice";
 import MTSpage from "./Screen/MTSpage";
 import LoginPageAdmin from "./Screen/LoginPageAdmin";
+import Blog from "./Screen/Blog";
+import ApproveBlog from "./Screen/ApproveBlog";
 
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
@@ -48,6 +50,8 @@ function App() {
             <Route path="/notice" element={<Notice />} />
             <Route path="/uploadnotice" element={<NoticeUpload />} />
             <Route path="/mtspage" element={<MTSpage />} />
+            <Route path="/blogs" element={<Blog />} />
+            <Route path="/approveblog" element={<ApproveBlog />} />
           </Routes>
         </div>
       </Router>

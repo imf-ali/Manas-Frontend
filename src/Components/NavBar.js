@@ -24,48 +24,53 @@ function NavBar() {
 
   return (
     <React.Fragment>
-      <div>
-        <nav className={styles.navbar}>
-          <img src={image} alt="" className={styles.image} />
-          <div className={styles.links}>
-            <Link to="/" className={styles.heading}>
-              Home
+      <nav className={styles.navbar} id="navbar">
+        <img src={image} alt="" className={styles.image} />
+        <div className={styles.links}>
+          <Link to="/" className={styles.heading}>
+            Home
+          </Link>
+          <Link to="/admissions" className={styles.heading}>
+            Admissions
+          </Link>
+          <Link to="/" className={styles.heading}>
+            Results
+          </Link>
+          <Link to="/" className={styles.heading}>
+            Gallery
+          </Link>
+          <Link to="/blogs" className={styles.heading}>
+            Blogs
+          </Link>
+          <Link to="/about" className={styles.heading}>
+            About us
+          </Link>
+          {!isStudent && !isAdmin && (
+            <Link to="/login" className={styles.heading}>
+              Student
+            </Link>)}
+          {!isStudent && !isAdmin && (
+          <Link to="/admin" className={styles.heading}>
+            Admin
+          </Link>)}
+          <Link to="/admissions" className={styles.heading}>
+            Admissions
+          </Link>
+          <Link to="/" className={styles.heading}>
+            Results
+          </Link>
+          <Link to="/" className={styles.heading}>
+            Gallery
+          </Link>
+          {isAdmin && (
+            <Link to="/approveblog" className={styles.heading}>
+              Manage Blogs
             </Link>
-            <Link to="/admissions" className={styles.heading}>
-              Admissions
-            </Link>
-            <Link to="/" className={styles.heading}>
-              Results
-            </Link>
-            <Link to="/" className={styles.heading}>
-              Gallery
-            </Link>
-            <Link to="/about" className={styles.heading}>
-              About us
-            </Link>
-            {!isStudent && !isAdmin && (
-              <Link to="/login" className={styles.heading}>
-                Student
-              </Link>
-            )}
-            {!isAdmin && !isStudent && (
-              <Link to="/admin" className={styles.heading}>
-                Admin
-              </Link>
-            )}
-            {(isAdmin || isStudent) && (
-              <Link to="/notice" className={styles.heading}>
-                Notice
-              </Link>
-            )}
-            {isAdmin && (
-              <Link to="/uploadnotice" className={styles.heading}>
-                Notice Upload
-              </Link>
-            )}
-            {(isStudent) && <Link to="/mtspage" className={styles.heading}>
+          )}
+          {isStudent && (
+            <Link to="/mtspage" className={styles.heading}>
               MTS
-            </Link>}
+            </Link>)}
             {(isAdmin || isStudent) && (
               <div className={styles.heading} onClick={logoutHandler}>
                 Logout
@@ -73,7 +78,6 @@ function NavBar() {
             )}
           </div>
         </nav>
-      </div>
     </React.Fragment>
   );
 }
