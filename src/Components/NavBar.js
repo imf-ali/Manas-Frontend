@@ -43,16 +43,9 @@ function NavBar() {
           <Link to="/about" className={styles.heading}>
             About us
           </Link>
-          {!isStudent && !isAdmin && (
-            <Link to="/login" className={styles.heading}>
-              Student
-            </Link>
-          )}
-          {!isAdmin && !isStudent && (
-            <Link to="/admin" className={styles.heading}>
-              Admin
-            </Link>
-          )}
+          <Link to="/blogs" className={styles.heading}>
+            Blogs
+          </Link>
           {(isAdmin || isStudent) && (
             <Link to="/notice" className={styles.heading}>
               Notice
@@ -63,21 +56,6 @@ function NavBar() {
               Notice Upload
             </Link>
           )}
-          <Link to="/blogs" className={styles.heading}>
-            Blogs
-          </Link>
-          <Link to="/about" className={styles.heading}>
-            About us
-          </Link>
-          <Link to="/admissions" className={styles.heading}>
-            Admissions
-          </Link>
-          <Link to="/" className={styles.heading}>
-            Results
-          </Link>
-          <Link to="/" className={styles.heading}>
-            Gallery
-          </Link>
           {isAdmin && (
             <Link to="/approveblog" className={styles.heading}>
               Manage Blogs
