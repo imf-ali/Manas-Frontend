@@ -14,7 +14,7 @@ function Director() {
             className={styles.directorImg}
           />
           <div className={styles.directorText}>
-            <div className={styles.name}>{directorProfile.name}</div>
+            <h3 className={styles.name}>{directorProfile.name}</h3>
             <p>{directorProfile.text}</p>
           </div>
         </div>
