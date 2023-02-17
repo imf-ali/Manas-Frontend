@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styles from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import image from "../resource/manas-logo.jpeg";
+import mts from "../resource/mts.png";
 import userStore from "../store/userStore";
 import AuthContext from "../store/AuthContext";
 
@@ -73,6 +74,7 @@ function NavBar() {
             </div>
           )}
         </div>
+        <img src={mts} alt="" className={styles.image} />
       </nav>
     </React.Fragment>
   );

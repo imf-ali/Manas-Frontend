@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
+.directorContainer {
+  display: flex;
+  /* height: 60vh; */
+  margin: 5vh 10%;
+}
+
+.directorImage {
+  float: left;
+  display: flex;
+  flex-direction: row;
+}
+.directorImg {
+  height: 50vh;
+  width: 80vh;
+  border: 2px solid black;
+  margin: 0 3vh;
+}
+
+.directorText > h3 {
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  color: #007bb2;
+}
+
+.directorText > p {
+  text-align: left;
+  margin-top: 5vh;
+  font-size: 20px;
+  color: #616161;
+  font-family: "Ubuntu", sans-serif;
+}
