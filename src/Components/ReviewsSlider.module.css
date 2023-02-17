@@ -1,0 +1,66 @@
+.container {
+  position: relative;
+  display: flex;
+  background-color: #6209a8;
+  padding: 3% 5%;
+  height: 60vh;
+  color: white;
+}
+
+.title {
+  width: 40%;
+  margin: auto;
+}
+.title > h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+}
+
+.buttonContainer {
+  /* margin-top: 15vh; */
+  flex-direction: row;
+  margin: auto 5px;
+}
+.buttonContainer > button {
+  padding: 10px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  line-height: 15px;
+  margin: 6px;
+  cursor: pointer;
+  /* margin-right: 10vh; */
+}
+
+.alumni {
+  width: 60%;
+  margin: 2vh;
+  transition: 0.5s ease-in;
+}
+.info {
+  font-size: 16px;
+  font-family: Poppins, sans-serif;
+  text-align: left;
+}
+.image {
+  width: 12vh;
+  height: 12vh;
+  border-radius: 50%;
+  float: left;
+}
+.aboutAlmuni {
+  display: flex;
+  flex-direction: row;
+  gap: 4vh;
+  margin: 5%;
+  font-family: Poppins, sans-serif;
+  text-align: left;
+  align-items: center;
+}
+
+.author {
+  font-size: 20px;
+}
