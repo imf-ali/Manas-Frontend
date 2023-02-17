@@ -1,0 +1,30 @@
+header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  background-color: #f6f7fa;
+  width: 100%;
+  padding: 0vh 10%;
+}
+.headerLeft,
+.headerRight {
+  display: flex;
+  width: 50%;
+  line-height: 6vh;
+}
+
+.headerLeft > a,
+.headerRight > a {
+  text-decoration: none;
+  color: #5e5f60;
+}
+
+.vl {
+  border-left: 2px solid #c3c4c6;
+  left: 50%;
+  margin: auto 2vh;
+  top: 0;
+  height: 4vh;
+}

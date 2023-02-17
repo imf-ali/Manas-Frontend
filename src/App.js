@@ -13,30 +13,30 @@ import userStore from "./store/userStore";
 import Notice from "./Screen/Notice";
 import MTSpage from "./Screen/MTSpage";
 import LoginPageAdmin from "./Screen/LoginPageAdmin";
+import Header from "./Components/Header";
 
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
-  const setIsPaid = userStore(state => state.setIsPaid);
+  const setIsPaid = userStore((state) => state.setIsPaid);
 
-  const manasInstance = new ManasInstance('http://localhost:9007');
+  const manasInstance = new ManasInstance("http://localhost:9007");
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
-    const id = localStorage.getItem('userId');
-    const isPaid = localStorage.getItem('isPaid');
-    console.log(isPaid)
+    const user = localStorage.getItem("user");
+    const id = localStorage.getItem("userId");
+    const isPaid = localStorage.getItem("isPaid");
+    console.log(isPaid);
     setIsPaid(isPaid);
-    if(localStorage.getItem('token')){
-      if(user === 'admin')
-        setIsLogin(true, false, id);
-      else if (user === 'student')
-        setIsLogin(false, true, id);
+    if (localStorage.getItem("token")) {
+      if (user === "admin") setIsLogin(true, false, id);
+      else if (user === "student") setIsLogin(false, true, id);
     }
-  },[setIsLogin, setIsPaid])
+  }, [setIsLogin, setIsPaid]);
 
   return (
     <AuthContextProvider value={{ manasInstance }}>
       <Router>
+        <Header />
         <NavBar />
         <div className={styles.App}>
           <Routes>

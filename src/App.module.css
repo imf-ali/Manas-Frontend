@@ -1,9 +1,10 @@
 .App {
+  position: absolute;
   background-color: #fff;
   font-family: sans-serif;
   text-align: center;
-  margin-top: 10%;
-  padding: 0 4%;
+  /* margin-top: 10%; */
+  /* padding: 4%; */
   /* width: 100%; */
 }
 
@@ -24,8 +25,5 @@
   padding: 10px;
 }
 
-@media screen and (max-width: 764px) {
-  .App {
-    margin-top: 14%;
-  }
-}
+@media screen and (max-width: 764px) {}
+
