@@ -3,7 +3,7 @@
 .directorContainer {
   display: flex;
   /* height: 60vh; */
-  margin: 5vh 15%;
+  margin: 5vh 10%;
 }
 
 .directorImage {
@@ -16,19 +16,34 @@
   width: 80vh;
   border: 2px solid black;
   margin: 0 3vh;
+  border-radius: 22px;
 }
 
-.directorText > h3 {
+.directorText {
+  margin-left: 15px;
+}
+
+.name {
   text-align: left;
-  font-family: "Montserrat", sans-serif;
-  color: #007bb2;
+  font-family: Poppins, sans-serif;
+  color: #1d8145;
+  font-size: 25px;
 }
 
 .directorText > p {
   text-align: left;
-  margin-top: 5vh;
-  font-size: 16px;
+  margin-top: 2vh;
+  font-size: 17px;
   color: #626A77;
   line-height: 28px;
   font-family: Poppins, sans-serif;
+  text-align: justify;
+}
+
+.mainDiv {
+  font-family: Poppins, sans-serif;
+}
+
+.heading {
+  font-size: 50px;
 }
