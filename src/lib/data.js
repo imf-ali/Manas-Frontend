@@ -3,6 +3,8 @@ import profile1 from '../resource/profilePic/profile1.png';
 import profile2 from '../resource/profilePic/profile2.png';
 import profile3 from '../resource/profilePic/profile3.png';
 import profile4 from '../resource/profilePic/profile4.png';
+import teacher1 from '../resource/profilePic/teacher1.jpeg';
+import teacher2 from '../resource/profilePic/teacher2.jpeg';
 
 export const reviews = [
   {
@@ -45,4 +47,25 @@ export const directorProfile = {
   image: directorDP,
   text:
     "For last 8 years of his passion for guiding students to achieve them in various Competitive examinations has given a new direction in education sector. He completed his schooling from Netarhat Residential School(Jharkhand) and received his B.Tech degree from IIT Delhi. He is a student favorite when it comes to imbiling and imparting knowledge to students. He is a renowned speaker And a motivation Guru. He has deep understanding of the students psyche and keeps bring new perspective to solution designing process. His profound insights and examples make the student grasp the subject practically. Going one step further he makes the class interesting relevant for the students. He has the ability to even make the weakest student understand the subject.",
-}
+};
+
+export const teamData = [
+  {
+    name: 'Praneet Kumar',
+    designation: 'Ex. Tilaiyan',
+    image: teacher1,
+    text: 'Alumni of TS Chanakya Mumbai',
+  },
+  {
+    name: 'Prabhakar Kumar',
+    designation: 'Ex. Netarhatian',
+    image: teacher2,
+    text: 'Alumni of TS Chanakya Mumbai',
+  },
+  {
+    name: 'Pushkar Srigyan',
+    designation: 'Ex. Netarhatian',
+    image: directorDP,
+    text: 'Humanistic Education Enthusiast',
+  }
+];
