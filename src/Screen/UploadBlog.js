@@ -11,8 +11,8 @@ const UploadBlog = ({ inputObj, backHandler }) => {
     backHandler();
   }
 
-  const submitBlogHandler = async (text) => {
-    const res = await manasInstance.submitBlog(inputObj.name, text);
+  const submitBlogHandler = async (text,heading) => {
+    const res = await manasInstance.submitBlog(inputObj.name, text, heading);
     if (res.status === 200) {
       backHandler();
     }
@@ -20,7 +20,7 @@ const UploadBlog = ({ inputObj, backHandler }) => {
 
   return (
     <div className={styles.mainDiv}>
-      <Editor submitBlogHandler={submitBlogHandler} />
+      <Editor name={inputObj.name} submitBlogHandler={submitBlogHandler} />
       <button onClick={goBackHandler}>Go Back</button>
     </div>
   );

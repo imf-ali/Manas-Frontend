@@ -3,7 +3,6 @@ import AuthContext from "../store/AuthContext";
 import { NewCard } from "../UI/NewCard";
 import Input from "../UI/Input";
 import styles from '../Screen/Blog.module.css';
-import Editor from "../UI/Editor";
 import UploadBlog from "./UploadBlog";
 
 const inputReducer = (state, actions) => {
@@ -34,10 +33,6 @@ const Blog = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     setUpload(true);
-    // const res = await manasInstance.submitBlog(inputValue.name, inputValue.email);
-    // if (res.status === 201) {
-    //   console.log('Blog submitted successfully');
-    // }
   };
 
   useEffect(() => {

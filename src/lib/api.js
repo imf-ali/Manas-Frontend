@@ -314,7 +314,7 @@ class ManasInstance {
     }
   }
 
-  async submitBlog(name, data){
+  async submitBlog(name, data, heading){
     try {
       const options = {
         method: 'POST',
@@ -325,6 +325,7 @@ class ManasInstance {
         data: {
           name: name,
           data: data,
+          heading: heading,
         }
       };
       const res = await axios(options);

@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill'; 
 import 'react-quill/dist/quill.snow.css';
+import Input from './Input';
 
-const Editor = ({ submitBlogHandler }) => {
+const Editor = ({ name, submitBlogHandler }) => {
 
   const [myState, setMyState] = useState({
-    editorHtml: '', theme: 'snow'
+    editorHtml: '', theme: 'snow', heading: '',
   })
   
   const handleChange = (html) => {
     setMyState((state) => ({...state, editorHtml: html}));
+  }
+
+  const headingChange = (e) => {
+    setMyState((state) => ({...state, heading: e.target.value}));
   }
   
   const handleThemeChange = (newTheme) => {
@@ -18,6 +23,21 @@ const Editor = ({ submitBlogHandler }) => {
   }
     return (
       <div>
+        <Input 
+          id="name"
+          type="text"
+          name="number"
+          label="Name"
+          value={name}
+        />
+        <Input 
+          id="heading"
+          type="text"
+          name="heading"
+          label="Heading"
+          value={myState.heading}
+          onChange={headingChange}
+        />
         <ReactQuill 
           theme={myState.theme}
           onChange={handleChange}
@@ -36,7 +56,7 @@ const Editor = ({ submitBlogHandler }) => {
             <option value="core">Core</option>
           </select>
         </div>
-        <button onClick={() => { submitBlogHandler(myState.editorHtml) }}>Submit Blog</button>
+        <button onClick={() => { submitBlogHandler(myState.editorHtml, myState.heading) }}>Submit Blog</button>
        </div>
      )
 }
