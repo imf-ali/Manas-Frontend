@@ -1,6 +1,6 @@
 import React, { } from "react";
 import styles from "./TagLine.module.css";
-import image from '../resource/displayPic/manas.jpeg';
+import image from '../resource/displayPic/manasHand.jpeg';
 
 function TagLine() {
   return (

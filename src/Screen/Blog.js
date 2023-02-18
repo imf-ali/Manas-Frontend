@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState, useReducer } from "react";
 import AuthContext from "../store/AuthContext";
-import { Card } from "../UI/Card";
+import { NewCard } from "../UI/NewCard";
 import Input from "../UI/Input";
+import styles from '../Screen/Blog.module.css';
 
 const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_CHANGE") {
@@ -58,7 +59,7 @@ const Blog = () => {
             />
             <Input
               id="data"
-              type="text"
+              type="textarea"
               name="data"
               label="Data"
               onChange={inputChangeHandler}
@@ -71,18 +72,22 @@ const Blog = () => {
   }
 
   return (
-    <>
-      {blog.map((notice, index) => {
-        return (
-          <Card 
-            key={index}
-            title={notice.heading}
-            subtitle={notice.data}
-          />
-        )
-      })}
-      <BlogForm />
-    </>
+    <div className={styles.mainDiv}>
+      <div className={styles.blogDiv}>
+        {blog.map((notice, index) => {
+          return (
+            <NewCard 
+              key={index}
+              title={notice.heading}
+              subtitle={notice.data}
+            />
+          )
+        })}
+      </div>
+      <div className={styles.blogForm}>
+        <BlogForm />
+      </div>
+    </div>
   );
     
 };

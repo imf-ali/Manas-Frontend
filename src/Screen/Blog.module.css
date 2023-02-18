@@ -1,0 +1,17 @@
+.mainDiv {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px;
+}
+
+.blogDiv {
+  width: 60%;
+  padding: 0px 0px 0px 150px;
+}
+
+.blogForm {
+  width: 40%;
+  padding: 0px 150px 0px 80px;
+  margin-top: 30px;
+}
