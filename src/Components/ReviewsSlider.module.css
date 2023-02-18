@@ -32,6 +32,7 @@
   line-height: 15px;
   margin: 6px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   /* margin-right: 10vh; */
 }
 
