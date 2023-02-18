@@ -3,6 +3,8 @@ import AuthContext from "../store/AuthContext";
 import { NewCard } from "../UI/NewCard";
 import Input from "../UI/Input";
 import styles from '../Screen/Blog.module.css';
+import Editor from "../UI/Editor";
+import UploadBlog from "./UploadBlog";
 
 const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_CHANGE") {
@@ -16,10 +18,12 @@ const Blog = () => {
 
   const { manasInstance } = useContext(AuthContext);
   const [blog, setBlog] = useState([]);
+  const [upload, setUpload] = useState(false);
 
   const [inputValue, dispatchInput] = useReducer(inputReducer, {
-    heading: '',
-    data: '',
+    name: '',
+    email: '',
+    phone: '',
   })
 
   const inputChangeHandler = (e) => {
@@ -29,10 +33,11 @@ const Blog = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    const res = await manasInstance.submitBlog(inputValue.heading, inputValue.data);
-    if (res.status === 201) {
-      console.log('Blog submitted successfully');
-    }
+    setUpload(true);
+    // const res = await manasInstance.submitBlog(inputValue.name, inputValue.email);
+    // if (res.status === 201) {
+    //   console.log('Blog submitted successfully');
+    // }
   };
 
   useEffect(() => {
@@ -50,43 +55,56 @@ const Blog = () => {
       <div>
           <form onSubmit={submitHandler}>
             <Input
-              id="heading"
+              id="name"
               type="text"
-              name="heading"
-              label="Heading"
+              name="name"
+              label="Name"
               onChange={inputChangeHandler}
-              value={inputValue.heading}
+              value={inputValue.name}
             />
             <Input
-              id="data"
-              type="textarea"
-              name="data"
-              label="Data"
+              id="email"
+              type="email"
+              name="email"
+              label="Email"
               onChange={inputChangeHandler}
-              value={inputValue.data}
+              value={inputValue.email}
             />
-            <button>Submit</button>
+            <Input
+              id="phone"
+              type="text"
+              name="number"
+              label="Phone Number"
+              onChange={inputChangeHandler}
+              value={inputValue.phone}
+            />
+            <button>UPLOAD BLOG</button>
           </form>
         </div>
     )
   }
 
+  const backHandler = () => {
+    setUpload(false);
+  };
+
   return (
     <div className={styles.mainDiv}>
-      <div className={styles.blogDiv}>
+      {!upload && <div className={styles.blogDiv}>
         {blog.map((notice, index) => {
           return (
             <NewCard 
               key={index}
-              title={notice.heading}
+              title={notice.name}
               subtitle={notice.data}
             />
           )
         })}
-      </div>
-      <div className={styles.blogForm}>
+      </div>}
+      {!upload && <div className={styles.blogForm}>
         <BlogForm />
-      </div>
+      </div>}
+      {upload && <UploadBlog inputObj={inputValue} backHandler={backHandler} />}
     </div>
   );
     

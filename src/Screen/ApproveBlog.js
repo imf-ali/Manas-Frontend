@@ -35,8 +35,8 @@ const ApproveBlog = () => {
           <div key={index}>
             <div className={styles.noticeCard}>
               <div className={styles.cardLeft}>
-                <div className={styles.noticeHeading}>{notice.heading}</div>
-                <div className={styles.noticeData}>{notice.data}</div>
+                <div className={styles.noticeHeading}>{notice.name}</div>
+                <div className={styles.noticeData} dangerouslySetInnerHTML={{__html: notice.data}} />
               </div>
               <div className={styles.cardRight}>
                 <button
