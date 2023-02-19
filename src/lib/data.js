@@ -50,7 +50,7 @@ export const teamData = [
     designation: "Ex. Tilaiyan",
     image: teacher1,
     text: "Alumni of TS Chanakya Mumbai",
-    image: directorDP,
+    image: directorDP, 
   },
   {
     name: "Prabhakar Kumar",

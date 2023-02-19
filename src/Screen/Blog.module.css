@@ -7,11 +7,27 @@
 
 .blogDiv {
   width: 60%;
-  padding: 0px 0px 0px 150px;
+  padding: 5vh 10vh;
+  /* padding: 0px 0px 0px 150px; */
 }
 
 .blogForm {
   width: 40%;
-  padding: 0px 150px 0px 80px;
-  margin-top: 30px;
+  padding: 5vh 15vh;
+}
+
+.blogButton {
+  margin-top: 3vh;
+  padding: 2vh;
+  border: none;
+  font-size: 18px;
+  background-color: rgb(140, 214, 140);
+  border-radius: 10px;
+  color: rgb(0, 1, 1);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+.blogButton:hover {
+  box-shadow: 0px 15px 20px rgba(66, 157, 121, 0.4);
+  color: white;
 }

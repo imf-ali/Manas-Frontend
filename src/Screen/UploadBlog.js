@@ -21,7 +21,7 @@ const UploadBlog = ({ inputObj, backHandler }) => {
   return (
     <div className={styles.mainDiv}>
       <Editor name={inputObj.name} submitBlogHandler={submitBlogHandler} />
-      <button onClick={goBackHandler}>Go Back</button>
+      <button className={styles.goBack} onClick={goBackHandler}>Go Back</button>
     </div>
   );
 };

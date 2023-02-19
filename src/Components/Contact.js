@@ -2,17 +2,6 @@ import React from "react";
 import './Contact.css';
 
 const Contact = () => {
-
-  // const submitForm = () => {
-  //   // window.open(
-  //   //   `mailto:${contactEmail}?subject=${encodeURIComponent(
-  //   //     subject
-  //   //   )}&body=${encodeURIComponent(name)} (${encodeURIComponent(
-  //   //     email
-  //   //   )}): ${encodeURIComponent(message)}`
-  //   // );
-  // };
-
   return (
     <div className="contact container-2">
             <form>
