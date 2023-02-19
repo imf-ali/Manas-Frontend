@@ -4,7 +4,8 @@ import ReviewsSlider from "../Components/ReviewsSlider";
 import Contact from "../Components/Contact";
 import OurTeam from "../Components/OurTeam";
 import Modal from "../UI/Modal";
-import image from '../resource/displayPic/popup.jpeg'
+import image from '../resource/displayPic/popup.jpeg';
+import styles from './DashBoard.module.css';
 
 function Dashboard() {
 
@@ -19,7 +20,7 @@ function Dashboard() {
       {showModal && (
         <Modal onClose={closeModalHandler}>
           <div>
-            <img src={image} alt="manas" />
+            <img className={styles.imgdiv} src={image} alt="manas" />
           </div>
         </Modal>
       )}
