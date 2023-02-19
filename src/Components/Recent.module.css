@@ -10,9 +10,6 @@
   gap: 10%;
 }
 .imageContainer {
-  /* display: flex; */
-  /* width: 55%; */
-  /* height: 60vh; */
   border: 0.5px solid gray;
   padding: 2px;
   border-radius: 7px;
@@ -38,3 +35,33 @@
   height: 400px;
   width: 100%;
 }
+
+@media screen and (max-width:769px){
+.container{
+  margin: 0 3vh;
+  gap: 3%;
+}
+.advertisement{
+  width: 65%;
+}
+.notice{
+  width: 32%;
+}
+.image{
+  height: 250px;
+}
+}
+@media screen and (max-width:426px){
+  .container{
+      flex-direction: column;
+      margin:0;
+  }
+  .advertisement, .notice{
+    width: auto;
+  }
+  .notice{
+    margin: 3vh 5vh;
+    height: 40vh;
+  }
+}
+

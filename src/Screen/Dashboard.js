@@ -9,7 +9,7 @@ function Dashboard() {
   return (
     <div>
       <Recent />
-      <TagLine />
+      {/* <TagLine /> */}
       <OurTeam />
       <ReviewsSlider />
       <Contact />

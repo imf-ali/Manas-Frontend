@@ -3,7 +3,7 @@
   display: flex;
   background-color: #21743d;
   padding: 3% 5%;
-  height: 60vh;
+  /* height: 60vh; */
   color: white;
 }
 
@@ -14,7 +14,7 @@
 .title > h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .buttonContainer {
@@ -64,4 +64,17 @@
 
 .author {
   font-size: 20px;
+}
+
+@media screen and (max-width:426px){
+  .container{
+    flex-direction: column;
+    height: auto;
+  }
+  .title,.alumni{
+    width: 100%;
+  }
+  .title{
+    float:left;
+  }
 }
