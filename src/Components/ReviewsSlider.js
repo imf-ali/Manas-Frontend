@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { reviews } from "../lib/data";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import styles from "./ReviewsSlider.module.css";
@@ -16,12 +16,12 @@ const Review = () => {
     return number;
   };
 
-  const nextPerson = () => {
+  const nextPerson = useCallback(() => {
     setIndex((index) => {
       let newIndex = index + 1;
       return checkNumber(newIndex);
     });
-  };
+  },[]);
 
   const prevPerson = () => {
     setIndex((index) => {
@@ -29,6 +29,14 @@ const Review = () => {
       return checkNumber(newIndex);
     });
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextPerson();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [nextPerson]);
 
   return (
     <div className={styles.container}>
