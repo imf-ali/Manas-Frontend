@@ -11,10 +11,11 @@
 .modal {
   position: fixed;
   top: 20vh;
-  left: 5%;
-  width: 90%;
+  bottom: 20vh;
+  width: 90vh;
+  height: 60vh;
   background-color: white;
-  padding: 1rem;
+  padding: 1vh;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
@@ -23,19 +24,19 @@
 
 @media (min-width: 768px) {
   .modal {
-      width: 40rem;
-      left: calc(50% - 20rem);
+    width: 40rem;
+    left: calc(50% - 20rem);
   }
 }
 
 @keyframes slide-down {
   from {
-      opacity: 0;
-      transform: translateY(-3rem);
+    opacity: 0;
+    transform: translateY(-3rem);
   }
 
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }

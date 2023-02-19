@@ -31,18 +31,18 @@ function NavBar() {
           <Link to="/" className={styles.heading}>
             Home
           </Link>
-          <Link to="/admissions" className={styles.heading}>
+          {/* <Link to="/admissions" className={styles.heading}>
             Admissions
-          </Link>
-          <Link to="/" className={styles.heading}>
+          </Link> */}
+          {/* <Link to="/" className={styles.heading}>
             Results
           </Link>
           <Link to="/" className={styles.heading}>
             Gallery
-          </Link>
-          <Link to="/about" className={styles.heading}>
+          </Link> */}
+          {/* <Link to="/about" className={styles.heading}>
             About us
-          </Link>
+          </Link> */}
           <Link to="/blogs" className={styles.heading}>
             Blogs
           </Link>
@@ -82,7 +82,7 @@ function NavBar() {
             </div>
           )}
         </div>
-        <img src={mts} alt="" className={styles.image} />
+        <img src={mts} alt="" className={styles.image1} />
       </nav>
     </>
   );
