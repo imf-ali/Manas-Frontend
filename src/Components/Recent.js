@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Recent.module.css";
 import { displayPic } from "../lib/displayPhoto";
+import AuthContext from "../store/AuthContext";
 
 function Recent() {
+
+  const { manasInstance } = useContext(AuthContext);
+  const [allNotice, setAllNotice] = useState([]);
   const image = displayPic[0];
 
   // setTimeout(() => {
@@ -16,6 +20,14 @@ function Recent() {
   // setIndex((index) => {
   //   return index + 1 % displayPic.length;
   // });
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await manasInstance.getAllNotice();
+      if (res.data) setAllNotice(res.data.allNotice);
+    };
+    getData();
+  },[])
 
   return (
     <div className={styles.mainContainer}>

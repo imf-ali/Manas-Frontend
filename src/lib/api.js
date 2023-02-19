@@ -136,6 +136,27 @@ class ManasInstance {
     }
   }
 
+  async submitMainNotice(heading){
+    try {
+      const options = {
+        method: 'POST',
+        url: `${this.host}/admin/addNotice`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: {
+          heading: heading,
+          mainNotice: true,
+        }
+      };
+      console.log(options);
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   async deleteNotice(noticeId){
     try {
       const options = {
@@ -248,6 +269,22 @@ class ManasInstance {
       const options = {
         method: 'GET',
         url: `${this.host}/getBlog`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async getApprovedBlogById(blogid){
+    try {
+      const options = {
+        method: 'GET',
+        url: `${this.host}/getBlog/${blogid}`,
         headers: {
           Authorization: `JWT ${this.getToken()}`
         },

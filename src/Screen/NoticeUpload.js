@@ -5,17 +5,24 @@ import styles from "./NoticeUpload.module.css";
 const NoticeUpload = () => {
   const headingRef = useRef(null);
   const textRef = useRef(null);
+  const noticeRef = useRef(null);
   const { manasInstance } = useContext(AuthContext);
   const [allNotice, setAllNotice] = useState([]);
   const [stateChange, setStateChange] = useState(true);
 
-  const noticeSubmitHandler = () => {
+  const noticeSubmitHandler = (e) => {
+    e.preventDefault();
     const res = manasInstance.submitNotice(
       headingRef.current.value,
       textRef.current.value
     );
-    console.log(res);
   };
+
+  const mainNoticeSubmitHandler = (e) => {
+    e.preventDefault();
+    const res = manasInstance.submitMainNotice(noticeRef.current.value);
+    console.log(res.data);
+  }
 
   const UploadNoticeForm = () => {
     return (
@@ -29,6 +36,18 @@ const NoticeUpload = () => {
           <textarea ref={textRef} />
         </div>
         <button>Add notice</button>
+      </form>
+    );
+  };
+
+  const UploadNoticeToHome = () => {
+    return (
+      <form className={styles.noticeUploadForm} onSubmit={mainNoticeSubmitHandler}>
+        <div className={styles.uploadHeading}>
+          <label>New Notice</label>
+          <input type="text" ref={noticeRef} />
+        </div>
+        <button>Add notice to home</button>
       </form>
     );
   };
@@ -60,6 +79,7 @@ const NoticeUpload = () => {
         {allNotice.map((notice, index) => (
           <div key={index}>
             <div className={styles.noticeCard}>
+              {!notice.data && <h2>Main notice</h2>}
               <div className={styles.cardLeft}>
                 <div className={styles.noticeHeading}>{notice.heading}</div>
                 <div className={styles.noticeData}>{notice.data}</div>
@@ -102,6 +122,7 @@ const NoticeUpload = () => {
   return (
     <div>
       <UploadNoticeForm />
+      <UploadNoticeToHome />
       {showAllNotice()}
     </div>
   );

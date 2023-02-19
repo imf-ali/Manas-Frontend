@@ -54,6 +54,7 @@
   position: absolute;
   border-top: 2px solid rgb(255, 128, 0);
   border-bottom: 2px solid rgb(255, 128, 0);
+  text-decoration: none;
 }
 .readMore:hover{
   color: rgb(255, 128, 0);

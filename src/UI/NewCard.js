@@ -1,8 +1,9 @@
 import React from "react";
 import image from "../resource/displayPic/manasHand.jpeg";
 import styles from "./NewCard.module.css";
+import { Link } from "react-router-dom";
 
-export const NewCard = ({ subtitle, title, heading }) => {
+export const NewCard = ({ id, subtitle, title, heading }) => {
   return (
     <div className={`${styles.inner} ${styles.card}`}>
       <div className={styles.cardLeft}>
@@ -16,11 +17,11 @@ export const NewCard = ({ subtitle, title, heading }) => {
           Posted by : <span>{title}</span>
         </div>
         <div className={styles.content}>
-          <span dangerouslySetInnerHTML={{ __html: subtitle }} />
+          <div dangerouslySetInnerHTML={{ __html: `${subtitle.substring(0,140)} [...]` }} />
         </div>
-        <div className={styles.readMore}>
+        <Link to={`/blogs/${id}`} className={styles.readMore}>
           <h4>Read More</h4>
-        </div>
+        </Link>
       </div>
     </div>
   );
