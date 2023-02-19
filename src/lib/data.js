@@ -3,8 +3,8 @@ import profile1 from "../resource/profilePic/profile1.png";
 import profile2 from "../resource/profilePic/profile2.png";
 import profile3 from "../resource/profilePic/profile3.png";
 import profile4 from "../resource/profilePic/profile4.png";
-import teacher1 from "../resource/profilePic/teacher1.jpeg";
-import teacher2 from "../resource/profilePic/teacher2.jpeg";
+import teacher1 from "../resource/profilePic/teacherA.jpeg";
+import teacher2 from "../resource/profilePic/teacherB.jpeg";
 
 export const reviews = [
   {

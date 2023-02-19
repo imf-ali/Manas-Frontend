@@ -30,7 +30,6 @@ function App() {
     const user = localStorage.getItem("user");
     const id = localStorage.getItem("userId");
     const isPaid = localStorage.getItem("isPaid");
-    console.log(isPaid);
     setIsPaid(isPaid);
     if (localStorage.getItem("token")) {
       if (user === "admin") setIsLogin(true, false, id);
