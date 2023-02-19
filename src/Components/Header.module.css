@@ -23,6 +23,7 @@ header {
 }
 .headerLeft {
   color: rgb(0, 0, 210);
+  gap: 5vh;
 }
 
 .headerLeft > a,

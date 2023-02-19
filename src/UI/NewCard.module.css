@@ -1,13 +1,10 @@
 .card {
-  height: 40vh;
   position: relative;
-  /* padding: 20px; */
   box-sizing: border-box;
   display: flex;
-  /* align-items: flex-end; */
+
   text-decoration: none;
   background-color: #b9ffc9;
-  /* border: 2px solid #136125; */
   margin: auto;
   margin-top: 30px;
   background-size: cover;
@@ -16,7 +13,6 @@
 .cardLeft,
 .cardRight {
   width: 50%;
-  /* padding: 2vh; */
 }
 .cardimage > img {
   margin-right: 2vh;
@@ -27,7 +23,7 @@
 
 .cardRight {
   text-align: left;
-  padding: 3vh 0;
+  padding: 2vh 2vh 1vh 0;
 }
 .cardRight > h2 {
   font-family: poppins;
@@ -42,20 +38,22 @@
   color: rgb(177, 87, 87);
 }
 .content {
-  padding: 2vh 0;
+  padding: 2vh 2vh 0vh 0vh;
   height: 20vh;
+  overflow: hidden;
   line-height: 1.3;
   color: black;
   font-size: 17px;
 }
-.readMore {
+.readMore > h4 {
+  float: left;
+  margin: 3vh auto;
   padding: 1vh;
   display: flex;
-  position: absolute;
   border-top: 2px solid rgb(255, 128, 0);
   border-bottom: 2px solid rgb(255, 128, 0);
 }
-.readMore:hover{
+.readMore:hover {
   color: rgb(255, 128, 0);
   cursor: pointer;
 }
