@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import styles from "./Recent.module.css";
 import { displayPic } from "../lib/displayPhoto";
 import AuthContext from "../store/AuthContext";
@@ -7,19 +7,31 @@ function Recent() {
 
   const { manasInstance } = useContext(AuthContext);
   const [allNotice, setAllNotice] = useState([]);
-  const image = displayPic[0];
+  const [index, setIndex] = useState(0);
 
-  // setTimeout(() => {
-  //   setIndex((index) => {
-  //     let num = ((index + 1) % displayPic.length)
-  //     console.log(num);
-  //     return num;
-  //   });
-  // }, 5000);
+  const checkNumber = (number) => {
+    if (number > displayPic.length - 1) {
+      return 0;
+    } else if (number < 0) {
+      return displayPic.length - 1;
+    }
+    return number;
+  };
 
-  // setIndex((index) => {
-  //   return index + 1 % displayPic.length;
-  // });
+  const nextImage = useCallback(() => {
+    setIndex((index) => {
+      let newIndex = index + 1;
+      return checkNumber(newIndex);
+    });
+  },[]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextImage();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [nextImage]);
 
   useEffect(() => {
     const getData = async () => {
@@ -27,7 +39,7 @@ function Recent() {
       if (res.data) setAllNotice(res.data.allNotice);
     };
     getData();
-  },[])
+  },[manasInstance])
 
   return (
     <div className={styles.mainContainer}>
@@ -35,7 +47,7 @@ function Recent() {
         <div className={styles.advertisement}>
           <div className={styles.wrapper}>
             <div className={styles.imageContainer}>
-              <img className={styles.image} src={image} alt="contest" />
+              <img className={styles.image} src={displayPic[index]} alt="contest" />
             </div>
           </div>
         </div>
