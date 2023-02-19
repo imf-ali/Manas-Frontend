@@ -1,0 +1,12 @@
+.mainDiv {
+  display: flex;
+  margin: 10px 40px;
+}
+
+.blogpart {
+  width: 70%;
+}
+
+.blogform {
+  width: 30%;
+}
