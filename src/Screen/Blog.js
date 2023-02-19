@@ -75,7 +75,7 @@ const Blog = () => {
         </form>
       </div>
     );
-  }; 
+  };
 
   const backHandler = () => {
     setUpload(false);
@@ -87,7 +87,13 @@ const Blog = () => {
         <div className={styles.blogDiv}>
           {blog.map((notice, index) => {
             return (
-              <NewCard key={index} id={notice._id} title={notice.name} subtitle={notice.data} heading={notice.heading} />
+              <NewCard
+                key={index}
+                id={notice._id}
+                title={notice.name}
+                subtitle={notice.data}
+                heading={notice.heading}
+              />
             );
           })}
         </div>

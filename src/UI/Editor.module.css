@@ -1,11 +1,13 @@
 .editor {
   display: flex;
   flex-direction: column;
+  position: relative;
   /* position: absolute; */
 }
 .editorH {
   display: flex;
   flex-direction: row;
+  margin-bottom: 5vh;
 }
 .editorL,
 .editorR {
@@ -45,8 +47,8 @@
 }
 
 .submitBtn {
-  position: relative; 
-  margin: 7% auto;
+  position: relative;
+  margin: 5% auto;
   background-color: #73ffc7;
   padding: 2vh 4vh;
   font-family: "Roboto", sans-serif;
@@ -62,4 +64,19 @@
   background-color: #2ee59d;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
+}
+
+@media screen and (max-width: 426px) {
+  .editorH {
+    flex-direction: column;
+  }
+  .editorL,.editorR{
+    width: auto;
+  }
+  .quillEditor{
+    height: 40vh;
+  }
+  .submitBtn{
+    margin: 15% auto;
+  }
 }

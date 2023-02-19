@@ -1,18 +1,16 @@
 .mainDiv {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  margin: 2% 15%;
+  gap: 10%;
 }
 
 .blogDiv {
   width: 70%;
-  margin: 5vh;
-  /* padding: 0px 0px 0px 150px; */
 }
 
 .blogForm {
   width: 30%;
-  margin: 5vh;
 }
 
 .blogButton {
@@ -32,9 +30,12 @@
 }
 
 @media screen and (max-width: 769px) {
-  .blogForm,
-  .blogDiv {
-    margin: 3vh;
+  .mainDiv {
+    margin: 5%;
+    gap: 3%;
+  }
+  .blogButton {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 426px) {

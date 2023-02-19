@@ -42,7 +42,7 @@ function App() {
     <AuthContextProvider value={{ manasInstance }}>
       <Router>
         <Header />
-        <NavBar />
+        {/* <NavBar /> */}
         <div className={styles.App}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
