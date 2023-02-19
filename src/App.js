@@ -16,12 +16,15 @@ import LoginPageAdmin from "./Screen/LoginPageAdmin";
 import Header from "./Components/Header";
 import Blog from "./Screen/Blog";
 import ApproveBlog from "./Screen/ApproveBlog";
+import BlogPage from "./Screen/BlogPage";
+
+const backendUrl = process.env.NODE_ENV !== "production" ? "http://localhost" : "http://ecs-lg-1073622137.ap-south-1.elb.amazonaws.com";
 
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
   const setIsPaid = userStore((state) => state.setIsPaid);
 
-  const manasInstance = new ManasInstance("http://localhost:9007");
+  const manasInstance = new ManasInstance(backendUrl);
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -39,7 +42,7 @@ function App() {
     <AuthContextProvider value={{ manasInstance }}>
       <Router>
         <Header />
-        {/* <NavBar /> */}
+        <NavBar />
         <div className={styles.App}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
@@ -51,6 +54,7 @@ function App() {
             <Route path="/uploadnotice" element={<NoticeUpload />} />
             <Route path="/mtspage" element={<MTSpage />} />
             <Route path="/blogs" element={<Blog />} />
+            <Route path="/blogs/:blogid" element={<BlogPage />} />
             <Route path="/approveblog" element={<ApproveBlog />} />
           </Routes>
         </div>
