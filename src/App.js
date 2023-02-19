@@ -17,11 +17,13 @@ import Header from "./Components/Header";
 import Blog from "./Screen/Blog";
 import ApproveBlog from "./Screen/ApproveBlog";
 
+const backendUrl = process.env.NODE_ENV !== "production" ? "http://localhost" : "http://ecs-lg-1073622137.ap-south-1.elb.amazonaws.com";
+
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
   const setIsPaid = userStore((state) => state.setIsPaid);
 
-  const manasInstance = new ManasInstance("http://localhost:9007");
+  const manasInstance = new ManasInstance(backendUrl);
 
   useEffect(() => {
     const user = localStorage.getItem("user");

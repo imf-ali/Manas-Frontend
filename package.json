@@ -1,8 +1,7 @@
 {
 	"name": "manas-frontend",
-	"homepage": "https://imf-ali.github.io/Manas-Frontend",
 	"version": "0.1.0",
-	"private": false,
+	"private": "false",
 	"dependencies": {
 		"@mdbootstrap/react-testimonial-slider": "^1.0.0",
 		"@react-pdf-viewer/core": "^3.11.0",
