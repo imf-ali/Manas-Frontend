@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
-import styles from "./NavBar.module.css";
+import React, { useContext, useState } from "react";
+import "./NavBar.css";
 import { Link } from "react-router-dom";
 import image from "../resource/manas-logo.jpeg";
 import mts from "../resource/mts.png";
 import userStore from "../store/userStore";
+import { FaBars } from "react-icons/fa";
 import AuthContext from "../store/AuthContext";
 
 function NavBar() {
@@ -22,67 +23,76 @@ function NavBar() {
       setIsLogin(false, false, undefined);
     }
   };
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar);
+    console.log(showNavbar);
+  };
 
   return (
     <>
-      <nav className={styles.navbar} id="navbar">
-        <img src={image} alt="" className={styles.image} />
-        <div className={styles.links}>
-          <Link to="/" className={styles.heading}>
-            Home
-          </Link>
-          {/* <Link to="/admissions" className={styles.heading}>
+      <nav className={showNavbar ? "navbar responsiveNav" : "navbar"} id="navbar">
+        <img src={image} alt="" className="imageNav" />
+        <Link to="/" de className="headingNav">
+          Home
+        </Link>
+        {/* <Link to="/admissions" className="headingNav">
             Admissions
           </Link> */}
-          {/* <Link to="/" className={styles.heading}>
+        {/* <Link to="/" className="headingNav">
             Results
           </Link>
-          <Link to="/" className={styles.heading}>
+          <Link to="/" className="headingNav">
             Gallery
           </Link> */}
-          {/* <Link to="/about" className={styles.heading}>
+        {/* <Link to="/about" className="headingNav">
             About us
           </Link> */}
-          <Link to="/blogs" className={styles.heading}>
-            Blogs
+        <Link to="/blogs" className="headingNav">
+          Blogs
+        </Link>
+        {(isAdmin || isStudent) && (
+          <Link to="/notice" className="headingNav">
+            Notice
           </Link>
-          {(isAdmin || isStudent) && (
-            <Link to="/notice" className={styles.heading}>
-              Notice
-            </Link>
-          )}
-          {isAdmin && (
-            <Link to="/uploadnotice" className={styles.heading}>
-              Notice Upload
-            </Link>
-          )}
-          {isAdmin && (
-            <Link to="/approveblog" className={styles.heading}>
-              Manage Blogs
-            </Link>
-          )}
-          {isStudent && (
-            <Link to="/mtspage" className={styles.heading}>
-              MTS
-            </Link>
-          )}
-          {!isStudent && !isAdmin && (
-            <Link to="/login" className={styles.heading}>
-              Student
-            </Link>
-          )}
-          {!isStudent && !isAdmin && (
-            <Link to="/admin" className={styles.heading}>
-              Admin
-            </Link>
-          )}
-          {(isAdmin || isStudent) && (
-            <div className={styles.heading} onClick={logoutHandler}>
-              Logout
-            </div>
-          )}
+        )}
+        {isAdmin && (
+          <Link to="/uploadnotice" className="headingNav">
+            Notice Upload
+          </Link>
+        )}
+        {isAdmin && (
+          <Link to="/approveblog" className="headingNav">
+            Manage Blogs
+          </Link>
+        )}
+        {isStudent && (
+          <Link to="/mtspage" className="headingNav">
+            MTS
+          </Link>
+        )}
+        {!isStudent && !isAdmin && (
+          <Link to="/login" className="headingNav">
+            Student
+          </Link>
+        )}
+        {!isStudent && !isAdmin && (
+          <Link to="/admin" className="headingNav">
+            Admin
+          </Link>
+        )}
+        {(isAdmin || isStudent) && (
+          <div className="headingNav" onClick={logoutHandler}>
+            Logout
+          </div>
+        )}
+        <div className="linkRight">
+          <img src={mts} alt="" className="imageNav" />
         </div>
-        <img src={mts} alt="" className={styles.image1} />
+        <div className="barsNav" onClick={handleShowNavbar}>
+          <FaBars style={{fontSize:"1.5em"}}/>
+        </div>
       </nav>
     </>
   );

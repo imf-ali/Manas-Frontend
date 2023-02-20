@@ -31,37 +31,51 @@
   background-color: antiquewhite;
   padding: 2vh;
 }
+.noticeHead {
+  font-family: courier new;
+  font-weight: 700;
+  font-size: 30px;
+}
+.notices {
+  background-color: white;
+  padding: 2vh;
+  height: 86%;
+  margin: 2%;
+}
+.notices>h3{
+padding: 1vh 0 ;
+}
 .image {
   height: 400px;
   width: 100%;
 }
 
-@media screen and (max-width:769px){
-.container{
-  margin: 0 3vh;
-  gap: 3%;
-}
-.advertisement{
-  width: 65%;
-}
-.notice{
-  width: 32%;
-}
-.image{
-  height: 250px;
-}
-}
-@media screen and (max-width:426px){
-  .container{
-      flex-direction: column;
-      margin:0;
+@media screen and (max-width: 769px) {
+  .container {
+    margin: 0 3vh;
+    gap: 3%;
   }
-  .advertisement, .notice{
+  .advertisement {
+    width: 65%;
+  }
+  .notice {
+    width: 32%;
+  }
+  .image {
+    height: 250px;
+  }
+}
+@media screen and (max-width: 426px) {
+  .container {
+    flex-direction: column;
+    margin: 0;
+  }
+  .advertisement,
+  .notice {
     width: auto;
   }
-  .notice{
+  .notice {
     margin: 3vh 5vh;
     height: 40vh;
   }
 }
-

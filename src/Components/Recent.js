@@ -4,10 +4,10 @@ import { displayPic } from "../lib/displayPhoto";
 import AuthContext from "../store/AuthContext";
 
 function Recent() {
-
   const { manasInstance } = useContext(AuthContext);
   const [allNotice, setAllNotice] = useState([]);
   const [index, setIndex] = useState(0);
+  console.log(allNotice);
 
   const checkNumber = (number) => {
     if (number > displayPic.length - 1) {
@@ -23,7 +23,7 @@ function Recent() {
       let newIndex = index + 1;
       return checkNumber(newIndex);
     });
-  },[]);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,7 +39,7 @@ function Recent() {
       if (res.data) setAllNotice(res.data.allNotice);
     };
     getData();
-  },[manasInstance])
+  }, [manasInstance]);
 
   return (
     <div className={styles.mainContainer}>
@@ -47,12 +47,21 @@ function Recent() {
         <div className={styles.advertisement}>
           <div className={styles.wrapper}>
             <div className={styles.imageContainer}>
-              <img className={styles.image} src={displayPic[index]} alt="contest" />
+              <img
+                className={styles.image}
+                src={displayPic[index]}
+                alt="contest"
+              />
             </div>
           </div>
         </div>
         <div className={styles.notice}>
           <div className={styles.noticeHead}>Notice Board</div>
+          <div className={styles.notices}>
+            {allNotice.map((e, index) => {
+              return <h3>{e.heading}</h3>;
+            })}
+          </div>
         </div>
       </div>
     </div>

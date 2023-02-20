@@ -18,7 +18,11 @@ import Blog from "./Screen/Blog";
 import ApproveBlog from "./Screen/ApproveBlog";
 import BlogPage from "./Screen/BlogPage";
 
-const backendUrl = process.env.NODE_ENV !== "production" ? "http://localhost" : "http://ecs-lg-1073622137.ap-south-1.elb.amazonaws.com";
+
+const backendUrl =
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost"
+    : "http://ecs-lg-1073622137.ap-south-1.elb.amazonaws.com";
 
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
