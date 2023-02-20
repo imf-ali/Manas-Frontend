@@ -59,7 +59,7 @@ function Recent() {
           <div className={styles.noticeHead}>Notice Board</div>
           <div className={styles.notices}>
             {allNotice.map((e, index) => {
-              return <h3>{e.heading}</h3>;
+              return <li>{e.heading}</li>;
             })}
           </div>
         </div>

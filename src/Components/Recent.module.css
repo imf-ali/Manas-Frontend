@@ -28,7 +28,7 @@
   border-radius: 15px;
   width: 30%;
   margin: 5px auto;
-  background-color: antiquewhite;
+  background-color: rgb(189, 189, 189);
   padding: 2vh;
 }
 .noticeHead {
@@ -38,12 +38,14 @@
 }
 .notices {
   background-color: white;
+  border-radius: 10px;
   padding: 2vh;
   height: 86%;
   margin: 2%;
+  text-align: left;
 }
-.notices>h3{
-padding: 1vh 0 ;
+.notices > li {
+  padding: 1vh 0;
 }
 .image {
   height: 400px;

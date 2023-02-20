@@ -79,7 +79,7 @@ const NoticeUpload = () => {
         {allNotice.map((notice, index) => (
           <div key={index}>
             <div className={styles.noticeCard}>
-              {!notice.data && <h2>Main notice</h2>}
+              {/* {!notice.data && <h2>Main notice</h2>} */}
               <div className={styles.cardLeft}>
                 <div className={styles.noticeHeading}>{notice.heading}</div>
                 <div className={styles.noticeData}>{notice.data}</div>
