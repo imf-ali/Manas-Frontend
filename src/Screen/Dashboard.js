@@ -6,6 +6,7 @@ import OurTeam from "../Components/OurTeam";
 import Modal from "../UI/Modal";
 import image from '../resource/displayPic/popup.jpeg';
 import styles from './DashBoard.module.css';
+import TagLine from '../Components/TagLine';
 
 function Dashboard() {
 
@@ -25,7 +26,7 @@ function Dashboard() {
         </Modal>
       )}
       <Recent />
-      {/* <TagLine /> */}
+      <TagLine />
       <OurTeam />
       <ReviewsSlider />
       <Contact />
