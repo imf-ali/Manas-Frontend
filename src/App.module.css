@@ -9,6 +9,7 @@
   /* margin-top: 10%; */
   /* padding: 4%; */
   width: 100%;
+  scroll-behavior: smooth;
 }
 
 .FooterBottom {
@@ -28,5 +29,5 @@
   padding: 10px;
 }
 
-@media screen and (max-width: 764px) {}
-
+@media screen and (max-width: 764px) {
+}

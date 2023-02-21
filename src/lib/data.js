@@ -48,19 +48,19 @@ export const teamData = [
   {
     name: "Praneet Kumar",
     designation: "Ex. Tilaiyan",
-    image: teacher1,
+    image: teacher2,
     text: "Alumni of TS Chanakya Mumbai",
   },
   {
     name: "Prabhakar Kumar",
     designation: "Ex. Netarhatian",
-    image: teacher2,
+    image: teacher1,
     text: "Alumni of TS Chanakya Mumbai",
   },
   {
     name: "Pushkar Srigyan",
     designation: "Ex. Netarhatian",
     image: directorDP,
-    text: "Humanistic Education Enthusiast",
+    text: "Almuni of IIT Bombay",
   },
 ];

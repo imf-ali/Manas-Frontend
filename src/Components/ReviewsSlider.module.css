@@ -5,10 +5,11 @@
   padding: 3% 5%;
   /* height: 60vh; */
   color: white;
+  gap: 10%;
 }
 
 .title {
-  width: 40%;
+  width: 30%;
   margin: auto;
 }
 .title > h2 {

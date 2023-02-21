@@ -41,7 +41,7 @@ const Review = () => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <h2>Our Almuni</h2>
+        <h2>Testimonial of our Almuni</h2>
         <div className={styles.buttonContainer}>
           <button onClick={prevPerson}>
             <AiOutlineArrowLeft />

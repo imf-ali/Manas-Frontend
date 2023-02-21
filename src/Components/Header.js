@@ -1,12 +1,12 @@
 import React from "react";
-import { FaPhone } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
 import styles from "./Header.module.css";
 
 const Header = () => {
   return (
     <header>
       <div className={styles.headerLeft}>
-        <FaPhone />
+        <FaPhoneAlt />
         +91-080025-15958
       </div>
       <div className={styles.headerRight}>
