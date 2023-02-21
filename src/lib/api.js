@@ -149,7 +149,6 @@ class ManasInstance {
           mainNotice: true,
         }
       };
-      console.log(options);
       const res = await axios(options);
       return res;
     } catch (e) {

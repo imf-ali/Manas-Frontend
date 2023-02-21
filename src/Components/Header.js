@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <div className={styles.headerLeft}>
         <FaPhoneAlt />
-        +91-080025-15958
+        +91-8809552269
       </div>
       <div className={styles.headerRight}>
         <a href="#"> Contact Us</a>

@@ -8,8 +8,8 @@ const Contact = () => {
                 <div className="form">
                     <div className="form-txt">
                         <h1>Contact Us</h1>
-                        <h3>India</h3>
-                        <p>alifahad2210@gmail.com</p>
+                        <h3>Nutan Nagar, Gaya</h3>
+                        <p>enquiry.manaseducation@gmail.com</p>
                         <p>Gaya, Bihar<br />823001</p>
                     </div>
                     <div className="form-details">
