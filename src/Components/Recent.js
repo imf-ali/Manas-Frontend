@@ -35,8 +35,8 @@ function Recent() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await manasInstance.getAllNotice();
-      if (res.data) setAllNotice(res.data.allNotice);
+      const res = await manasInstance.getNotice();
+      if (res.data) setAllNotice(res.data.allNotice.reverse());
     };
     getData();
   }, [manasInstance]);

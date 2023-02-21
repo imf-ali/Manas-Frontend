@@ -21,7 +21,8 @@ const NoticeUpload = () => {
   const mainNoticeSubmitHandler = (e) => {
     e.preventDefault();
     const res = manasInstance.submitMainNotice(noticeRef.current.value);
-    console.log(res.data);
+    setStateChange(true);
+    // console.log(res.data);
   }
 
   const UploadNoticeForm = () => {
@@ -55,7 +56,7 @@ const NoticeUpload = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await manasInstance.getAllNotice();
-      if (res.data) setAllNotice(res.data.allNotice);
+      if (res.data) setAllNotice(res.data.allNotice.reverse());
       setStateChange(false);
     };
     if (stateChange) getData();
@@ -121,7 +122,7 @@ const NoticeUpload = () => {
 
   return (
     <div>
-      <UploadNoticeForm />
+      {/* <UploadNoticeForm /> */}
       <UploadNoticeToHome />
       {showAllNotice()}
     </div>
