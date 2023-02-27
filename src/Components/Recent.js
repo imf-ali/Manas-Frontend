@@ -28,7 +28,7 @@ function Recent() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextImage();
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [nextImage]);
