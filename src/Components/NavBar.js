@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import image from "../resource/manas-logo.jpeg";
+import image from "../resource/green.png";
 import mts from "../resource/mts.png";
 import userStore from "../store/userStore";
 import { FaBars } from "react-icons/fa";
@@ -88,7 +88,7 @@ function NavBar() {
           </div>
         )}
         <div className="linkRight">
-          <img src={mts} alt="" className="imageNav" />
+          <img src={mts} alt="" className="imageNav2" />
         </div>
         <div className="barsNav" onClick={handleShowNavbar}>
           <FaBars style={{fontSize:"1.5em"}}/>

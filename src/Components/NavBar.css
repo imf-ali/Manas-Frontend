@@ -23,7 +23,12 @@
 }
 
 .imageNav {
-  height: 12vh;
+  height: 60%;
+  width: 20vh;
+  /* margin-right: 20vh; */
+}
+.imageNav2 {
+  height: 100%;
   width: 20vh;
   /* margin-right: 20vh; */
 }
@@ -61,7 +66,7 @@
   .navbar.responsiveNav .headingNav {
     float: none;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: left;
   }
 }
