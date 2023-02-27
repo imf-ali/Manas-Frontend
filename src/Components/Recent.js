@@ -2,12 +2,12 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import styles from "./Recent.module.css";
 import { displayPic } from "../lib/displayPhoto";
 import AuthContext from "../store/AuthContext";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 function Recent() {
   const { manasInstance } = useContext(AuthContext);
   const [allNotice, setAllNotice] = useState([]);
   const [index, setIndex] = useState(0);
-  console.log(allNotice);
 
   const checkNumber = (number) => {
     if (number > displayPic.length - 1) {
@@ -21,6 +21,13 @@ function Recent() {
   const nextImage = useCallback(() => {
     setIndex((index) => {
       let newIndex = index + 1;
+      return checkNumber(newIndex);
+    });
+  }, []);
+
+  const prevImage = useCallback(() => {
+    setIndex((index) => {
+      let newIndex = index - 1;
       return checkNumber(newIndex);
     });
   }, []);
@@ -41,17 +48,29 @@ function Recent() {
     getData();
   }, [manasInstance]);
 
+  const frontItem = (direction) => {
+    if (direction)
+      nextImage();
+    else prevImage();
+  }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container}>
         <div className={styles.advertisement}>
           <div className={styles.wrapper}>
             <div className={styles.imageContainer}>
+              <button onClick={() => frontItem(true)} className={styles.leftbutton}>
+                <AiOutlineArrowLeft />
+              </button>
               <img
                 className={styles.image}
                 src={displayPic[index]}
                 alt="contest"
               />
+              <button onClick={() => frontItem(false)} className={styles.rightbutton}>
+                <AiOutlineArrowRight />
+              </button>
             </div>
           </div>
         </div>

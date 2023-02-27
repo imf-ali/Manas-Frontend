@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import image from "../resource/manas-logo.jpeg";
+import image from "../resource/green.png";
 import mts from "../resource/mts.png";
 import userStore from "../store/userStore";
 import { FaBars } from "react-icons/fa";
@@ -34,6 +34,9 @@ function NavBar() {
     <>
       <nav className={showNavbar ? "navbar responsiveNav" : "navbar"} id="navbar">
         <img src={image} alt="" className="imageNav" />
+        <div className="barsNav" onClick={handleShowNavbar}>
+          <FaBars style={{fontSize:"1.5em"}}/>
+        </div>
         <Link to="/" de className="headingNav">
           Home
         </Link>
@@ -88,10 +91,7 @@ function NavBar() {
           </div>
         )}
         <div className="linkRight">
-          <img src={mts} alt="" className="imageNav" />
-        </div>
-        <div className="barsNav" onClick={handleShowNavbar}>
-          <FaBars style={{fontSize:"1.5em"}}/>
+          <img src={mts} alt="" className="imageNav2" />
         </div>
       </nav>
     </>
