@@ -34,6 +34,9 @@ function NavBar() {
     <>
       <nav className={showNavbar ? "navbar responsiveNav" : "navbar"} id="navbar">
         <img src={image} alt="" className="imageNav" />
+        <div className="barsNav" onClick={handleShowNavbar}>
+          <FaBars style={{fontSize:"1.5em"}}/>
+        </div>
         <Link to="/" de className="headingNav">
           Home
         </Link>
@@ -89,9 +92,6 @@ function NavBar() {
         )}
         <div className="linkRight">
           <img src={mts} alt="" className="imageNav2" />
-        </div>
-        <div className="barsNav" onClick={handleShowNavbar}>
-          <FaBars style={{fontSize:"1.5em"}}/>
         </div>
       </nav>
     </>
