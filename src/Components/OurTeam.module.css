@@ -1,0 +1,48 @@
+.ourTeam {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7vh;
+  font-family: Poppins, sans-serif;
+}
+
+.teamAbout {
+  margin-bottom: 3vh;
+}
+.heading {
+  font-size: 40px;
+}
+.subtitle {
+  font-size: 20px;
+}
+
+.team {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  gap: 10vh;
+}
+.member {
+  border: 1px solid #124122;
+  box-shadow: 5px 5px 15px #21743d;
+  padding: 3vh;
+  width: 40vh;
+  margin: 0 auto ;
+}
+.imageTeam > img {
+  border: 1px solid #ddd;
+  padding: 3px;
+  width: 15vh;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgb(187, 187, 187);
+}
+
+@media screen and (max-width:426px){
+  .team{
+    flex-direction: column;
+    margin: auto;
+  }
+  .member{
+    width: auto;
+  }
+}

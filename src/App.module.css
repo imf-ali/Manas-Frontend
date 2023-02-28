@@ -1,10 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
+
 .App {
+  position: absolute;
   background-color: #fff;
   font-family: sans-serif;
   text-align: center;
-  margin-top: 10%;
-  padding: 0 4%;
-  /* width: 100%; */
+  /* margin-top: 10%; */
+  /* padding: 4%; */
+  width: 100%;
+  scroll-behavior: smooth;
 }
 
 .FooterBottom {
@@ -25,7 +30,4 @@
 }
 
 @media screen and (max-width: 764px) {
-  .App {
-    margin-top: 14%;
-  }
 }

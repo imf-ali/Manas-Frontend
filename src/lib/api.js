@@ -136,6 +136,26 @@ class ManasInstance {
     }
   }
 
+  async submitMainNotice(heading){
+    try {
+      const options = {
+        method: 'POST',
+        url: `${this.host}/admin/addNotice`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: {
+          heading: heading,
+          mainNotice: true,
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   async deleteNotice(noticeId){
     try {
       const options = {
@@ -259,6 +279,22 @@ class ManasInstance {
     }
   }
 
+  async getApprovedBlogById(blogid){
+    try {
+      const options = {
+        method: 'GET',
+        url: `${this.host}/getBlog/${blogid}`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   async getAllBlogs(){
     try {
       const options = {
@@ -314,7 +350,7 @@ class ManasInstance {
     }
   }
 
-  async submitBlog(heading, data){
+  async submitBlog(name, data, heading){
     try {
       const options = {
         method: 'POST',
@@ -323,8 +359,9 @@ class ManasInstance {
           Authorization: `JWT ${this.getToken()}`
         },
         data: {
-          heading: heading,
+          name: name,
           data: data,
+          heading: heading,
         }
       };
       const res = await axios(options);

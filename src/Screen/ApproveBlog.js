@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../store/AuthContext";
-import styles from "./NoticeUpload.module.css";
+import styles from "./ApproveBlog.module.css";
 
 const ApproveBlog = () => {
   const { manasInstance } = useContext(AuthContext);
@@ -18,14 +18,12 @@ const ApproveBlog = () => {
 
   const showBlogHandler = async (noticeId, show) => {
     const res = await manasInstance.showBlog(noticeId, show);
-    if(res.data)
-      setStateChange(true);
+    if (res.data) setStateChange(true);
   };
 
   const deleteBlogHandler = async (noticeId) => {
     const res = await manasInstance.deleteBlog(noticeId);
-    if(res.data)
-      setStateChange(true);
+    if (res.data) setStateChange(true);
   };
 
   const showAllNotice = () => {
@@ -35,8 +33,11 @@ const ApproveBlog = () => {
           <div key={index}>
             <div className={styles.noticeCard}>
               <div className={styles.cardLeft}>
-                <div className={styles.noticeHeading}>{notice.heading}</div>
-                <div className={styles.noticeData}>{notice.data}</div>
+                <div className={styles.noticeHeading}>{notice.name}</div>
+                <div
+                  className={styles.noticeData}
+                  dangerouslySetInnerHTML={{ __html: notice.data }}
+                />
               </div>
               <div className={styles.cardRight}>
                 <button
@@ -73,11 +74,7 @@ const ApproveBlog = () => {
     );
   };
 
-  return (
-    <div>
-      {showAllNotice()}
-    </div>
-  );
+  return <div>{showAllNotice()}</div>;
 };
 
 export default ApproveBlog;

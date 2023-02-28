@@ -1,0 +1,51 @@
+.mainDiv {
+  display: flex;
+  flex-direction: row;
+  margin: 2% 15%;
+  gap: 10%;
+}
+
+.blogDiv {
+  width: 70%;
+}
+
+.blogForm {
+  width: 30%;
+}
+
+.blogButton {
+  margin-top: 3vh;
+  padding: 2vh;
+  border: none;
+  font-size: 18px;
+  background-color: #21743d;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+.blogButton:hover {
+  box-shadow: 0px 15px 20px rgba(66, 157, 121, 0.4);
+}
+
+@media screen and (max-width: 769px) {
+  .mainDiv {
+    margin: 5%;
+    gap: 3%;
+  }
+  .blogButton {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 426px) {
+  .mainDiv {
+    flex-direction: column-reverse;
+  }
+  .blogDiv,
+  .blogForm {
+    width: auto;
+  }
+  .blogForm {
+    margin: 0 7vh;
+  }
+}

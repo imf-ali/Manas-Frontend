@@ -1,90 +1,92 @@
 import { useContext, useEffect, useState, useReducer } from "react";
 import AuthContext from "../store/AuthContext";
-import { Card } from "../UI/Card";
+import { NewCard } from "../UI/NewCard";
 import Input from "../UI/Input";
-
-const inputReducer = (state, actions) => {
-  if (actions.type === "INPUT_CHANGE") {
-    console.log(actions.input.name,actions.input.value)
-    return { ...state, [actions.input.name] : actions.input.value };
-  }
-  return { ...state };
-};
+import styles from "../Screen/Blog.module.css";
+import UploadBlog from "./UploadBlog";
+import BlogForm from "../Components/BlogForm";
 
 const Blog = () => {
-
   const { manasInstance } = useContext(AuthContext);
   const [blog, setBlog] = useState([]);
+  const [upload, setUpload] = useState(false);
+  const [inputObj, setInputObj] = useState({});
 
-  const [inputValue, dispatchInput] = useReducer(inputReducer, {
-    heading: '',
-    data: '',
-  })
-
-  const inputChangeHandler = (e) => {
-    dispatchInput({ type: 'INPUT_CHANGE', input: e.target })
-    console.log(inputValue);
-  }
-
-  const submitHandler = async (event) => {
-    event.preventDefault();
-    const res = await manasInstance.submitBlog(inputValue.heading, inputValue.data);
-    if (res.status === 201) {
-      console.log('Blog submitted successfully');
-    }
+  const submitHandler = async (inputValue) => {
+    setInputObj(inputValue);
+    setUpload(true);
   };
 
   useEffect(() => {
     const getData = async () => {
       const res = await manasInstance.getApprovedBlogs();
-      console.log(res.data)
-      if(res.data)
-        setBlog(res.data.blog);
-    }
+      console.log(res.data);
+      if (res.data) setBlog(res.data.blog);
+    };
     getData();
   }, [manasInstance]);
+  //   return (
+  //     <div>
+  //       <form onSubmit={submitHandler}>
+  //         <Input
+  //           id="name"
+  //           type="text"
+  //           name="name"
+  //           label="Name"
+  //           onChange={inputChangeHandler}
+  //           value={inputValue.name}
+  //         />
+  //         <Input
+  //           id="email"
+  //           type="email"
+  //           name="email"
+  //           label="Email"
+  //           onChange={inputChangeHandler}
+  //           value={inputValue.email}
+  //         />
+  //         <Input
+  //           id="phone"
+  //           type="text"
+  //           name="number"
+  //           label="Phone Number"
+  //           onChange={inputChangeHandler}
+  //           value={inputValue.phone}
+  //         />
+  //         <button className={styles.blogButton}>UPLOAD BLOG</button>
+  //       </form>
+  //     </div>
+  //   );
+  // };
 
-  const BlogForm = () => {
-    return (
-      <div>
-          <form onSubmit={submitHandler}>
-            <Input
-              id="heading"
-              type="text"
-              name="heading"
-              label="Heading"
-              onChange={inputChangeHandler}
-              value={inputValue.heading}
-            />
-            <Input
-              id="data"
-              type="text"
-              name="data"
-              label="Data"
-              onChange={inputChangeHandler}
-              value={inputValue.data}
-            />
-            <button>Submit</button>
-          </form>
-        </div>
-    )
-  }
+  const backHandler = () => {
+    setUpload(false);
+  };
 
   return (
-    <>
-      {blog.map((notice, index) => {
-        return (
-          <Card 
-            key={index}
-            title={notice.heading}
-            subtitle={notice.data}
-          />
-        )
-      })}
-      <BlogForm />
-    </>
+    <div className={styles.mainDiv}>
+      {!upload && (
+        <div className={styles.blogDiv}>
+          {blog.map((notice, index) => {
+            return (
+              <NewCard
+                key={index}
+                id={notice._id}
+                title={notice.name}
+                subtitle={notice.data}
+                heading={notice.heading}
+              />
+            );
+          })}
+        </div>
+      )}
+      {!upload && (
+        <div className={styles.blogForm}>
+          <BlogForm submitHandler={submitHandler} />
+        </div>
+      )}
+      {upload && <UploadBlog inputObj={inputObj} backHandler={backHandler} />}
+    </div>
   );
-    
 };
 
 export default Blog;

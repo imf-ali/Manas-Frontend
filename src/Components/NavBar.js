@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
-import styles from "./NavBar.module.css";
+import React, { useContext, useState } from "react";
+import "./NavBar.css";
 import { Link } from "react-router-dom";
-import image from "../resource/manas-logo.jpeg";
+import image from "../resource/green.png";
+import mts from "../resource/mts.png";
 import userStore from "../store/userStore";
+import { FaBars } from "react-icons/fa";
 import AuthContext from "../store/AuthContext";
 
 function NavBar() {
@@ -15,73 +17,84 @@ function NavBar() {
   const setIsLogin = userStore((state) => state.setIsLogin);
 
   const logoutHandler = async () => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem("user");
     const res = await manasInstance.logoutHandler(user);
-    if(res.status === 200) {
-      setIsLogin(false,false,undefined);
+    if (res.status === 200) {
+      setIsLogin(false, false, undefined);
     }
-  }
+  };
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar);
+    console.log(showNavbar);
+  };
 
   return (
-    <React.Fragment>
-      <nav className={styles.navbar} id="navbar">
-        <img src={image} alt="" className={styles.image} />
-        <div className={styles.links}>
-          <Link to="/" className={styles.heading}>
-            Home
-          </Link>
-          <Link to="/admissions" className={styles.heading}>
+    <>
+      <nav className={showNavbar ? "navbar responsiveNav" : "navbar"} id="navbar">
+        <img src={image} alt="" className="imageNav" />
+        <div className="barsNav" onClick={handleShowNavbar}>
+          <FaBars style={{fontSize:"1.5em"}}/>
+        </div>
+        <Link to="/" de className="headingNav">
+          Home
+        </Link>
+        {/* <Link to="/admissions" className="headingNav">
             Admissions
-          </Link>
-          <Link to="/" className={styles.heading}>
+          </Link> */}
+        {/* <Link to="/" className="headingNav">
             Results
           </Link>
-          <Link to="/" className={styles.heading}>
+          <Link to="/" className="headingNav">
             Gallery
-          </Link>
-          <Link to="/blogs" className={styles.heading}>
-            Blogs
-          </Link>
-          <Link to="/about" className={styles.heading}>
+          </Link> */}
+        {/* <Link to="/about" className="headingNav">
             About us
+          </Link> */}
+        <Link to="/blogs" className="headingNav">
+          Blogs
+        </Link>
+        {(isAdmin || isStudent) && (
+          <Link to="/notice" className="headingNav">
+            Notice
           </Link>
-          <Link to="/admissions" className={styles.heading}>
-            Admissions
+        )}
+        {isAdmin && (
+          <Link to="/uploadnotice" className="headingNav">
+            Notice Upload
           </Link>
-          <Link to="/" className={styles.heading}>
-            Results
+        )}
+        {isAdmin && (
+          <Link to="/approveblog" className="headingNav">
+            Manage Blogs
           </Link>
-          <Link to="/" className={styles.heading}>
-            Gallery
+        )}
+        {isStudent && (
+          <Link to="/mtspage" className="headingNav">
+            MTS
           </Link>
-          {isAdmin && (
-            <Link to="/approveblog" className={styles.heading}>
-              Manage Blogs
-            </Link>
-          )}
-          {isStudent && (
-            <Link to="/mtspage" className={styles.heading}>
-              MTS
-            </Link>
-          )}
-          {!isStudent && !isAdmin && (
-            <Link to="/login" className={styles.heading}>
-              Student
-            </Link>
-          )}
-          {!isStudent && !isAdmin && (
-            <Link to="/admin" className={styles.heading}>
-              Admin
-            </Link>
-          )}
-          {(isAdmin || isStudent) && (
-            <div className={styles.heading} onClick={logoutHandler}>
-              Logout
-            </div>
-          )}
+        )}
+        {/* {!isStudent && !isAdmin && (
+          <Link to="/login" className="headingNav">
+            Student
+          </Link>
+        )} */}
+        {!isStudent && !isAdmin && (
+          <Link to="/admin" className="headingNav">
+            Admin
+          </Link>
+        )}
+        {(isAdmin || isStudent) && (
+          <div className="headingNav" onClick={logoutHandler}>
+            Logout
           </div>
-        </nav>
-    </React.Fragment>
+        )}
+        <div className="linkRight">
+          <img src={mts} alt="" className="imageNav2" />
+        </div>
+      </nav>
+    </>
   );
 }
 

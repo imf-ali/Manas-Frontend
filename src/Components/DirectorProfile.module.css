@@ -1,0 +1,49 @@
+
+.directorContainer {
+  display: flex;
+  /* height: 60vh; */
+  margin: 5vh 10%;
+}
+
+.directorImage {
+  float: left;
+  display: flex;
+  flex-direction: row;
+}
+.directorImg {
+  height: 50vh;
+  width: 80vh;
+  border: 2px solid black;
+  margin: 0 3vh;
+  border-radius: 22px;
+}
+
+.directorText {
+  margin-left: 15px;
+}
+
+.name {
+  text-align: left;
+  font-family: Poppins, sans-serif;
+  color: #1d8145;
+  font-size: 25px;
+  line-height: 24px;
+}
+
+.directorText > p {
+  text-align: left;
+  margin-top: 2vh;
+  font-size: 17px;
+  color: #626A77;
+  line-height: 28px;
+  font-family: Poppins, sans-serif;
+  text-align: justify;
+}
+
+.mainDiv {
+  font-family: Poppins, sans-serif;
+}
+
+.heading {
+  font-size: 50px;
+}

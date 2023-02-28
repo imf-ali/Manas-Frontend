@@ -1,35 +1,40 @@
-.contestsMain{
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+.contestsMain {
+  margin: 0 10%;
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  background: #f6f8fb;
-  margin-bottom: 40px;
-  margin-top: 40px;
-  width: 100%;
-  color: #4a4a4a;
-  padding: 20px 0;
-  outline: 0;
-  letter-spacing: 0;
+  flex-direction: row-reverse;
 }
-.contestsMain > h2{
-  width: 100%;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-  text-decoration: underline;
+.imagediv,
+.contentdiv {
+  width: 50%;
+  align-items: center;
+}
+.imagediv{
+  display: flex;
+}
+.image {
+  width: 90%;
+  margin: auto;
+}
+.contentdiv > h2 {
+  font-size: 40px;
+  font-family: "Poppins", sans-serif;
+  color: black;
 }
 .contestNames {
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 2% 2%;
-}
-.contestLinks{
-  margin: 5px;
-}
-.contestLinks  > a{
-  font-weight: 400;
   font-size: 18px;
-  line-height: 22px;
-  margin-bottom: 4PX;
-  text-decoration: none;
-  color: #363636;
+  padding: 1% 0%;
+  font-family: "Poppins", sans-serif;
+  color: #626a77;
+  margin-top: 20px;
+}
+
+@media screen and (max-width:769px) {
+  .contestsMain{
+    flex-direction: column;
+  }
+  .imagediv,.contentdiv{
+    width: auto;
+  }
 }
