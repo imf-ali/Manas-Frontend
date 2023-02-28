@@ -61,6 +61,6 @@ export const teamData = [
     name: "Pushkar Srigyan",
     designation: "Ex. Netarhatian",
     image: directorDP,
-    text: "Almuni of IIT Bombay",
+    text: "Almuni of IIT Delhi",
   },
 ];

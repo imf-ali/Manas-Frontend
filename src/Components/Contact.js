@@ -8,8 +8,9 @@ const Contact = () => {
                 <div className="form">
                     <div className="form-txt">
                         <h1>Contact Us</h1>
-                        <h3>Nutan Nagar, Gaya</h3>
-                        <p>enquiry.manaseducation@gmail.com</p>
+                        <h4>Gali no 2 Nearby milestone</h4>
+                        <h4>PNB Bank, Nutan Nagar Branch, Nutan Nagar</h4>
+                        <p>manas.education.research@gmail.com</p>
                         <p>Gaya, Bihar<br />823001</p>
                     </div>
                     <div className="form-details">
