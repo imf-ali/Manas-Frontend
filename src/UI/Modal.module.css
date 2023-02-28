@@ -9,24 +9,41 @@
 }
 
 .modal {
+  background-image: url(../resource/displayPic/popup.jpeg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   position: fixed;
-  top: 20vh;
-  bottom: 20vh;
-  width: 90vh;
-  height: 60vh;
+  width: 60%;
+  margin: auto 20%;
+  top: 10vh;
+  bottom: 10vh;
   background-color: white;
-  padding: 1vh;
-  border-radius: 14px;
+  border-radius: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
 }
+.cross {
+  position: absolute;
+  right: -25px;
+  top: -20px;
+  color: white;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.cross:hover{
+  background-color: rgb(9, 133, 9);
+}
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .modal {
-    width: 40rem;
-    left: calc(50% - 20rem);
+    width: 80%;
+    margin: auto 10%;
   }
+}
+@media (max-width: 425px) {
 }
 
 @keyframes slide-down {

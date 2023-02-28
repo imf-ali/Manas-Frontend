@@ -1,26 +1,25 @@
-import React from 'react';
-import classes from './Modal.module.css';
+import React from "react";
+import { RxCrossCircled } from "react-icons/rx";
+import classes from "./Modal.module.css";
 
-const Backdrop = props => {
+const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onClose} />;
 };
 
-const ModalOverlay = props => {
+const ModalOverlay = (props) => {
   return (
     <div className={classes.modal}>
-      <div className={classes.content}>
-        {props.children}
+      <div className={classes.cross}>
+        <RxCrossCircled size={50} onClick={props.onClose} />
       </div>
     </div>
   );
 };
-const Modal = props => {
+const Modal = (props) => {
   return (
     <React.Fragment>
       <Backdrop onClose={props.onClose} />
-      <ModalOverlay>
-        {props.children}
-      </ModalOverlay>
+      <ModalOverlay onClose={props.onClose}/>
     </React.Fragment>
   );
 };
