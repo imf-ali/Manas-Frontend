@@ -18,9 +18,9 @@ const NoticeUpload = () => {
     );
   };
 
-  const mainNoticeSubmitHandler = (e) => {
+  const mainNoticeSubmitHandler = async (e) => {
     e.preventDefault();
-    const res = manasInstance.submitMainNotice(noticeRef.current.value);
+    const res = await manasInstance.submitMainNotice(noticeRef.current.value);
     setStateChange(true);
     // console.log(res.data);
   }
