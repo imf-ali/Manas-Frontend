@@ -32,11 +32,18 @@ function NavBar() {
 
   return (
     <>
-      <nav className={showNavbar ? "navbar responsiveNav" : "navbar"} id="navbar">
-        <img src={image} alt="" className="imageNav" />
-        <div className="barsNav" onClick={handleShowNavbar}>
-          <FaBars style={{fontSize:"1.5em"}}/>
+      <nav
+        className={showNavbar ? "navbar responsiveNav" : "navbar"}
+        id="navbar"
+      >
+        <div className="logoBox">
+          <img src={image} alt="" className="imageNav" />
         </div>
+        <div className="barsNav" onClick={handleShowNavbar}>
+          <FaBars style={{ fontSize: "1.5em" }} />
+        </div>
+        <br />
+        <br/>
         <Link to="/" de className="headingNav">
           Home
         </Link>
