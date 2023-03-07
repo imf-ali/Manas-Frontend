@@ -10,7 +10,7 @@ const Header = () => {
         +91-8809552269
       </div>
       <div className={styles.headerRight}>
-        <a href="#"> Contact Us</a>
+        {/* <a href="#"> Contact Us</a> */}
       </div>
     </header>
   );

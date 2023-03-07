@@ -6,6 +6,7 @@ import styles from "./ReviewsSlider.module.css";
 const Review = () => {
   const [index, setIndex] = useState(0);
   const { name, job, image, text } = reviews[index];
+  const [hoverImage, setHoverImage] = useState(false);
 
   const checkNumber = (number) => {
     if (number > reviews.length - 1) {
@@ -32,11 +33,20 @@ const Review = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextPerson();
-    }, 5000);
+      if(!hoverImage)
+        nextPerson();
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, [nextPerson]);
+  }, [nextPerson, hoverImage]);
+
+  const mouseEnterHander = () => {
+    setHoverImage(true);
+  }
+
+  const mouseLeaveHander = () => {
+    setHoverImage(false);
+  }
 
   return (
     <div className={styles.container}>
@@ -51,7 +61,11 @@ const Review = () => {
           </button>
         </div>
       </div>
-      <article className={styles.alumni}>
+      <article 
+        className={styles.alumni} 
+        onMouseEnter={mouseEnterHander} 
+        onMouseLeave={mouseLeaveHander}
+      >
         <p className={styles.info}>{text}</p>
         <div className={styles.aboutAlmuni}>
           <img src={image} alt={name} className={styles.image} />

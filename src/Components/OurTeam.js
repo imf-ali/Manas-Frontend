@@ -12,9 +12,9 @@ const OurTeam = () => {
         </p>
       </div>
       <div className={styles.team}>
-        {teamData.map((team) => {
+        {teamData.map((team,index) => {
           return (
-            <div className={styles.member}>
+            <div key={index} className={styles.member}>
               <div className={styles.imageTeam}>
                 <img src={team.image} alt="member" />
               </div>

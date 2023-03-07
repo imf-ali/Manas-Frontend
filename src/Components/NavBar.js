@@ -44,7 +44,7 @@ function NavBar() {
         </div>
         <br />
         <br/>
-        <Link to="/" de className="headingNav">
+        <Link to="/" className="headingNav">
           Home
         </Link>
         {/* <Link to="/admissions" className="headingNav">

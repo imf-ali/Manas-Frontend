@@ -8,6 +8,7 @@ function Recent() {
   const { manasInstance } = useContext(AuthContext);
   const [allNotice, setAllNotice] = useState([]);
   const [index, setIndex] = useState(0);
+  const [hoverImage, setHoverImage] = useState(false);
 
   const checkNumber = (number) => {
     if (number > displayPic.length - 1) {
@@ -34,11 +35,12 @@ function Recent() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextImage();
-    }, 5000);
+      if(!hoverImage)
+        nextImage();
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, [nextImage]);
+  }, [nextImage, hoverImage]);
 
   useEffect(() => {
     const getData = async () => {
@@ -54,12 +56,23 @@ function Recent() {
     else prevImage();
   }
 
+  const mouseEnterHander = () => {
+    setHoverImage(true);
+  }
+
+  const mouseLeaveHander = () => {
+    setHoverImage(false);
+  }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container}>
         <div className={styles.advertisement}>
           <div className={styles.wrapper}>
-            <div className={styles.imageContainer}>
+            <div className={styles.imageContainer}
+              onMouseEnter={mouseEnterHander}
+              onMouseLeave={mouseLeaveHander}
+            >
               <button onClick={() => frontItem(true)} className={styles.leftbutton}>
                 <AiOutlineArrowLeft />
               </button>
@@ -78,7 +91,7 @@ function Recent() {
           <div className={styles.noticeHead}>Notice Board</div>
           <div className={styles.notices}>
             {allNotice.map((e, index) => {
-              return <li>{e.heading}</li>;
+              return <li key={index}>{e.heading}</li>;
             })}
           </div>
         </div>

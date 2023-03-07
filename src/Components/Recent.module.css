@@ -21,6 +21,9 @@
   border: 1px solid #d2d9e7;
   margin: auto;
 }
+.imageContainer:hover{
+  cursor: pointer;
+}
 .leftbutton {
   position: absolute;
   top: 50%;
