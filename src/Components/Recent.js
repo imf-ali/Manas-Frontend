@@ -37,7 +37,7 @@ function Recent() {
     const interval = setInterval(() => {
       if(!hoverImage)
         nextImage();
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [nextImage, hoverImage]);

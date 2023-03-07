@@ -35,7 +35,7 @@ const Review = () => {
     const interval = setInterval(() => {
       if(!hoverImage)
         nextPerson();
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [nextPerson, hoverImage]);
