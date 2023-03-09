@@ -10,6 +10,9 @@ const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_LOAD") {
     return { ...actions.input };
   }
+  if (actions.type === "IMAGE_UPLOAD") {
+    return { ...state, [actions.input.name]: actions.input.value };
+  }
   return { ...state };
 };
 
@@ -44,18 +47,32 @@ const MTSForm = (props) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    console.log(inputValue);
     const res = await manasInstance.updateData(userId, inputValue);
     if (res.status === 201) {
       props.paymentHandler();
     }
   };
 
-  const profilePicHandler = async (e) => {
+  const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+
+  const profilePicHandler = async (e, imageType) => {
     const file = e.target.files[0];
-    console.log(e.target.name, e.target.files[0]);
-    const buffer = await file.arrayBuffer();
-    const bytes = new Uint8Array(buffer);
-    console.log(bytes);
+    const base64img = await toBase64(file);
+    if (imageType === 'avatar') {
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'avatar', value: base64img } });
+    }
+    else if (imageType === 'signature') {
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'signature', value: base64img } });
+    }
+    else if (imageType === 'parentsign') {
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'parentsign', value: base64img } });
+    }
   };
 
   useEffect(() => {
@@ -171,7 +188,7 @@ const MTSForm = (props) => {
               type="file"
               name="avatar"
               accept="image/*"
-              onChange={profilePicHandler}
+              onChange={(e) => profilePicHandler(e, 'avatar')}
             />
           </label>
         </div>
@@ -283,7 +300,7 @@ const MTSForm = (props) => {
             type="file"
             name="avatar"
             accept="image/*"
-            onChange={profilePicHandler}
+            onChange={(e) => profilePicHandler(e, 'signature')}
           />
         </label>
         <label for="image" className={`${styles.avatarBox} ${styles.sign}`}>
@@ -294,7 +311,7 @@ const MTSForm = (props) => {
             type="file"
             name="avatar"
             accept="image/*"
-            onChange={profilePicHandler}
+            onChange={(e) => profilePicHandler(e, 'parentsign')}
           />
         </label>
       </div>
