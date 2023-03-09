@@ -94,7 +94,6 @@ const MTSForm = (props) => {
           </div>
         </div>
       </div>
-
       <div className={styles.container}>
         <div className={styles.inputBox}>
           <label>First Name</label>
@@ -274,10 +273,9 @@ const MTSForm = (props) => {
           </div>
         </div>
       </div>
-
       <br></br>
       <div className={styles.container}>
-        <label for="image" className={styles.avatarBox}>
+        <label for="image" className={`${styles.avatarBox} ${styles.sign}`}>
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
@@ -288,7 +286,7 @@ const MTSForm = (props) => {
             onChange={profilePicHandler}
           />
         </label>
-        <label for="image" className={styles.avatarBox}>
+        <label for="image" className={`${styles.avatarBox} ${styles.sign}`}>
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
