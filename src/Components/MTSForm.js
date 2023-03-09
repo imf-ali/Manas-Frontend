@@ -20,6 +20,9 @@ const MTSForm = (props) => {
   const [inputValue, dispatchInput] = useReducer(inputReducer, {
     firstname: "",
     lastname: "",
+    class: "",
+    gender: "",
+    category: "",
     dob: "",
     fathername: "",
     mothername: "",
@@ -83,11 +86,11 @@ const MTSForm = (props) => {
           <div className={styles.radioInput}>
             {" "}
             <label>XIth pass</label>
-            <input type="radio" name="class" value="11" />
+            <input type="radio" name="class" value="11" onChange={inputChangeHandler} checked={inputValue.class === 11} />
           </div>
           <div className={styles.radioInput}>
             <label>XIIth pass</label>
-            <input type="radio" name="class" value="12" />
+            <input type="radio" name="class" value="12" onChange={inputChangeHandler} checked={inputValue.class === 12} />
           </div>
         </div>
       </div>
@@ -131,11 +134,11 @@ const MTSForm = (props) => {
               Gender:
               <div className={styles.radioInput}>
                 <label>Male</label>
-                <input required type="radio" name="gender" value="male" />
+                <input required type="radio" name="gender" value="male" onChange={inputChangeHandler} checked={inputValue.gender === "male"} />
               </div>
               <div className={styles.radioInput}>
                 <label>Female</label>
-                <input type="radio" name="gender" value="female" />
+                <input type="radio" name="gender" value="female" onChange={inputChangeHandler} checked={inputValue.gender === "female"} />
               </div>
             </div>
           </div>
@@ -255,19 +258,19 @@ const MTSForm = (props) => {
           Category:
           <div className={styles.radioInput}>
             <label>Gen</label>
-            <input required type="radio" name="category" value="general" />
+            <input required type="radio" name="category" value="general" onChange={inputChangeHandler} checked={inputValue.category === "general"} />
           </div>
           <div className={styles.radioInput}>
             <label>OBC (NC)</label>
-            <input type="radio" name="category" value="obc" />
+            <input type="radio" name="category" value="obc" onChange={inputChangeHandler} checked={inputValue.category === "obc"} />
           </div>
           <div className={styles.radioInput}>
             <label>SC/ST</label>
-            <input type="radio" name="category" value="sc/st" />
+            <input type="radio" name="category" value="sc/st" onChange={inputChangeHandler} checked={inputValue.category === "sc/st"} />
           </div>
           <div className={styles.radioInput}>
             <label>PD</label>
-            <input type="radio" name="category" value="pd" />
+            <input type="radio" name="category" value="pd" onChange={inputChangeHandler} checked={inputValue.category === "pd"} />
           </div>
         </div>
       </div>
