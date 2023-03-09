@@ -16,9 +16,9 @@ const MTSpage = () => {
     setIsPaid(isPaid);
   }
 
-  // useEffect(() => {
-  //   setPaid(isPaid);
-  // }, [isPaid])
+  useEffect(() => {
+    setPaid(isPaid);
+  }, [isPaid])
 
   console.log(paid)
 
@@ -26,7 +26,7 @@ const MTSpage = () => {
     <>
       {!showPayment && !paid && <MTSForm paymentHandler={showPaymentHandler} />}
       {showPayment && !paid && <Payment paymentHandler={showPaymentHandler} />}
-      {isPaid && <AdmitCard />}
+      {!isPaid && <AdmitCard />}
     </>
   );
 };
