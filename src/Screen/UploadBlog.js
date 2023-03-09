@@ -12,7 +12,7 @@ const UploadBlog = ({ inputObj, backHandler }) => {
   }
 
   const submitBlogHandler = async (text,heading) => {
-    const res = await manasInstance.submitBlog(inputObj.name, text, heading);
+    const res = await manasInstance.submitBlog(inputObj, text, heading);
     if (res.status === 200) {
       backHandler();
     }

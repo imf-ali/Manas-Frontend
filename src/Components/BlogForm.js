@@ -35,6 +35,7 @@ const BlogForm = ({ submitHandler }) => {
           type="text"
           name="name"
           label="Name"
+          required={true}
           onChange={inputChangeHandler}
           value={inputValue.name}
         />
@@ -43,14 +44,16 @@ const BlogForm = ({ submitHandler }) => {
           type="email"
           name="email"
           label="Email"
+          required={true}
           onChange={inputChangeHandler}
           value={inputValue.email}
         />
         <Input
           id="phone"
           type="text"
-          name="number"
+          name="phone"
           label="Phone Number"
+          required={true}
           onChange={inputChangeHandler}
           value={inputValue.phone}
         />

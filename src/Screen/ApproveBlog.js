@@ -10,7 +10,7 @@ const ApproveBlog = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await manasInstance.getAllBlogs();
-      if (res.data) setAllBlogs(res.data.blog);
+      if (res.data) setAllBlogs(res.data.blog.reverse());
       setStateChange(false);
     };
     if (stateChange) getData();

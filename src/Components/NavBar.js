@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 import image from "../resource/green.png";
@@ -9,13 +9,28 @@ import AuthContext from "../store/AuthContext";
 
 function NavBar() {
   const { manasInstance } = useContext(AuthContext);
-
   const { isAdmin, isStudent } = userStore((state) => ({
     isAdmin: state.isAdmin,
     isStudent: state.isStudent,
   }));
   const setIsLogin = userStore((state) => state.setIsLogin);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset;
+    if (scrollTop > 100) {
+      setHasScrolled(true);
+    } else {
+      setHasScrolled(false);
+    }
+  };
   const logoutHandler = async () => {
     const user = localStorage.getItem("user");
     const res = await manasInstance.logoutHandler(user);
@@ -32,12 +47,21 @@ function NavBar() {
 
   return (
     <>
-      <nav className={showNavbar ? "navbar responsiveNav" : "navbar"} id="navbar">
-        <img src={image} alt="" className="imageNav" />
-        <div className="barsNav" onClick={handleShowNavbar}>
-          <FaBars style={{fontSize:"1.5em"}}/>
+      <nav
+        className={`${showNavbar ? "navbar responsiveNav" : "navbar"} ${
+          hasScrolled ? "navbar-fixed" : ""
+        }`}
+        id="navbar"
+      >
+        <div className="logoBox">
+          <img src={image} alt="" className="imageNav" />
         </div>
-        <Link to="/" de className="headingNav">
+        <div className="barsNav" onClick={handleShowNavbar}>
+          <FaBars style={{ fontSize: "1.5em" }} />
+        </div>
+        <br />
+        <br />
+        <Link to="/" className="headingNav">
           Home
         </Link>
         {/* <Link to="/admissions" className="headingNav">

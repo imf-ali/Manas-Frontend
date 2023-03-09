@@ -1,20 +1,24 @@
 .navbar {
+  position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: row;
   justify-content: center;
+  display: flex;
   align-items: center;
   font-family: "Poppins", sans-serif;
   text-decoration: none;
-  /* border-bottom: 1px solid #000000; */
-  /* background-color: #000000; */
+  background-color: white;
+  z-index: 1;
+  -moz-box-shadow: 0 5px 10px rgba(182, 182, 182, 0.75);
+  -webkit-box-shadow: 0 5px 10px rgba(182, 182, 182, 0.75);
+  box-shadow: 0px 5px 10px rgba(182, 182, 182, 0.75);
+}
+.logoBox {
+  position: absolute;
+  left: 5%;
 }
 .headingNav {
-  float: left;
-  display: block;
-  /* color: #f2f2f2; */
   text-align: center;
-  padding: 14px 16px;
+  padding: 5vh 16px;
   text-decoration: none;
   font-size: 15px;
   font-family: "Poppins", sans-serif;
@@ -23,54 +27,66 @@
 }
 
 .imageNav {
+  display: flex;
   height: 60%;
   width: 20vh;
-  /* margin-right: 10%; */
-  /* position: relative; */
   float: left;
-  /* margin-right: 20vh; */
 }
 .imageNav2 {
   height: 100%;
   width: 20vh;
-  /* margin-right: 20vh; */
+  justify-self: end;
 }
 .linkRight {
-  height: 12vh;
+  height: 9vh;
   width: 20vh;
-  margin-left: 20vh;
+  position: absolute;
+  right: 5%;
 }
 .barsNav {
   display: none;
 }
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
 @media screen and (max-width: 769px) {
-  .navbar .headingNav:not(:first-child) {
+  .headingNav:not(:first-child) {
     display: none;
   }
-  .navbar .barsNav {
+  .barsNav {
     float: right;
     display: block;
+  }
+  .navbar {
+    justify-content: left;
+    padding-top: 1%;
+  }
+  .logoBox {
+    position: unset;
   }
 }
 
 @media screen and (max-width: 769px) {
   .responsiveNav {
-    position: relative;
+    position: fixed;
     display: block;
+    width: 100%;
   }
   .barsNav {
     position: fixed;
     right: 10px;
   }
-  .imageNav {
-  }
   .linkRight {
     display: none;
   }
-  .navbar.responsiveNav .headingNav {
-    float: none;
+  .responsiveNav .headingNav {
+    /* float: none; */
     display: flex;
     flex-direction: column;
     text-align: left;
+    padding: 2%;
   }
 }

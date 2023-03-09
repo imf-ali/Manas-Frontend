@@ -21,6 +21,9 @@
   border: 1px solid #d2d9e7;
   margin: auto;
 }
+.imageContainer:hover{
+  cursor: pointer;
+}
 .leftbutton {
   position: absolute;
   top: 50%;
@@ -65,6 +68,7 @@
   border-top: none;
   border: 2px solid black;
   width: 25%;
+  height: 400px;
   /* margin: 5% auto; */
   /* background-color: rgb(189, 189, 189); */
   /* padding: 0.5%; */
@@ -81,9 +85,9 @@
   background-color: white;
   border-radius: 10px;
   padding: 2vh;
-  height: 70%;
+  height: 77%;
   margin: 4%;
-  overflow-y:hidden;
+  overflow-y:auto;
 
   /* margin-top: 10%; */
   text-align: left;

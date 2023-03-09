@@ -350,7 +350,7 @@ class ManasInstance {
     }
   }
 
-  async submitBlog(name, data, heading){
+  async submitBlog(inputObj, data, heading){
     try {
       const options = {
         method: 'POST',
@@ -359,7 +359,9 @@ class ManasInstance {
           Authorization: `JWT ${this.getToken()}`
         },
         data: {
-          name: name,
+          name: inputObj.name,
+          email: inputObj.email,
+          phone: inputObj.phone,
           data: data,
           heading: heading,
         }
