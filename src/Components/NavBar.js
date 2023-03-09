@@ -99,11 +99,11 @@ function NavBar() {
             MTS
           </Link>
         )}
-        {/* {!isStudent && !isAdmin && (
+        {!isStudent && !isAdmin && (
           <Link to="/login" className="headingNav">
             Student
           </Link>
-        )} */}
+        )}
         {!isStudent && !isAdmin && (
           <Link to="/admin" className="headingNav">
             Admin
