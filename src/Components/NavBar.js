@@ -1,80 +1,124 @@
-import React, { useContext } from "react";
-import styles from "./NavBar.module.css";
+import React, { useContext, useState, useEffect } from "react";
+import "./NavBar.css";
 import { Link } from "react-router-dom";
-import image from "../resource/manas-logo.jpeg";
+import image from "../resource/green.png";
+import mts from "../resource/mts.png";
 import userStore from "../store/userStore";
+import { FaBars } from "react-icons/fa";
 import AuthContext from "../store/AuthContext";
 
 function NavBar() {
   const { manasInstance } = useContext(AuthContext);
-
   const { isAdmin, isStudent } = userStore((state) => ({
     isAdmin: state.isAdmin,
     isStudent: state.isStudent,
   }));
   const setIsLogin = userStore((state) => state.setIsLogin);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
-  const logoutHandler = async () => {
-    const user = localStorage.getItem('user');
-    const res = await manasInstance.logoutHandler(user);
-    if(res.status === 200) {
-      setIsLogin(false,false,undefined);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset;
+    if (scrollTop > 100) {
+      setHasScrolled(true);
+    } else {
+      setHasScrolled(false);
     }
-  }
+  };
+  const logoutHandler = async () => {
+    const user = localStorage.getItem("user");
+    const res = await manasInstance.logoutHandler(user);
+    if (res.status === 200) {
+      setIsLogin(false, false, undefined);
+    }
+  };
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar);
+    console.log(showNavbar);
+  };
 
   return (
-    <React.Fragment>
-      <div>
-        <nav className={styles.navbar}>
-          <img src={image} alt="" className={styles.image} />
-          <div className={styles.links}>
-            <Link to="/" className={styles.heading}>
-              Home
-            </Link>
-            <Link to="/admissions" className={styles.heading}>
-              Admissions
-            </Link>
-            <Link to="/" className={styles.heading}>
-              Results
-            </Link>
-            <Link to="/" className={styles.heading}>
-              Gallery
-            </Link>
-            <Link to="/about" className={styles.heading}>
-              About us
-            </Link>
-            {!isStudent && !isAdmin && (
-              <Link to="/login" className={styles.heading}>
-                Student
-              </Link>
-            )}
-            {!isAdmin && !isStudent && (
-              <Link to="/admin" className={styles.heading}>
-                Admin
-              </Link>
-            )}
-            {(isAdmin || isStudent) && (
-              <Link to="/notice" className={styles.heading}>
-                Notice
-              </Link>
-            )}
-            {isAdmin && (
-              <Link to="/uploadnotice" className={styles.heading}>
-                Notice Upload
-              </Link>
-            )}
-            {(isStudent) && <Link to="/mtspage" className={styles.heading}>
-              MTS
-            </Link>}
-            {(isAdmin || isStudent) && (
-              <div className={styles.heading} onClick={logoutHandler}>
-                Logout
-              </div>
-            )}
+    <>
+      <nav
+        className={`${showNavbar ? "navbar responsiveNav" : "navbar"} ${
+          hasScrolled ? "navbar-fixed" : ""
+        }`}
+        id="navbar"
+      >
+        <div className="logoBox">
+          <img src={image} alt="" className="imageNav" />
+        </div>
+        <div className="barsNav" onClick={handleShowNavbar}>
+          <FaBars style={{ fontSize: "1.5em" }} />
+        </div>
+        <br />
+        <br />
+        <Link to="/" className="headingNav">
+          Home
+        </Link>
+        {/* <Link to="/admissions" className="headingNav">
+            Admissions
+          </Link> */}
+        {/* <Link to="/" className="headingNav">
+            Results
+          </Link>
+          <Link to="/" className="headingNav">
+            Gallery
+          </Link> */}
+        {/* <Link to="/about" className="headingNav">
+            About us
+          </Link> */}
+        <Link to="/blogs" className="headingNav">
+          Blogs
+        </Link>
+        {(isAdmin || isStudent) && (
+          <Link to="/notice" className="headingNav">
+            Notice
+          </Link>
+        )}
+        {isAdmin && (
+          <Link to="/uploadnotice" className="headingNav">
+            Notice Upload
+          </Link>
+        )}
+        {isAdmin && (
+          <Link to="/approveblog" className="headingNav">
+            Manage Blogs
+          </Link>
+        )}
+        {isStudent && (
+          <Link to="/mtspage" className="headingNav">
+            MTS
+          </Link>
+        )}
+        {/* {!isStudent && !isAdmin && (
+          <Link to="/login" className="headingNav">
+            Student
+          </Link>
+        )} */}
+        {!isStudent && !isAdmin && (
+          <Link to="/admin" className="headingNav">
+            Admin
+          </Link>
+        )}
+        {(isAdmin || isStudent) && (
+          <div className="headingNav" onClick={logoutHandler}>
+            Logout
           </div>
-        </nav>
-      </div>
-    </React.Fragment>
+        )}
+        <div className="linkRight">
+          <img src={mts} alt="" className="imageNav2" />
+        </div>
+      </nav>
+    </>
   );
 }
 

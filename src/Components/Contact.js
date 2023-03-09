@@ -2,25 +2,15 @@ import React from "react";
 import './Contact.css';
 
 const Contact = () => {
-
-  // const submitForm = () => {
-  //   // window.open(
-  //   //   `mailto:${contactEmail}?subject=${encodeURIComponent(
-  //   //     subject
-  //   //   )}&body=${encodeURIComponent(name)} (${encodeURIComponent(
-  //   //     email
-  //   //   )}): ${encodeURIComponent(message)}`
-  //   // );
-  // };
-
   return (
     <div className="contact container-2">
             <form>
                 <div className="form">
                     <div className="form-txt">
                         <h1>Contact Us</h1>
-                        <h3>India</h3>
-                        <p>alifahad2210@gmail.com</p>
+                        <h4>Gali no 2 Nearby milestone</h4>
+                        <h4>PNB Bank, Nutan Nagar Branch, Nutan Nagar</h4>
+                        <p>manas.education.research@gmail.com</p>
                         <p>Gaya, Bihar<br />823001</p>
                     </div>
                     <div className="form-details">

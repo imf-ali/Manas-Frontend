@@ -5,17 +5,25 @@ import styles from "./NoticeUpload.module.css";
 const NoticeUpload = () => {
   const headingRef = useRef(null);
   const textRef = useRef(null);
+  const noticeRef = useRef(null);
   const { manasInstance } = useContext(AuthContext);
   const [allNotice, setAllNotice] = useState([]);
   const [stateChange, setStateChange] = useState(true);
 
-  const noticeSubmitHandler = () => {
+  const noticeSubmitHandler = (e) => {
+    e.preventDefault();
     const res = manasInstance.submitNotice(
       headingRef.current.value,
       textRef.current.value
     );
-    console.log(res);
   };
+
+  const mainNoticeSubmitHandler = async (e) => {
+    e.preventDefault();
+    const res = await manasInstance.submitMainNotice(noticeRef.current.value);
+    setStateChange(true);
+    // console.log(res.data);
+  }
 
   const UploadNoticeForm = () => {
     return (
@@ -33,10 +41,22 @@ const NoticeUpload = () => {
     );
   };
 
+  const UploadNoticeToHome = () => {
+    return (
+      <form className={styles.noticeUploadForm} onSubmit={mainNoticeSubmitHandler}>
+        <div className={styles.uploadHeading}>
+          <label>New Notice</label>
+          <input type="text" ref={noticeRef} />
+        </div>
+        <button>Add notice to home</button>
+      </form>
+    );
+  };
+
   useEffect(() => {
     const getData = async () => {
       const res = await manasInstance.getAllNotice();
-      if (res.data) setAllNotice(res.data.allNotice);
+      if (res.data) setAllNotice(res.data.allNotice.reverse());
       setStateChange(false);
     };
     if (stateChange) getData();
@@ -60,6 +80,7 @@ const NoticeUpload = () => {
         {allNotice.map((notice, index) => (
           <div key={index}>
             <div className={styles.noticeCard}>
+              {/* {!notice.data && <h2>Main notice</h2>} */}
               <div className={styles.cardLeft}>
                 <div className={styles.noticeHeading}>{notice.heading}</div>
                 <div className={styles.noticeData}>{notice.data}</div>
@@ -101,7 +122,8 @@ const NoticeUpload = () => {
 
   return (
     <div>
-      <UploadNoticeForm />
+      {/* <UploadNoticeForm /> */}
+      <UploadNoticeToHome />
       {showAllNotice()}
     </div>
   );

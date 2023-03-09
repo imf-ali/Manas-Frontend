@@ -1,0 +1,25 @@
+.mainDiv {
+  margin: auto;
+}
+
+.goBack {
+  display: flex;
+  margin: 1vh;
+  /* margin-top: -18%; */
+  background-color: #ff7979;
+  padding: 2vh ;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  /* border-radius: 45px; */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+
+.goBack:hover {
+ background-color: #ff0000;
+  box-shadow: 0px 15px 20px #ff7979;
+  color: #fff;
+}

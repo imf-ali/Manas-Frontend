@@ -136,6 +136,26 @@ class ManasInstance {
     }
   }
 
+  async submitMainNotice(heading){
+    try {
+      const options = {
+        method: 'POST',
+        url: `${this.host}/admin/addNotice`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: {
+          heading: heading,
+          mainNotice: true,
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   async deleteNotice(noticeId){
     try {
       const options = {
@@ -235,6 +255,116 @@ class ManasInstance {
         headers: {
           Authorization: `JWT ${this.getToken()}`
         },
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async getApprovedBlogs(){
+    try {
+      const options = {
+        method: 'GET',
+        url: `${this.host}/getBlog`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async getApprovedBlogById(blogid){
+    try {
+      const options = {
+        method: 'GET',
+        url: `${this.host}/getBlog/${blogid}`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async getAllBlogs(){
+    try {
+      const options = {
+        method: 'GET',
+        url: `${this.host}/admin/Blog`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async showBlog(blogId, show){
+    try {
+      const options = {
+        method: 'PATCH',
+        url: `${this.host}/admin/Blog`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: {
+          id: blogId,
+          show: show
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async deleteBlog(blogId){
+    try {
+      const options = {
+        method: 'DELETE',
+        url: `${this.host}/admin/Blog`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: {
+          id: blogId
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async submitBlog(inputObj, data, heading){
+    try {
+      const options = {
+        method: 'POST',
+        url: `${this.host}/uploadBlog`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: {
+          name: inputObj.name,
+          email: inputObj.email,
+          phone: inputObj.phone,
+          data: data,
+          heading: heading,
+        }
       };
       const res = await axios(options);
       return res;

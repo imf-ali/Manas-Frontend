@@ -1,89 +1,80 @@
-import React, { useState } from 'react';
-import { reviews, directorProfile } from '../lib/data';
-import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
-import './ReviewsSlider.css';
+import React, { useState, useEffect, useCallback } from "react";
+import { reviews } from "../lib/data";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import styles from "./ReviewsSlider.module.css";
 
 const Review = () => {
   const [index, setIndex] = useState(0);
-  const {name, job, image, text} = reviews[index];
+  const { name, job, image, text } = reviews[index];
+  const [hoverImage, setHoverImage] = useState(false);
 
   const checkNumber = (number) => {
-    if(number > reviews.length - 1){
+    if (number > reviews.length - 1) {
       return 0;
-    }
-    else if(number < 0){
+    } else if (number < 0) {
       return reviews.length - 1;
     }
     return number;
-  }
+  };
 
-  const nextPerson = () => {
+  const nextPerson = useCallback(() => {
     setIndex((index) => {
       let newIndex = index + 1;
       return checkNumber(newIndex);
-    }) 
-  };
+    });
+  },[]);
 
   const prevPerson = () => {
     setIndex((index) => {
       let newIndex = index - 1;
       return checkNumber(newIndex);
-    }) 
-  }
-
-  const directorProfileRender = () => { 
-    return (
-      <>
-      <div className='director-div'>
-        <div children="title">
-          <h2 className="heading">Director's Profile</h2>
-          <div className="underline"></div>
-        </div>
-        <div className="review">
-          <div className="img-container">
-          <img src={directorProfile.image} alt={directorProfile.name} className="person-img"/>
-          <span className="quote-icon">
-            <FaQuoteRight />
-          </span>
-          </div>
-          <h4 className="author">{directorProfile.name}</h4>
-          <h5>Founder and director</h5>
-          <p className="jon">{directorProfile.job}</p>
-          <p className="info">{directorProfile.text}</p>
-        </div>
-      </div>
-      </>
-    )
+    });
   };
 
-  return(
-    <div className='main-div'>
-      {directorProfileRender()}
-      <div className='director-div'>
-        <div children="title">
-          <h2 className="heading-2">What our students have to say</h2>
-          <div className="underline"></div>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(!hoverImage)
+        nextPerson();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [nextPerson, hoverImage]);
+
+  const mouseEnterHander = () => {
+    setHoverImage(true);
+  }
+
+  const mouseLeaveHander = () => {
+    setHoverImage(false);
+  }
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.title}>
+        <h2>Testimonial of our Almuni</h2>
+        <div className={styles.buttonContainer}>
+          <button onClick={prevPerson}>
+            <AiOutlineArrowLeft />
+          </button>
+          <button onClick={nextPerson}>
+            <AiOutlineArrowRight />
+          </button>
         </div>
-        <article className="review-2">
-          <div className="img-container">
-            <img src={image} alt={name} className="person-img"/>
-            <span className="quote-icon">
-              <FaQuoteRight />
-            </span>
-            </div>
-            <h4 className="author">{name}</h4>
-            <p className="jon">{job}</p>
-            <p className="info">{text}</p>
-            <div className="button-container">
-              <button className="prev-btn" onClick={prevPerson}>
-                <FaChevronLeft />
-              </button>
-              <button className="next-btn" onClick={nextPerson}>
-                <FaChevronRight />
-              </button>  
-            </div>
-        </article>
       </div>
+      <article 
+        className={styles.alumni} 
+        onMouseEnter={mouseEnterHander} 
+        onMouseLeave={mouseLeaveHander}
+      >
+        <p className={styles.info}>{text}</p>
+        <div className={styles.aboutAlmuni}>
+          <img src={image} alt={name} className={styles.image} />
+          <div className={styles.almuniDetails}>
+            <h4 className={styles.author}>{name}</h4>
+            <p className={styles.job}>{job}</p>
+          </div>
+        </div>
+      </article>
     </div>
   );
 };
