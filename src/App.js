@@ -26,20 +26,17 @@ const backendUrl =
 
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
-  const setIsPaid = userStore((state) => state.setIsPaid);
 
   const manasInstance = new ManasInstance(backendUrl);
 
   useEffect(() => {
     const user = localStorage.getItem("user");
     const id = localStorage.getItem("userId");
-    const isPaid = localStorage.getItem("isPaid");
-    setIsPaid(isPaid);
     if (localStorage.getItem("token")) {
       if (user === "admin") setIsLogin(true, false, id);
       else if (user === "student") setIsLogin(false, true, id);
     }
-  }, [setIsLogin, setIsPaid]);
+  }, [setIsLogin]);
 
   return (
     <AuthContextProvider value={{ manasInstance }}>

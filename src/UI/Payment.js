@@ -57,7 +57,7 @@ const Payment = (props) => {
         <button
           className={styles.back}
           onClick={() => {
-            props.paymentHandler(false);
+            props.paymentHandler(1);
           }}
         >
           Back

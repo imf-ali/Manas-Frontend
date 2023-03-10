@@ -42,7 +42,6 @@ function NavBar() {
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
-    console.log(showNavbar);
   };
 
   return (

@@ -1,32 +1,39 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import AdmitCard from "../Components/AdmitCard";
 import MTSForm from "../Components/MTSForm";
 import userStore from "../store/userStore";
 import Payment from "../UI/Payment";
+import AuthContext from "../store/AuthContext";
 
 const MTSpage = () => {
 
-  const isPaid = userStore(state => state.isPaid);
-  const setIsPaid = userStore(state => state.setIsPaid);
-  const [ showPayment, setShowPayment ] = useState(false);
-  const [ paid, setPaid ] = useState(false);
+  const { manasInstance } = useContext(AuthContext);
 
-  const showPaymentHandler = (isPaid) => {
-    setShowPayment(state => !state);
-    setIsPaid(isPaid);
+  const userId = userStore(state => state.userId);
+  const [paidStatus, setPaidStatus] = useState(0);
+
+  const showPaymentHandler = async (paymentStatus) => {
+    const res = await manasInstance.updateData(userId,{ paymentStatus });
+    if (res.status === 201) {
+      setPaidStatus(res.data.user.paymentStatus);
+    }
   }
 
   useEffect(() => {
-    setPaid(isPaid);
-  }, [isPaid])
-
-  console.log(paid)
+    const loadUser = async () => {
+      const res = await manasInstance.getUserData(userId);
+      if (res.status === 200) {
+        setPaidStatus(res.data.userRes.paymentStatus);
+      }
+    };
+    loadUser();
+  }, [userId, manasInstance, paidStatus]);
 
   return (
     <>
-      {!showPayment && !paid && <MTSForm paymentHandler={showPaymentHandler} />}
-      {showPayment && !paid && <Payment paymentHandler={showPaymentHandler} />}
-      {!isPaid && <AdmitCard />}
+      {(paidStatus === 1 )&& <MTSForm paymentHandler={showPaymentHandler} />}
+      {(paidStatus === 2) && <Payment paymentHandler={showPaymentHandler} />}
+      {(paidStatus === 3) && <AdmitCard />}
     </>
   );
 };

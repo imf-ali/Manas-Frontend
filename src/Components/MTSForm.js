@@ -47,10 +47,13 @@ const MTSForm = (props) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(inputValue);
-    const res = await manasInstance.updateData(userId, inputValue);
+    if(!inputValue.avatar || !inputValue.signature || !inputValue.parentsign) { 
+      alert("Please upload photos");
+      return;
+    }
+    const res = await manasInstance.updateData(userId, { ...inputValue });
     if (res.status === 201) {
-      props.paymentHandler();
+      props.paymentHandler(2);
     }
   };
 
@@ -61,16 +64,16 @@ const MTSForm = (props) => {
     reader.onerror = error => reject(error);
 });
 
-  const profilePicHandler = async (e, imageType) => {
+  const profilePicHandler = async (e) => {
     const file = e.target.files[0];
     const base64img = await toBase64(file);
-    if (imageType === 'avatar') {
+    if (e.target.name === 'avatar') {
       dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'avatar', value: base64img } });
     }
-    else if (imageType === 'signature') {
+    else if (e.target.name === 'signature') {
       dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'signature', value: base64img } });
     }
-    else if (imageType === 'parentsign') {
+    else if (e.target.name === 'parentsign') {
       dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'parentsign', value: base64img } });
     }
   };
@@ -98,16 +101,16 @@ const MTSForm = (props) => {
           <div className={styles.radioInput}>
             {" "}
             <label>Xth pass</label>
-            <input required type="radio" name="class" value="10" />
+            <input required type="radio" name="class" value="10" onChange={inputChangeHandler} checked={inputValue.class === "10"} />
           </div>
           <div className={styles.radioInput}>
             {" "}
             <label>XIth pass</label>
-            <input type="radio" name="class" value="11" onChange={inputChangeHandler} checked={inputValue.class === 11} />
+            <input type="radio" name="class" value="11" onChange={inputChangeHandler} checked={inputValue.class === "11"} />
           </div>
           <div className={styles.radioInput}>
             <label>XIIth pass</label>
-            <input type="radio" name="class" value="12" onChange={inputChangeHandler} checked={inputValue.class === 12} />
+            <input type="radio" name="class" value="12" onChange={inputChangeHandler} checked={inputValue.class === "12"} />
           </div>
         </div>
       </div>
@@ -180,7 +183,7 @@ const MTSForm = (props) => {
           </div>
         </div>
         <div className={styles.containerRight}>
-          <label for="image" className={styles.avatarBox}>
+          <label className={styles.avatarBox}>
             <span className={styles.avatarTitle}>Upload Image</span>
             <input
               id="image"
@@ -188,7 +191,7 @@ const MTSForm = (props) => {
               type="file"
               name="avatar"
               accept="image/*"
-              onChange={(e) => profilePicHandler(e, 'avatar')}
+              onChange={profilePicHandler}
             />
           </label>
         </div>
@@ -292,26 +295,26 @@ const MTSForm = (props) => {
       </div>
       <br></br>
       <div className={styles.container}>
-        <label for="image" className={`${styles.avatarBox} ${styles.sign}`}>
+        <label className={`${styles.avatarBox} ${styles.sign}`}>
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
             className={styles.avatar}
             type="file"
-            name="avatar"
+            name="signature"
             accept="image/*"
-            onChange={(e) => profilePicHandler(e, 'signature')}
+            onChange={profilePicHandler}
           />
         </label>
-        <label for="image" className={`${styles.avatarBox} ${styles.sign}`}>
+        <label className={`${styles.avatarBox} ${styles.sign}`}>
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
             className={styles.avatar}
             type="file"
-            name="avatar"
+            name="parentsign"
             accept="image/*"
-            onChange={(e) => profilePicHandler(e, 'parentsign')}
+            onChange={profilePicHandler}
           />
         </label>
       </div>

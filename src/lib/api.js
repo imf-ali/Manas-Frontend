@@ -5,22 +5,16 @@ class ManasInstance {
     this.host = host;
   };
 
-  setToken(token, user, userId, isPaid) {
+  setToken(token, user, userId) {
     localStorage.setItem('token', token);
     localStorage.setItem('user', user);
     localStorage.setItem('userId', userId);
-    localStorage.setItem('isPaid', isPaid);
   };
-
-  setPaymentToken(isPaid) {
-    localStorage.setItem('isPaid', isPaid);
-  }
 
   removeToken() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('userId');
-    localStorage.removeItem('isPaid');
   };
 
   getToken() {
@@ -39,7 +33,6 @@ class ManasInstance {
       const res = await axios(options);
       if(res.status === 201) {
         this.setToken(res.data.token, 'student', res.data.user._id);
-        this.setPaymentToken(res.data.user.isPaymentDone);
       }
       return res;
     } catch (e) {
@@ -60,7 +53,6 @@ class ManasInstance {
       const res = await axios(options);
       if(res.status === 201) {
         this.setToken(res.data.token, user, res.data.user._id);
-        this.setPaymentToken(res.data.user.isPaymentDone);
       }
       return res;
     } catch (e) {
@@ -203,7 +195,9 @@ class ManasInstance {
         headers: {
           Authorization: `JWT ${this.getToken()}`
         },
-        data: payload
+        data: {
+          ...payload,
+        }
       };
       const res = await axios(options);
       return res;
