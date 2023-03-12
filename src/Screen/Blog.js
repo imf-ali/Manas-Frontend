@@ -19,7 +19,6 @@ const Blog = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await manasInstance.getApprovedBlogs();
-      console.log(res.data);
       if (res.data) setBlog(res.data.blog);
     };
     getData();

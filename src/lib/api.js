@@ -60,6 +60,25 @@ class ManasInstance {
     }
   }
 
+  async loginViaGoogle(user,token){
+    try {
+      const options = {
+        method: 'POST',
+        url: `${this.host}/${user}/login`,
+        data: {
+          googleAccessToken: token
+        }
+      };
+      const res = await axios(options);
+      if(res.status === 201) {
+        this.setToken(res.data.token, user, res.data.user._id);
+      }
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   async logoutHandler(user){
     try {
       const options = {
@@ -358,6 +377,42 @@ class ManasInstance {
           phone: inputObj.phone,
           data: data,
           heading: heading,
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async getAllStudents(){
+    try {
+      const options = {
+        method: 'GET',
+        url: `${this.host}/admin/getAllStudents`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async changePaymentStatus(studentId, paymentStatus){
+    console.log(paymentStatus);
+    try {
+      const options = {
+        method: 'PATCH',
+        url: `${this.host}/admin/${studentId}/markpaid`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: {
+          paymentStatus
         }
       };
       const res = await axios(options);

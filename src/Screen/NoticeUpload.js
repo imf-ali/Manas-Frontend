@@ -22,7 +22,6 @@ const NoticeUpload = () => {
     e.preventDefault();
     await manasInstance.submitMainNotice(noticeRef.current.value);
     setStateChange(true);
-    // console.log(res.data);
   }
 
   // const UploadNoticeForm = () => {
@@ -63,15 +62,13 @@ const NoticeUpload = () => {
   }, [manasInstance, stateChange]);
 
   const showNoticeHandler = async (noticeId, show) => {
-    const res = await manasInstance.showNotice(noticeId, show);
+    await manasInstance.showNotice(noticeId, show);
     setStateChange(true);
-    console.log(res);
   };
 
   const deleteNoticeHandler = async (noticeId) => {
-    const res = await manasInstance.deleteNotice(noticeId);
+    await manasInstance.deleteNotice(noticeId);
     setStateChange(true);
-    console.log(res);
   };
 
   const showAllNotice = () => {

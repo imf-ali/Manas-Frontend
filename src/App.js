@@ -17,6 +17,8 @@ import Header from "./Components/Header";
 import Blog from "./Screen/Blog";
 import ApproveBlog from "./Screen/ApproveBlog";
 import BlogPage from "./Screen/BlogPage";
+import ApprovePayment from "./Screen/ApprovePayment";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 const backendUrl =
@@ -39,27 +41,30 @@ function App() {
   }, [setIsLogin]);
 
   return (
-    <AuthContextProvider value={{ manasInstance }}>
-      <Router>
-        <Header />
-        <NavBar />
-        <div className={styles.App}>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/admissions" element={<Admissions />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/admin" element={<LoginPageAdmin />} />
-            <Route path="/notice" element={<Notice />} />
-            <Route path="/uploadnotice" element={<NoticeUpload />} />
-            <Route path="/mtspage" element={<MTSpage />} />
-            <Route path="/blogs" element={<Blog />} />
-            <Route path="/blogs/:blogid" element={<BlogPage />} />
-            <Route path="/approveblog" element={<ApproveBlog />} />
-          </Routes>
-        </div>
-      </Router>
-    </AuthContextProvider>
+    <GoogleOAuthProvider clientId="338277030676-4vv7ej7qd4a4980qlqmonemtnk2p4cat.apps.googleusercontent.com">
+      <AuthContextProvider value={{ manasInstance }}>
+        <Router>
+          <Header />
+          <NavBar />
+          <div className={styles.App}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/admissions" element={<Admissions />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/admin" element={<LoginPageAdmin />} />
+              <Route path="/notice" element={<Notice />} />
+              <Route path="/uploadnotice" element={<NoticeUpload />} />
+              <Route path="/mtspage" element={<MTSpage />} />
+              <Route path="/blogs" element={<Blog />} />
+              <Route path="/blogs/:blogid" element={<BlogPage />} />
+              <Route path="/approveblog" element={<ApproveBlog />} />
+              <Route path="/approvepayment" element={<ApprovePayment />} />
+            </Routes>
+          </div>
+        </Router>
+      </AuthContextProvider>
+    </GoogleOAuthProvider>
   );
 }
 

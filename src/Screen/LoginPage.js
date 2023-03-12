@@ -3,6 +3,7 @@ import styles from "./LoginPage.module.css";
 import Input from "../UI/Input";
 import AuthContext from "../store/AuthContext";
 import userStore from "../store/userStore";
+import { useGoogleLogin } from '@react-oauth/google';
 
 const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_CHANGE") {
@@ -12,10 +13,32 @@ const inputReducer = (state, actions) => {
 };
 
 const LoginPage = () => {
+  
   const setIsLogin = userStore((state) => state.setIsLogin);
   const setIsPaid = userStore((state) => state.setIsPaid);
-
   const { manasInstance } = useContext(AuthContext);
+
+  const login = useGoogleLogin({
+    onSuccess: async (codeResponse) => {
+      const res = await manasInstance.loginViaGoogle('student', codeResponse.access_token);
+      if(res.status === 201) {
+        setIsLogin(false, true, res.data.user._id);
+        setIsPaid(res.data.user.isPaymentDone)
+      }
+    } ,
+    onError: (error) => console.log('Login Failed:', error)
+  });
+
+  const signup = useGoogleLogin({
+    onSuccess: async (codeResponse) => {
+      const res = await manasInstance.signUpHandler({ googleAccessToken: codeResponse.access_token});
+      if(res.status === 201) {
+        setIsLogin(false, true, res.data.user._id);
+        setIsPaid(res.data.user.isPaymentDone)
+      }
+    } ,
+    onError: (error) => console.log('Login Failed:', error)
+  });
 
   const [inputValue, dispatchInput] = useReducer(inputReducer, {
     firstname: '',
@@ -47,16 +70,6 @@ const LoginPage = () => {
     }
   };
 
-  // const switchStudent = () => {
-  //   document.getElementById("student").style.left = "0";
-  //   document.getElementById("btn").style.left = "50%";
-  //   document.getElementById("adminLogin").style.left = "-121%";
-  // };
-  // const switchAdmin = () => {
-  //   document.getElementById("adminLogin").style.left = "0";
-  //   document.getElementById("btn").style.left = "0%";
-  //   document.getElementById("student").style.left = "121%";
-  // };
   const switchSignUp = () => {
     document.getElementById("studentLogin").style.left = "121%";
     document.getElementById("studentSign").style.left = "0%";
@@ -110,6 +123,7 @@ const LoginPage = () => {
               onChange={adminChangeHandler}
             /> */}
             <button className={styles.loginButton}>Submit</button>
+            <button onClick={() => login()}>Sign in with Google 🚀 </button>
           </form>
           <form
             id="studentSign"
@@ -164,6 +178,7 @@ const LoginPage = () => {
               onChange={adminChangeHandler}
             /> */}
             <button className={styles.loginButton}>Submit</button>
+            <button onClick={() => signup()}>Sign in with Google 🚀 </button>
           </form>
         </div>
       </div>

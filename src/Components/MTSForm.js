@@ -21,6 +21,7 @@ const MTSForm = (props) => {
   const userId = userStore((state) => state.userId);
 
   const [inputValue, dispatchInput] = useReducer(inputReducer, {
+    registration: "",
     firstname: "",
     lastname: "",
     class: "",
@@ -93,7 +94,7 @@ const MTSForm = (props) => {
       <div className={styles.container}>
         <h3>
           <span>
-            Registration No. : <input />
+            Registration No. : <input required type="text" name="registration" value={inputValue.registration} readOnly={true} />
           </span>
         </h3>
         <div className={styles.applyFor}>
@@ -123,6 +124,7 @@ const MTSForm = (props) => {
             name="firstname"
             value={inputValue.firstname}
             onChange={inputChangeHandler}
+            readOnly={true}
           />
         </div>
         <div className={styles.inputBox}>
@@ -133,6 +135,7 @@ const MTSForm = (props) => {
             name="lastname"
             value={inputValue.lastname}
             onChange={inputChangeHandler}
+            readOnly={true}
           />
         </div>
       </div>
@@ -271,6 +274,7 @@ const MTSForm = (props) => {
             name="email"
             value={inputValue.email}
             onChange={inputChangeHandler}
+            readOnly={true}
           />
         </div>
         <div className={styles.container}>

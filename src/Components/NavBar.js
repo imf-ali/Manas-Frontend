@@ -93,6 +93,11 @@ function NavBar() {
             Manage Blogs
           </Link>
         )}
+        {isAdmin && (
+          <Link to="/approvepayment" className="headingNav">
+            Approve Payment
+          </Link>
+        )}
         {isStudent && (
           <Link to="/mtspage" className="headingNav">
             MTS
