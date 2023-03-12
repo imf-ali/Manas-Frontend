@@ -30,7 +30,7 @@ const BlogPage = () => {
       setBlog(res.data.blog);
     };
     loadBlog();
-  }, []);
+  }, [blogid, manasInstance]);
 
   return (
     <div className={styles.mainDiv}>

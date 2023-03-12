@@ -10,6 +10,9 @@ const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_LOAD") {
     return { ...actions.input };
   }
+  if (actions.type === "IMAGE_UPLOAD") {
+    return { ...state, [actions.input.name]: actions.input.value };
+  }
   return { ...state };
 };
 
@@ -18,6 +21,7 @@ const MTSForm = (props) => {
   const userId = userStore((state) => state.userId);
 
   const [inputValue, dispatchInput] = useReducer(inputReducer, {
+    registration: "",
     firstname: "",
     lastname: "",
     class: "",
@@ -44,18 +48,35 @@ const MTSForm = (props) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const res = await manasInstance.updateData(userId, inputValue);
+    if(!inputValue.avatar || !inputValue.signature || !inputValue.parentsign) { 
+      alert("Please upload photos");
+      return;
+    }
+    const res = await manasInstance.updateData(userId, { ...inputValue });
     if (res.status === 201) {
-      props.paymentHandler();
+      props.paymentHandler(2);
     }
   };
 
+  const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+
   const profilePicHandler = async (e) => {
     const file = e.target.files[0];
-    console.log(e.target.name, e.target.files[0]);
-    const buffer = await file.arrayBuffer();
-    const bytes = new Uint8Array(buffer);
-    console.log(bytes);
+    const base64img = await toBase64(file);
+    if (e.target.name === 'avatar') {
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'avatar', value: base64img } });
+    }
+    else if (e.target.name === 'signature') {
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'signature', value: base64img } });
+    }
+    else if (e.target.name === 'parentsign') {
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'parentsign', value: base64img } });
+    }
   };
 
   useEffect(() => {
@@ -73,7 +94,7 @@ const MTSForm = (props) => {
       <div className={styles.container}>
         <h3>
           <span>
-            Registration No. : <input />
+            Registration No. : <input required type="text" name="registration" value={inputValue.registration} readOnly={true} />
           </span>
         </h3>
         <div className={styles.applyFor}>
@@ -81,20 +102,19 @@ const MTSForm = (props) => {
           <div className={styles.radioInput}>
             {" "}
             <label>Xth pass</label>
-            <input required type="radio" name="class" value="10" />
+            <input required type="radio" name="class" value="10" onChange={inputChangeHandler} checked={inputValue.class === "10"} />
           </div>
           <div className={styles.radioInput}>
             {" "}
             <label>XIth pass</label>
-            <input type="radio" name="class" value="11" onChange={inputChangeHandler} checked={inputValue.class === 11} />
+            <input type="radio" name="class" value="11" onChange={inputChangeHandler} checked={inputValue.class === "11"} />
           </div>
           <div className={styles.radioInput}>
             <label>XIIth pass</label>
-            <input type="radio" name="class" value="12" onChange={inputChangeHandler} checked={inputValue.class === 12} />
+            <input type="radio" name="class" value="12" onChange={inputChangeHandler} checked={inputValue.class === "12"} />
           </div>
         </div>
       </div>
-
       <div className={styles.container}>
         <div className={styles.inputBox}>
           <label>First Name</label>
@@ -104,6 +124,7 @@ const MTSForm = (props) => {
             name="firstname"
             value={inputValue.firstname}
             onChange={inputChangeHandler}
+            readOnly={true}
           />
         </div>
         <div className={styles.inputBox}>
@@ -114,6 +135,7 @@ const MTSForm = (props) => {
             name="lastname"
             value={inputValue.lastname}
             onChange={inputChangeHandler}
+            readOnly={true}
           />
         </div>
       </div>
@@ -164,7 +186,7 @@ const MTSForm = (props) => {
           </div>
         </div>
         <div className={styles.containerRight}>
-          <label for="image" className={styles.avatarBox}>
+          <label className={styles.avatarBox}>
             <span className={styles.avatarTitle}>Upload Image</span>
             <input
               id="image"
@@ -252,6 +274,7 @@ const MTSForm = (props) => {
             name="email"
             value={inputValue.email}
             onChange={inputChangeHandler}
+            readOnly={true}
           />
         </div>
         <div className={styles.container}>
@@ -274,27 +297,26 @@ const MTSForm = (props) => {
           </div>
         </div>
       </div>
-
       <br></br>
       <div className={styles.container}>
-        <label for="image" className={styles.avatarBox}>
+        <label className={`${styles.avatarBox} ${styles.sign}`}>
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
             className={styles.avatar}
             type="file"
-            name="avatar"
+            name="signature"
             accept="image/*"
             onChange={profilePicHandler}
           />
         </label>
-        <label for="image" className={styles.avatarBox}>
+        <label className={`${styles.avatarBox} ${styles.sign}`}>
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
             className={styles.avatar}
             type="file"
-            name="avatar"
+            name="parentsign"
             accept="image/*"
             onChange={profilePicHandler}
           />
