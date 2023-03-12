@@ -1,4 +1,5 @@
 import React, { useReducer, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./LoginPage.module.css";
 import Input from "../UI/Input";
 import AuthContext from "../store/AuthContext";
@@ -17,13 +18,15 @@ const LoginPage = () => {
   const setIsLogin = userStore((state) => state.setIsLogin);
   const setIsPaid = userStore((state) => state.setIsPaid);
   const { manasInstance } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const login = useGoogleLogin({
     onSuccess: async (codeResponse) => {
       const res = await manasInstance.loginViaGoogle('student', codeResponse.access_token);
       if(res.status === 201) {
         setIsLogin(false, true, res.data.user._id);
-        setIsPaid(res.data.user.isPaymentDone)
+        setIsPaid(res.data.user.isPaymentDone);
+        navigate('/')
       }
     } ,
     onError: (error) => console.log('Login Failed:', error)
@@ -34,7 +37,8 @@ const LoginPage = () => {
       const res = await manasInstance.signUpHandler({ googleAccessToken: codeResponse.access_token});
       if(res.status === 201) {
         setIsLogin(false, true, res.data.user._id);
-        setIsPaid(res.data.user.isPaymentDone)
+        setIsPaid(res.data.user.isPaymentDone);
+        navigate('/')
       }
     } ,
     onError: (error) => console.log('Login Failed:', error)
@@ -58,14 +62,16 @@ const LoginPage = () => {
       const res = await manasInstance.loginHandler(inputValue.email, inputValue.password, 'student');
       if(res.status === 201) {
         setIsLogin(false, true, res.data.user._id);
-        setIsPaid(res.data.user.isPaymentDone)
+        setIsPaid(res.data.user.isPaymentDone);
+        navigate('/');
       }
     }
     else {
       const res = await manasInstance.signUpHandler(inputValue);
       if(res.status === 201) {
         setIsLogin(false, true, res.data.user._id);
-        setIsPaid(res.data.user.isPaymentDone)
+        setIsPaid(res.data.user.isPaymentDone);
+        navigate('/');
       }
     }
   };

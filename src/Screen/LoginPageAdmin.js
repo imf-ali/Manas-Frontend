@@ -3,6 +3,7 @@ import styles from "./LoginPage.module.css";
 import Input from "../UI/Input";
 import AuthContext from "../store/AuthContext";
 import userStore from "../store/userStore";
+import { useNavigate } from "react-router-dom";
 
 const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_CHANGE") {
@@ -21,6 +22,8 @@ const LoginPageAdmin = () => {
     password: '',
   })
 
+  const navigate = useNavigate();
+
   const inputChangeHandler = (e) => {
     dispatchInput({ type: 'INPUT_CHANGE', input: e.target })
   }
@@ -30,6 +33,7 @@ const LoginPageAdmin = () => {
     const res = await manasInstance.loginHandler(inputValue.email, inputValue.password,'admin');
     if (res.status === 201) {
       setIsLogin(true, false);
+      navigate('/');
     }
   };
   return (

@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 import image from "../resource/green.png";
@@ -15,6 +16,7 @@ function NavBar() {
   }));
   const setIsLogin = userStore((state) => state.setIsLogin);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -36,6 +38,7 @@ function NavBar() {
     const res = await manasInstance.logoutHandler(user);
     if (res.status === 200) {
       setIsLogin(false, false, undefined);
+      navigate('/');
     }
   };
   const [showNavbar, setShowNavbar] = useState(false);
