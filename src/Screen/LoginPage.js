@@ -4,17 +4,16 @@ import styles from "./LoginPage.module.css";
 import Input from "../UI/Input";
 import AuthContext from "../store/AuthContext";
 import userStore from "../store/userStore";
-import { useGoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from "@react-oauth/google";
 
 const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_CHANGE") {
-    return { ...state, [actions.input.name] : actions.input.value };
+    return { ...state, [actions.input.name]: actions.input.value };
   }
   return { ...state };
 };
 
 const LoginPage = () => {
-  
   const setIsLogin = userStore((state) => state.setIsLogin);
   const setIsPaid = userStore((state) => state.setIsPaid);
   const { manasInstance } = useContext(AuthContext);
@@ -22,56 +21,64 @@ const LoginPage = () => {
 
   const login = useGoogleLogin({
     onSuccess: async (codeResponse) => {
-      const res = await manasInstance.loginViaGoogle('student', codeResponse.access_token);
-      if(res.status === 201) {
+      const res = await manasInstance.loginViaGoogle(
+        "student",
+        codeResponse.access_token
+      );
+      if (res.status === 201) {
         setIsLogin(false, true, res.data.user._id);
         setIsPaid(res.data.user.isPaymentDone);
-        navigate('/')
+        navigate("/");
       }
-    } ,
-    onError: (error) => console.log('Login Failed:', error)
+    },
+    onError: (error) => console.log("Login Failed:", error),
   });
 
   const signup = useGoogleLogin({
     onSuccess: async (codeResponse) => {
-      const res = await manasInstance.signUpHandler({ googleAccessToken: codeResponse.access_token});
-      if(res.status === 201) {
+      const res = await manasInstance.signUpHandler({
+        googleAccessToken: codeResponse.access_token,
+      });
+      if (res.status === 201) {
         setIsLogin(false, true, res.data.user._id);
         setIsPaid(res.data.user.isPaymentDone);
-        navigate('/')
+        navigate("/");
       }
-    } ,
-    onError: (error) => console.log('Login Failed:', error)
+    },
+    onError: (error) => console.log("Login Failed:", error),
   });
 
   const [inputValue, dispatchInput] = useReducer(inputReducer, {
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    confirmpassword: '',
-  })
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
+  });
 
   const inputChangeHandler = (e) => {
-    dispatchInput({ type: 'INPUT_CHANGE', input: e.target })
-  }
+    dispatchInput({ type: "INPUT_CHANGE", input: e.target });
+  };
 
   const submitHandler = async (event, signup) => {
     event.preventDefault();
-    if(!signup) {
-      const res = await manasInstance.loginHandler(inputValue.email, inputValue.password, 'student');
-      if(res.status === 201) {
+    if (!signup) {
+      const res = await manasInstance.loginHandler(
+        inputValue.email,
+        inputValue.password,
+        "student"
+      );
+      if (res.status === 201) {
         setIsLogin(false, true, res.data.user._id);
         setIsPaid(res.data.user.isPaymentDone);
-        navigate('/');
+        navigate("/");
       }
-    }
-    else {
+    } else {
       const res = await manasInstance.signUpHandler(inputValue);
-      if(res.status === 201) {
+      if (res.status === 201) {
         setIsLogin(false, true, res.data.user._id);
         setIsPaid(res.data.user.isPaymentDone);
-        navigate('/');
+        navigate("/");
       }
     }
   };
@@ -103,7 +110,7 @@ const LoginPage = () => {
           <form
             id="studentLogin"
             className={styles.loginFormAdmin}
-            onSubmit={(e) => submitHandler(e,false)}
+            onSubmit={(e) => submitHandler(e, false)}
           >
             <Input
               id="email"
@@ -129,12 +136,12 @@ const LoginPage = () => {
               onChange={adminChangeHandler}
             /> */}
             <button className={styles.loginButton}>Submit</button>
-            <button onClick={() => login()}>Sign in with Google 🚀 </button>
+            <button onClick={() => login()} className={styles.googleSign}>Sign in with Google 🚀 </button>
           </form>
           <form
             id="studentSign"
             className={styles.signFormAdmin}
-            onSubmit={(e) => submitHandler(e,true)}
+            onSubmit={(e) => submitHandler(e, true)}
           >
             <Input
               id="firstName"
@@ -184,7 +191,9 @@ const LoginPage = () => {
               onChange={adminChangeHandler}
             /> */}
             <button className={styles.loginButton}>Submit</button>
-            <button onClick={() => signup()}>Sign in with Google 🚀 </button>
+            <button onClick={() => signup()} className={styles.googleSign}>
+              Sign in with Google 🚀{" "}
+            </button>
           </form>
         </div>
       </div>
