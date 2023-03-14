@@ -18,7 +18,6 @@ import Blog from "./Screen/Blog";
 import ApproveBlog from "./Screen/ApproveBlog";
 import BlogPage from "./Screen/BlogPage";
 
-
 const backendUrl =
   process.env.NODE_ENV !== "production"
     ? "http://localhost"

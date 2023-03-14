@@ -23,14 +23,14 @@ const NoticeUpload = () => {
     const res = await manasInstance.submitMainNotice(noticeRef.current.value);
     setStateChange(true);
     // console.log(res.data);
-  }
+  };
 
   const UploadNoticeForm = () => {
     return (
       <form className={styles.noticeUploadForm} onSubmit={noticeSubmitHandler}>
         <div className={styles.uploadHeading}>
           <label>Notice Heading</label>
-          <input type="text" ref={headingRef} />
+          <input type="text" ref={headingRef} className={styles.noticeInput} />
         </div>
         <div className={styles.uploadContent}>
           <label>Content</label>
@@ -43,7 +43,10 @@ const NoticeUpload = () => {
 
   const UploadNoticeToHome = () => {
     return (
-      <form className={styles.noticeUploadForm} onSubmit={mainNoticeSubmitHandler}>
+      <form
+        className={styles.noticeUploadForm}
+        onSubmit={mainNoticeSubmitHandler}
+      >
         <div className={styles.uploadHeading}>
           <label>New Notice</label>
           <input type="text" ref={noticeRef} />

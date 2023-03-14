@@ -54,24 +54,33 @@ const MTSForm = (props) => {
     }
   };
 
-  const toBase64 = file => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-});
+  const toBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
 
   const profilePicHandler = async (e, imageType) => {
     const file = e.target.files[0];
     const base64img = await toBase64(file);
-    if (imageType === 'avatar') {
-      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'avatar', value: base64img } });
-    }
-    else if (imageType === 'signature') {
-      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'signature', value: base64img } });
-    }
-    else if (imageType === 'parentsign') {
-      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'parentsign', value: base64img } });
+    if (imageType === "avatar") {
+      dispatchInput({
+        type: "IMAGE_UPLOAD",
+        input: { name: "avatar", value: base64img },
+      });
+      console.log(base64img);
+    } else if (imageType === "signature") {
+      dispatchInput({
+        type: "IMAGE_UPLOAD",
+        input: { name: "signature", value: base64img },
+      });
+    } else if (imageType === "parentsign") {
+      dispatchInput({
+        type: "IMAGE_UPLOAD",
+        input: { name: "parentsign", value: base64img },
+      });
     }
   };
 
@@ -90,7 +99,7 @@ const MTSForm = (props) => {
       <div className={styles.container}>
         <h3>
           <span>
-            Registration No. : <input />
+            Registration No. : <input className={styles.mtsInput} />
           </span>
         </h3>
         <div className={styles.applyFor}>
@@ -98,16 +107,36 @@ const MTSForm = (props) => {
           <div className={styles.radioInput}>
             {" "}
             <label>Xth pass</label>
-            <input required type="radio" name="class" value="10" />
+            <input
+              className={styles.mtsInput}
+              required
+              type="radio"
+              name="class"
+              value="10"
+            />
           </div>
           <div className={styles.radioInput}>
             {" "}
             <label>XIth pass</label>
-            <input type="radio" name="class" value="11" onChange={inputChangeHandler} checked={inputValue.class === 11} />
+            <input
+              className={styles.mtsInput}
+              type="radio"
+              name="class"
+              value="11"
+              onChange={inputChangeHandler}
+              checked={inputValue.class === 11}
+            />
           </div>
           <div className={styles.radioInput}>
             <label>XIIth pass</label>
-            <input type="radio" name="class" value="12" onChange={inputChangeHandler} checked={inputValue.class === 12} />
+            <input
+              className={styles.mtsInput}
+              type="radio"
+              name="class"
+              value="12"
+              onChange={inputChangeHandler}
+              checked={inputValue.class === 12}
+            />
           </div>
         </div>
       </div>
@@ -115,6 +144,7 @@ const MTSForm = (props) => {
         <div className={styles.inputBox}>
           <label>First Name</label>
           <input
+            className={styles.mtsInput}
             required
             type="text"
             name="firstname"
@@ -125,6 +155,7 @@ const MTSForm = (props) => {
         <div className={styles.inputBox}>
           <label>Last Name</label>
           <input
+            className={styles.mtsInput}
             required
             type="text"
             name="lastname"
@@ -139,6 +170,7 @@ const MTSForm = (props) => {
             <div className={styles.inputBox}>
               <label>Date of birth</label>
               <input
+                className={styles.mtsInput}
                 required
                 type="date"
                 name="dob"
@@ -150,17 +182,33 @@ const MTSForm = (props) => {
               Gender:
               <div className={styles.radioInput}>
                 <label>Male</label>
-                <input required type="radio" name="gender" value="male" onChange={inputChangeHandler} checked={inputValue.gender === "male"} />
+                <input
+                  className={styles.mtsInput}
+                  required
+                  type="radio"
+                  name="gender"
+                  value="male"
+                  onChange={inputChangeHandler}
+                  checked={inputValue.gender === "male"}
+                />
               </div>
               <div className={styles.radioInput}>
                 <label>Female</label>
-                <input type="radio" name="gender" value="female" onChange={inputChangeHandler} checked={inputValue.gender === "female"} />
+                <input
+                  className={styles.mtsInput}
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  onChange={inputChangeHandler}
+                  checked={inputValue.gender === "female"}
+                />
               </div>
             </div>
           </div>
           <div className={styles.inputBox}>
             <label>Father's Name</label>
             <input
+              className={styles.mtsInput}
               required
               type="text"
               name="fathername"
@@ -171,6 +219,7 @@ const MTSForm = (props) => {
           <div className={styles.inputBox}>
             <label>Mother's Name</label>
             <input
+              className={styles.mtsInput}
               required
               type="text"
               name="mothername"
@@ -185,10 +234,11 @@ const MTSForm = (props) => {
             <input
               id="image"
               className={styles.avatar}
+              style={{ background: "url" }}
               type="file"
               name="avatar"
               accept="image/*"
-              onChange={(e) => profilePicHandler(e, 'avatar')}
+              onChange={(e) => profilePicHandler(e, "avatar")}
             />
           </label>
         </div>
@@ -196,6 +246,7 @@ const MTSForm = (props) => {
       <div className={styles.inputBox}>
         <label>Address</label>
         <input
+          className={styles.mtsInput}
           required
           type="text"
           name="address"
@@ -207,6 +258,7 @@ const MTSForm = (props) => {
         <div className={styles.inputBox}>
           <label>City</label>
           <input
+            className={styles.mtsInput}
             required
             type="text"
             name="city"
@@ -217,6 +269,7 @@ const MTSForm = (props) => {
         <div className={styles.inputBox}>
           <label>State</label>
           <input
+            className={styles.mtsInput}
             required
             type="text"
             name="state"
@@ -227,6 +280,7 @@ const MTSForm = (props) => {
         <div className={styles.inputBox}>
           <label>Pincode</label>
           <input
+            className={styles.mtsInput}
             required
             type="text"
             name="pincode"
@@ -241,6 +295,7 @@ const MTSForm = (props) => {
         <div className={styles.inputBox}>
           <label>Personal number</label>
           <input
+            className={styles.mtsInput}
             required
             type="text"
             name="phone"
@@ -251,6 +306,7 @@ const MTSForm = (props) => {
         <div className={styles.inputBox}>
           <label>Parent's number</label>
           <input
+            className={styles.mtsInput}
             required
             type="text"
             name="guardianPhone"
@@ -263,6 +319,7 @@ const MTSForm = (props) => {
         <div className={styles.inputBox}>
           <label>Email</label>
           <input
+            className={styles.mtsInput}
             required
             type="email"
             name="email"
@@ -274,19 +331,48 @@ const MTSForm = (props) => {
           Category:
           <div className={styles.radioInput}>
             <label>Gen</label>
-            <input required type="radio" name="category" value="general" onChange={inputChangeHandler} checked={inputValue.category === "general"} />
+            <input
+              className={styles.mtsInput}
+              required
+              type="radio"
+              name="category"
+              value="general"
+              onChange={inputChangeHandler}
+              checked={inputValue.category === "general"}
+            />
           </div>
           <div className={styles.radioInput}>
             <label>OBC (NC)</label>
-            <input type="radio" name="category" value="obc" onChange={inputChangeHandler} checked={inputValue.category === "obc"} />
+            <input
+              className={styles.mtsInput}
+              type="radio"
+              name="category"
+              value="obc"
+              onChange={inputChangeHandler}
+              checked={inputValue.category === "obc"}
+            />
           </div>
           <div className={styles.radioInput}>
             <label>SC/ST</label>
-            <input type="radio" name="category" value="sc/st" onChange={inputChangeHandler} checked={inputValue.category === "sc/st"} />
+            <input
+              className={styles.mtsInput}
+              type="radio"
+              name="category"
+              value="sc/st"
+              onChange={inputChangeHandler}
+              checked={inputValue.category === "sc/st"}
+            />
           </div>
           <div className={styles.radioInput}>
             <label>PD</label>
-            <input type="radio" name="category" value="pd" onChange={inputChangeHandler} checked={inputValue.category === "pd"} />
+            <input
+              className={styles.mtsInput}
+              type="radio"
+              name="category"
+              value="pd"
+              onChange={inputChangeHandler}
+              checked={inputValue.category === "pd"}
+            />
           </div>
         </div>
       </div>
@@ -300,7 +386,7 @@ const MTSForm = (props) => {
             type="file"
             name="avatar"
             accept="image/*"
-            onChange={(e) => profilePicHandler(e, 'signature')}
+            onChange={(e) => profilePicHandler(e, "signature")}
           />
         </label>
         <label for="image" className={`${styles.avatarBox} ${styles.sign}`}>
@@ -311,7 +397,7 @@ const MTSForm = (props) => {
             type="file"
             name="avatar"
             accept="image/*"
-            onChange={(e) => profilePicHandler(e, 'parentsign')}
+            onChange={(e) => profilePicHandler(e, "parentsign")}
           />
         </label>
       </div>
