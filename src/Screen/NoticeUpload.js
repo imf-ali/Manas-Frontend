@@ -3,43 +3,42 @@ import AuthContext from "../store/AuthContext";
 import styles from "./NoticeUpload.module.css";
 
 const NoticeUpload = () => {
-  const headingRef = useRef(null);
-  const textRef = useRef(null);
+  // const headingRef = useRef(null);
+  // const textRef = useRef(null);
   const noticeRef = useRef(null);
   const { manasInstance } = useContext(AuthContext);
   const [allNotice, setAllNotice] = useState([]);
   const [stateChange, setStateChange] = useState(true);
 
-  const noticeSubmitHandler = (e) => {
-    e.preventDefault();
-    const res = manasInstance.submitNotice(
-      headingRef.current.value,
-      textRef.current.value
-    );
-  };
+  // const noticeSubmitHandler = (e) => {
+  //   e.preventDefault();
+  //   const res = manasInstance.submitNotice(
+  //     headingRef.current.value,
+  //     textRef.current.value
+  //   );
+  // };
 
   const mainNoticeSubmitHandler = async (e) => {
     e.preventDefault();
-    const res = await manasInstance.submitMainNotice(noticeRef.current.value);
+    await manasInstance.submitMainNotice(noticeRef.current.value);
     setStateChange(true);
-    // console.log(res.data);
-  };
+  }
 
-  const UploadNoticeForm = () => {
-    return (
-      <form className={styles.noticeUploadForm} onSubmit={noticeSubmitHandler}>
-        <div className={styles.uploadHeading}>
-          <label>Notice Heading</label>
-          <input type="text" ref={headingRef} className={styles.noticeInput} />
-        </div>
-        <div className={styles.uploadContent}>
-          <label>Content</label>
-          <textarea ref={textRef} />
-        </div>
-        <button>Add notice</button>
-      </form>
-    );
-  };
+  // const UploadNoticeForm = () => {
+  //   return (
+  //     <form className={styles.noticeUploadForm} onSubmit={noticeSubmitHandler}>
+  //       <div className={styles.uploadHeading}>
+  //         <label>Notice Heading</label>
+  //         <input type="text" ref={headingRef} />
+  //       </div>
+  //       <div className={styles.uploadContent}>
+  //         <label>Content</label>
+  //         <textarea ref={textRef} />
+  //       </div>
+  //       <button>Add notice</button>
+  //     </form>
+  //   );
+  // };
 
   const UploadNoticeToHome = () => {
     return (
@@ -66,15 +65,13 @@ const NoticeUpload = () => {
   }, [manasInstance, stateChange]);
 
   const showNoticeHandler = async (noticeId, show) => {
-    const res = await manasInstance.showNotice(noticeId, show);
+    await manasInstance.showNotice(noticeId, show);
     setStateChange(true);
-    console.log(res);
   };
 
   const deleteNoticeHandler = async (noticeId) => {
-    const res = await manasInstance.deleteNotice(noticeId);
+    await manasInstance.deleteNotice(noticeId);
     setStateChange(true);
-    console.log(res);
   };
 
   const showAllNotice = () => {

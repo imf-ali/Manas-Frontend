@@ -17,6 +17,8 @@ import Header from "./Components/Header";
 import Blog from "./Screen/Blog";
 import ApproveBlog from "./Screen/ApproveBlog";
 import BlogPage from "./Screen/BlogPage";
+import ApprovePayment from "./Screen/ApprovePayment";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const backendUrl =
   process.env.NODE_ENV !== "production"
@@ -25,43 +27,43 @@ const backendUrl =
 
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
-  const setIsPaid = userStore((state) => state.setIsPaid);
 
   const manasInstance = new ManasInstance(backendUrl);
 
   useEffect(() => {
     const user = localStorage.getItem("user");
     const id = localStorage.getItem("userId");
-    const isPaid = localStorage.getItem("isPaid");
-    setIsPaid(isPaid);
     if (localStorage.getItem("token")) {
       if (user === "admin") setIsLogin(true, false, id);
       else if (user === "student") setIsLogin(false, true, id);
     }
-  }, [setIsLogin, setIsPaid]);
+  }, [setIsLogin]);
 
   return (
-    <AuthContextProvider value={{ manasInstance }}>
-      <Router>
-        <Header />
-        <NavBar />
-        <div className={styles.App}>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/admissions" element={<Admissions />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/admin" element={<LoginPageAdmin />} />
-            <Route path="/notice" element={<Notice />} />
-            <Route path="/uploadnotice" element={<NoticeUpload />} />
-            <Route path="/mtspage" element={<MTSpage />} />
-            <Route path="/blogs" element={<Blog />} />
-            <Route path="/blogs/:blogid" element={<BlogPage />} />
-            <Route path="/approveblog" element={<ApproveBlog />} />
-          </Routes>
-        </div>
-      </Router>
-    </AuthContextProvider>
+    <GoogleOAuthProvider clientId="338277030676-4vv7ej7qd4a4980qlqmonemtnk2p4cat.apps.googleusercontent.com">
+      <AuthContextProvider value={{ manasInstance }}>
+        <Router>
+          <Header />
+          <NavBar />
+          <div className={styles.App}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/admissions" element={<Admissions />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/admin" element={<LoginPageAdmin />} />
+              <Route path="/notice" element={<Notice />} />
+              <Route path="/uploadnotice" element={<NoticeUpload />} />
+              <Route path="/mtspage" element={<MTSpage />} />
+              <Route path="/blogs" element={<Blog />} />
+              <Route path="/blogs/:blogid" element={<BlogPage />} />
+              <Route path="/approveblog" element={<ApproveBlog />} />
+              <Route path="/approvepayment" element={<ApprovePayment />} />
+            </Routes>
+          </div>
+        </Router>
+      </AuthContextProvider>
+    </GoogleOAuthProvider>
   );
 }
 
