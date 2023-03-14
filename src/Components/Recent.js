@@ -1,4 +1,9 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import styles from "./Recent.module.css";
 import { displayPic } from "../lib/displayPhoto";
 import AuthContext from "../store/AuthContext";
@@ -50,11 +55,11 @@ function Recent() {
     getData();
   }, [manasInstance]);
 
+
   const frontItem = (direction) => {
-    if (direction)
-      nextImage();
+    if (direction) nextImage();
     else prevImage();
-  }
+  };
 
   const mouseEnterHander = () => {
     setHoverImage(true);
@@ -69,11 +74,11 @@ function Recent() {
       <div className={styles.container}>
         <div className={styles.advertisement}>
           <div className={styles.wrapper}>
-            <div className={styles.imageContainer}
-              onMouseEnter={mouseEnterHander}
-              onMouseLeave={mouseLeaveHander}
-            >
-              <button onClick={() => frontItem(true)} className={styles.leftbutton}>
+            <div className={styles.imageContainer}>
+              <button
+                onClick={() => frontItem(true)}
+                className={styles.leftbutton}
+              >
                 <AiOutlineArrowLeft />
               </button>
               <img
@@ -81,7 +86,10 @@ function Recent() {
                 src={displayPic[index]}
                 alt="contest"
               />
-              <button onClick={() => frontItem(false)} className={styles.rightbutton}>
+              <button
+                onClick={() => frontItem(false)}
+                className={styles.rightbutton}
+              >
                 <AiOutlineArrowRight />
               </button>
             </div>
@@ -89,7 +97,7 @@ function Recent() {
         </div>
         <div className={styles.notice}>
           <div className={styles.noticeHead}>Notice Board</div>
-          <div className={styles.notices}>
+          <div className={styles.notices} >
             {allNotice.map((e, index) => {
               return <li key={index}>{e.heading}</li>;
             })}

@@ -56,7 +56,8 @@
   -webkit-tap-highlight-color: transparent;
   transform: translateY(-50%);
 }
-.leftbutton:hover, .rightbutton:hover {
+.leftbutton:hover,
+.rightbutton:hover {
   background-color: #21743d;
 }
 .advertisement {
@@ -64,11 +65,12 @@
   color: #4a4a4a;
 }
 .notice {
+  position: relative;
   border-radius: 15px;
   border-top: none;
   border: 2px solid black;
   width: 25%;
-  height: 400px;
+  height: 100%;
   /* margin: 5% auto; */
   /* background-color: rgb(189, 189, 189); */
   /* padding: 0.5%; */
@@ -82,12 +84,13 @@
   font-size: 25px;
 }
 .notices {
+  position: relative;
   background-color: white;
   border-radius: 10px;
   padding: 2vh;
-  height: 77%;
-  margin: 4%;
-  overflow-y:auto;
+  margin: 6% 4%;
+  overflow: auto;
+  height: 40vh;
 
   /* margin-top: 10%; */
   text-align: left;
