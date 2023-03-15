@@ -38,7 +38,7 @@ function NavBar() {
     const res = await manasInstance.logoutHandler(user);
     if (res.status === 200) {
       setIsLogin(false, false, undefined);
-      navigate('/');
+      navigate("/");
     }
   };
   const [showNavbar, setShowNavbar] = useState(false);
@@ -66,18 +66,18 @@ function NavBar() {
         <Link to="/" className="headingNav">
           Home
         </Link>
-        {/* <Link to="/admissions" className="headingNav">
+        <Link to="/admissions" className="headingNav">
             Admissions
-          </Link> */}
+          </Link>
         {/* <Link to="/" className="headingNav">
             Results
           </Link>
           <Link to="/" className="headingNav">
             Gallery
           </Link> */}
-        {/* <Link to="/about" className="headingNav">
-            About us
-          </Link> */}
+        <Link to="/about" className="headingNav">
+          About us
+        </Link>
         <Link to="/blogs" className="headingNav">
           Blogs
         </Link>
