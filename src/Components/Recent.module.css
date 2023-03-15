@@ -65,11 +65,12 @@
   color: #4a4a4a;
 }
 .notice {
+  position: relative;
   border-radius: 15px;
   border-top: none;
   border: 2px solid black;
   width: 25%;
-  height: 400px;
+  height: 100%;
   /* margin: 5% auto; */
   /* background-color: rgb(189, 189, 189); */
   /* padding: 0.5%; */
@@ -89,9 +90,7 @@
   padding: 2vh;
   margin: 6% 4%;
   overflow: auto;
-  height: 77%;
-  margin: 4%;
-  overflow-y:auto;
+  height: 40vh;
 
   /* margin-top: 10%; */
   text-align: left;

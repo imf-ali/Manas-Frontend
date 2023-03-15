@@ -61,14 +61,6 @@ function Recent() {
     else prevImage();
   };
 
-  const mouseEnterHander = () => {
-    setHoverImage(true);
-  }
-
-  const mouseLeaveHander = () => {
-    setHoverImage(false);
-  }
-
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container}>
