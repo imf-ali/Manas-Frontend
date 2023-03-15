@@ -76,8 +76,8 @@ function NavBar() {
             Gallery
           </Link> */}
         <Link to="/about" className="headingNav">
-          About us
-        </Link>
+            About us
+          </Link>
         <Link to="/blogs" className="headingNav">
           Blogs
         </Link>
