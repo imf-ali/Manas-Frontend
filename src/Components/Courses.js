@@ -1,4 +1,4 @@
-import { Card } from "../UI/Card";
+import { Card1 } from "../UI/Card1";
 import styles from "./Courses.module.css";
 
 const Courses = () => {
@@ -7,17 +7,20 @@ const Courses = () => {
       <div className={styles.advertisement}>
         <h1>Courses we offer</h1>
       </div>
-      <Card
+      <Card1
         title="SPECIAL ONE YEAR CLASSROOM PROGRAM"
-        subtitle="For Class XII Appeared / Pass students Synchronized study of JEE(Main + Advanced)+Including State,CBSE Boards +BIT-SAT+MHT-CET/NEET"
+        year="For Class XII Appeared / Pass students"
+        subtitle=" Synchronized study of JEE(Main + Advanced)+Including State,CBSE Boards +BIT-SAT+MHT-CET/NEET"
       />
-      <Card
+      <Card1
         title="TWO YEAR CLASSROOM PROGRAM"
-        subtitle="Class XI : (For Students Presently in Class XI) Synchronized study of JEE(Main+Advanced)+Including State, CBSE Boards +BIT-SAT+MHT-CET/NEET"
+        year="Class XI : (For Students Presently in Class XI)"
+        subtitle=" Synchronized study of JEE(Main+Advanced)+Including State, CBSE Boards +BIT-SAT+MHT-CET/NEET"
       />
-      <Card
+      <Card1
         title="THREE YEAR CLASSROOM PROGRAM"
-        subtitle="Class X : (For Students Presently in Class X) Synchronized study of JEE(Main + Advanced) + Including State, CBSE Boards + BIT - SAT + MHT - CET / NEET"
+        year="Class X : (For Students Presently in Class X)"
+        subtitle=" Synchronized study of JEE(Main + Advanced) + Including State, CBSE Boards + BIT - SAT + MHT - CET / NEET"
       />
     </>
   );
