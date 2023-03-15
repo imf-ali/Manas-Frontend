@@ -1,11 +1,11 @@
 .mainDiv {
   display: flex;
-  gap: 2%;
-  margin: 0 4%;
+  gap: 4%;
+  margin: 0 15%;
 }
 
 .subdiv {
-  background-color: #bedad7;
+  background-color: #21743d;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -15,9 +15,12 @@
 
 .heading {
   margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
 }
 .subdiv > p {
-  color: black;
+  color: #fff;
   font-size: 18px;
 }
 

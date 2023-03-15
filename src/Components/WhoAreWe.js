@@ -1,16 +1,17 @@
 import styles from "./WhoAreWe.module.css";
+import image from "../resource/displayPic/manasHand.jpeg";
 
 const WhoAreWe = () => {
   const Intro = () => {
     return (
       <div className={styles.whoarewe}>
         <div className={styles.advertisement}>
-          <h1>Who Are We</h1>
+          <h2>Who Are We</h2>
         </div>
         <div className={styles.description}>
           <img
             className={styles.image}
-            src="https://sujeet-kumar7061.github.io/temp/images/slideshow_Photos/slide2.jpg"
+            src={image}
             alt="manas"
           />
           <div className={styles.paragraph}>

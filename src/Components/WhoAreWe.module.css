@@ -1,12 +1,14 @@
 .whoarewe {
+  font-family: "Poppins", sans-serif;
   margin: 5%;
 }
 
-.advertisement {
+.advertisement > h2{
+  font-size: 40px;
   width: 100%;
   margin: 1% auto;
   /* margin: 30px auto; */
-  color: #4a4a4a;
+  color: #000000;
 }
 
 .description {
@@ -22,7 +24,7 @@
   /* margin: 4% 4% 4% 0%; */
   padding: 4% 4%;
   text-align: left;
-  font-size: 20px;
+  font-size: 18px;
   color: #4a4a4a;
   background: #f6f8fb;
 }
@@ -32,8 +34,10 @@
   margin: 4%;
   padding: 4% 4%;
   text-align: left;
-  font-size: 20px;
+  font-size: 18px;
   background: #f6f8fb;
+  font-family: "Poppins", sans-serif;
+  color: #4a4a4a;
 }
 ul {
   list-style: none;
@@ -47,6 +51,7 @@ ul {
 
 .heading {
   margin-bottom: 10px;
+  color: #000000;
 }
 
 @media screen and (max-width: 768px) {
