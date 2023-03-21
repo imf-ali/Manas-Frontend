@@ -5,5 +5,6 @@ import profile5 from '../resource/displayPic/displayA.jpeg';
 import profile6 from '../resource/displayPic/displayB.jpeg';
 import profile7 from '../resource/displayPic/displayC.jpeg';
 import profile8 from '../resource/displayPic/displayD.jpeg';
+import profile9 from '../resource/displayPic/image-2.jpeg';
 
-export const displayPic = [profile1, profile2, profile3, profile5, profile6, profile7, profile8];
+export const displayPic = [profile1, profile2, profile9, profile3, profile5, profile6, profile7, profile8];
