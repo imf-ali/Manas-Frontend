@@ -12,22 +12,8 @@
   font-family: poppins;
   font-size: 25px;
 }
-.card > h3 {
-  font-size: 20px;
-  color: gray;
-}
-.card > p {
-  margin-top: 1%;
-}
-.card > button {
-  display: block;
-  border: none;
-  color: white;
-  background-color: green;
-  border-radius: 10px;
-  width: 15vh;
-  padding: 2vh 3vh;
-  margin-left: auto;
+.text {
+  margin: 2% 1%;
 }
 
 @media screen and (max-width: 426px) {
