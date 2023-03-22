@@ -37,7 +37,7 @@ const BlogPage = () => {
       {!upload && (
         <div className={styles.blogpart}>
           <h2>{blog.heading}</h2>
-          <img src={image} alt=" " className={styles.image} />
+          {/* <img src={image} alt=" " className={styles.image} /> */}
           <span dangerouslySetInnerHTML={{ __html: blog.data }}></span>
         </div>
       )}

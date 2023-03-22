@@ -87,13 +87,13 @@ const LoginPage = () => {
     document.getElementById("studentLogin").style.left = "121%";
     document.getElementById("studentSign").style.left = "0%";
     document.getElementById("btn").style.left = "50%";
-    document.getElementById("container").style.height = "90%";
+    document.getElementById("container").style.height = "110vh";
   };
   const switchLogin = () => {
     document.getElementById("studentLogin").style.left = "0";
     document.getElementById("studentSign").style.left = "-121%";
     document.getElementById("btn").style.left = "0%";
-    document.getElementById("container").style.height = "60%";
+    document.getElementById("container").style.height = "80vh";
   };
 
   return (
@@ -103,7 +103,6 @@ const LoginPage = () => {
         <div className={styles.toggle}>
           <div id="btn" className={styles.btn}></div>
           <button onClick={switchLogin}>Login</button>
-          {/* <hr></hr> */}
           <button onClick={switchSignUp}>Register</button>
         </div>
         <div className={styles.formContainer}>
@@ -128,13 +127,6 @@ const LoginPage = () => {
               onChange={inputChangeHandler}
               value={inputValue.password}
             />
-            {/* <Input
-              className={styles.radio}
-              id="radio"
-              type="checkbox"
-              label="Admin"
-              onChange={adminChangeHandler}
-            /> */}
             <button className={styles.loginButton}>Submit</button>
             <button onClick={() => login()} className={styles.googleSign}>Sign in with Google 🚀 </button>
           </form>
@@ -183,13 +175,6 @@ const LoginPage = () => {
               onChange={inputChangeHandler}
               value={inputValue.confirmpassword}
             />
-            {/* <Input
-              className={styles.radio}
-              id="radio"
-              type="checkbox"
-              label="Admin"
-              onChange={adminChangeHandler}
-            /> */}
             <button className={styles.loginButton}>Submit</button>
             <button onClick={() => signup()} className={styles.googleSign}>
               Sign in with Google 🚀{" "}

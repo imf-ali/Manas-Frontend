@@ -27,7 +27,7 @@ function NavBar() {
 
   const handleScroll = () => {
     const scrollTop = window.pageYOffset;
-    if (scrollTop > 100) {
+    if (scrollTop > 80) {
       setHasScrolled(true);
     } else {
       setHasScrolled(false);
