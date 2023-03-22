@@ -81,11 +81,11 @@ function NavBar() {
         <Link to="/blogs" className="headingNav">
           Blogs
         </Link>
-        {(isAdmin || isStudent) && (
+        {/* {(isAdmin || isStudent) && (
           <Link to="/notice" className="headingNav">
             Notice
           </Link>
-        )}
+        )} */}
         {isAdmin && (
           <Link to="/uploadnotice" className="headingNav">
             Notice Upload
