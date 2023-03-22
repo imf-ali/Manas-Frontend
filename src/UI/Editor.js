@@ -18,10 +18,6 @@ const Editor = ({ name, submitBlogHandler }) => {
     setMyState((state) => ({ ...state, heading: e.target.value }));
   };
 
-  const handleThemeChange = (newTheme) => {
-    if (newTheme === "core") newTheme = null;
-    setMyState((state) => ({ ...state, theme: newTheme }));
-  };
   return (
     <div className={styles.editor}>
       <div className={styles.editorH}>

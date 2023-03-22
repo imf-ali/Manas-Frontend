@@ -4,7 +4,6 @@ import BlogForm from "../Components/BlogForm";
 import AuthContext from "../store/AuthContext";
 import UploadBlog from "./UploadBlog";
 import styles from "./BlogPage.module.css";
-import image from "../resource/displayPic/manasHand.jpeg";
 
 const BlogPage = () => {
   const { manasInstance } = useContext(AuthContext);
