@@ -61,12 +61,22 @@ function Recent() {
     else prevImage();
   };
 
+  const mouseEnterHander = () => {
+    setHoverImage(true);
+  }
+  const mouseLeaveHander = () => {
+    setHoverImage(false);
+  }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container}>
         <div className={styles.advertisement}>
           <div className={styles.wrapper}>
-            <div className={styles.imageContainer}>
+            <div className={styles.imageContainer}
+              onMouseEnter={mouseEnterHander}
+              onMouseLeave={mouseLeaveHander}
+            >
               <button
                 onClick={() => frontItem(true)}
                 className={styles.leftbutton}
