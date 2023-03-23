@@ -67,8 +67,8 @@ function NavBar() {
           Home
         </Link>
         <Link to="/admissions" className="headingNav">
-            Admissions
-          </Link>
+          Admissions
+        </Link>
         {/* <Link to="/" className="headingNav">
             Results
           </Link>
@@ -76,8 +76,8 @@ function NavBar() {
             Gallery
           </Link> */}
         <Link to="/about" className="headingNav">
-            About us
-          </Link>
+          About us
+        </Link>
         <Link to="/blogs" className="headingNav">
           Blogs
         </Link>
@@ -86,21 +86,33 @@ function NavBar() {
             Notice
           </Link>
         )} */}
-        {isAdmin && (
-          <Link to="/uploadnotice" className="headingNav">
-            Notice Upload
-          </Link>
-        )}
-        {isAdmin && (
-          <Link to="/approveblog" className="headingNav">
-            Manage Blogs
-          </Link>
-        )}
-        {isAdmin && (
-          <Link to="/approvepayment" className="headingNav">
-            Approve Payment
-          </Link>
-        )}
+        <div className="headingNav adminDrop">Admin</div>
+        <div className="adminDropdown"> 
+          <ul>
+            <li>
+              {isAdmin && (
+                <Link to="/uploadnotice" className="headingNav">
+                  Notice Upload
+                </Link>
+              )}
+            </li>
+            <li>
+              {isAdmin && (
+                <Link to="/approveblog" className="headingNav">
+                  Manage Blogs
+                </Link>
+              )}
+            </li>
+            <li>
+              {isAdmin && (
+                <Link to="/approvepayment" className="headingNav">
+                  Approve Payment
+                </Link>
+              )}
+            </li>
+          </ul>
+        </div>
+
         {isStudent && (
           <Link to="/mtspage" className="headingNav">
             MTS

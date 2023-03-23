@@ -14,11 +14,11 @@
 }
 .logoBox {
   position: absolute;
-  left: 5%;
+  left: 2%;
 }
 .headingNav {
   text-align: center;
-  padding: 5vh 16px;
+  padding: 5vh 10px;
   text-decoration: none;
   font-size: 15px;
   font-family: "Poppins", sans-serif;
@@ -28,20 +28,20 @@
 
 .imageNav {
   display: flex;
-  height: 60%;
-  width: 20vh;
+  height: 40%;
+  width: 15vh;
   float: left;
 }
 .imageNav2 {
   height: 100%;
-  width: 20vh;
+  width: 15vh;
   justify-self: end;
 }
 .linkRight {
   height: 9vh;
   width: 20vh;
   position: absolute;
-  right: 5%;
+  right: 1%;
 }
 .barsNav {
   display: none;
@@ -52,6 +52,13 @@
   width: 100%;
   z-index: 1;
 }
+.adminDropdownHide {
+  display: none;
+}
+.adminDropdownShow {
+  display: block;
+}
+
 @media screen and (max-width: 769px) {
   .headingNav:not(:first-child) {
     display: none;
