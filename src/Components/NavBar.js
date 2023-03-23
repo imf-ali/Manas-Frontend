@@ -16,6 +16,7 @@ function NavBar() {
   }));
   const setIsLogin = userStore((state) => state.setIsLogin);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,6 +47,10 @@ function NavBar() {
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
+
+  const toggleDropdown = () => {
+    setShowDropdown(state => !state);
+  }
 
   return (
     <>
@@ -86,8 +91,8 @@ function NavBar() {
             Notice
           </Link>
         )} */}
-        <div className="headingNav adminDrop">Admin</div>
-        <div className="adminDropdown"> 
+        <div className="headingNav adminDrop" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown} >Admin</div>
+        <div className={`${showDropdown ? "adminDropdownShow" : "adminDropdownHide"}`}> 
           <ul>
             <li>
               {isAdmin && (
