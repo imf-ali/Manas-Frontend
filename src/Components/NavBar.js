@@ -74,9 +74,6 @@ function NavBar() {
           <Link to="/" className="headingNav">
             Gallery
           </Link> */}
-          <Link to="/about" className="headingNav">
-            About us
-          </Link>
           <Link to="/blogs" className="headingNav">
             Blogs
           </Link>
@@ -142,6 +139,9 @@ function NavBar() {
               MTS
             </Link>
           )}
+          <Link to="/about" className="headingNav">
+            About us
+          </Link>
           {!isStudent && !isAdmin && (
             <Link to="/login" className="headingNav">
               Student
