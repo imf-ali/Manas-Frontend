@@ -16,7 +16,6 @@ function NavBar() {
   }));
   const setIsLogin = userStore((state) => state.setIsLogin);
   const [hasScrolled, setHasScrolled] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,10 +45,6 @@ function NavBar() {
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
-  };
-
-  const toggleDropdown = () => {
-    setShowDropdown((state) => !state);
   };
 
   return (
