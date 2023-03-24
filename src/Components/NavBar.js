@@ -49,8 +49,8 @@ function NavBar() {
   };
 
   const toggleDropdown = () => {
-    setShowDropdown(state => !state);
-  }
+    setShowDropdown((state) => !state);
+  };
 
   return (
     <>
@@ -66,33 +66,57 @@ function NavBar() {
         <div className="barsNav" onClick={handleShowNavbar}>
           <FaBars style={{ fontSize: "1.5em" }} />
         </div>
-        <br />
-        <br />
-        <Link to="/" className="headingNav">
-          Home
-        </Link>
-        <Link to="/admissions" className="headingNav">
-          Admissions
-        </Link>
-        {/* <Link to="/" className="headingNav">
+        <div className={`${showNavbar ? "" : "nav-links"}`}>
+          <Link to="/" className="headingNav">
+            Home
+          </Link>
+          <Link to="/admissions" className="headingNav">
+            Admissions
+          </Link>
+          {/* <Link to="/" className="headingNav">
             Results
           </Link>
           <Link to="/" className="headingNav">
             Gallery
           </Link> */}
-        <Link to="/about" className="headingNav">
-          About us
-        </Link>
-        <Link to="/blogs" className="headingNav">
-          Blogs
-        </Link>
-        {/* {(isAdmin || isStudent) && (
+          <Link to="/about" className="headingNav">
+            About us
+          </Link>
+          <Link to="/blogs" className="headingNav">
+            Blogs
+          </Link>
+          {/* {(isAdmin || isStudent) && (
           <Link to="/notice" className="headingNav">
             Notice
           </Link>
         )} */}
-        <div className="headingNav adminDrop" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown} >Admin</div>
-        <div className={`${showDropdown ? "adminDropdownShow" : "adminDropdownHide"}`}> 
+          {isAdmin && (
+            <Link to="/uploadnotice" className="headingNav">
+              Notice Upload
+            </Link>
+          )}
+          {isAdmin && (
+            <Link to="/approveblog" className="headingNav">
+              Manage Blogs
+            </Link>
+          )}
+          {isAdmin && (
+            <Link to="/approvepayment" className="headingNav">
+              Approve Payment
+            </Link>
+          )}
+          {/* <div
+          className="headingNav adminDrop"
+          onMouseEnter={toggleDropdown}
+          onMouseLeave={toggleDropdown}
+        >
+          Admin
+        </div>
+        <div
+          className={`${
+            showDropdown ? "adminDropdownShow" : "adminDropdownHide"
+          }`}
+        >
           <ul>
             <li>
               {isAdmin && (
@@ -116,28 +140,29 @@ function NavBar() {
               )}
             </li>
           </ul>
-        </div>
+        </div> */}
 
-        {isStudent && (
-          <Link to="/mtspage" className="headingNav">
-            MTS
-          </Link>
-        )}
-        {!isStudent && !isAdmin && (
-          <Link to="/login" className="headingNav">
-            Student
-          </Link>
-        )}
-        {!isStudent && !isAdmin && (
-          <Link to="/admin" className="headingNav">
-            Admin
-          </Link>
-        )}
-        {(isAdmin || isStudent) && (
-          <div className="headingNav" onClick={logoutHandler}>
-            Logout
-          </div>
-        )}
+          {isStudent && (
+            <Link to="/mtspage" className="headingNav">
+              MTS
+            </Link>
+          )}
+          {!isStudent && !isAdmin && (
+            <Link to="/login" className="headingNav">
+              Student
+            </Link>
+          )}
+          {!isStudent && !isAdmin && (
+            <Link to="/admin" className="headingNav">
+              Admin
+            </Link>
+          )}
+          {(isAdmin || isStudent) && (
+            <div className="headingNav" onClick={logoutHandler}>
+              Logout
+            </div>
+          )}
+        </div>
         <div className="linkRight">
           <img src={mts} alt="" className="imageNav2" />
         </div>

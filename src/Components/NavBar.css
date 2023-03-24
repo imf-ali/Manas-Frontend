@@ -16,11 +16,17 @@
   position: absolute;
   left: 2%;
 }
+.nav-links {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .headingNav {
   text-align: center;
-  padding: 5vh 10px;
+  margin: 4vh 8px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   cursor: pointer;
@@ -41,7 +47,7 @@
   height: 9vh;
   width: 20vh;
   position: absolute;
-  right: 1%;
+  right: 0%;
 }
 .barsNav {
   display: none;
@@ -67,9 +73,9 @@
     float: right;
     display: block;
   }
-  .navbar {
+  .navbar{
     justify-content: left;
-    padding-top: 1%;
+    padding:4%;
   }
   .logoBox {
     position: unset;
@@ -81,6 +87,9 @@
     position: fixed;
     display: block;
     width: 100%;
+  }
+  .nav-links{
+    display: none;
   }
   .barsNav {
     position: fixed;
@@ -94,6 +103,6 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding: 2%;
+    padding: 1%;
   }
 }
