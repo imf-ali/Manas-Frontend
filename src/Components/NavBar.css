@@ -65,6 +65,9 @@
 .adminDropdownShow {
   display: block;
 }
+/* .responsiveNav {
+  display: none;
+} */
 
 @media screen and (max-width: 769px) {
   .headingNav:not(:first-child) {
@@ -74,9 +77,9 @@
     float: right;
     display: block;
   }
-  .navbar{
+  .navbar {
     justify-content: left;
-    padding:4%;
+    padding: 4%;
   }
   .logoBox {
     position: unset;
@@ -89,7 +92,7 @@
     display: block;
     width: 100%;
   }
-  .nav-links{
+  .nav-links {
     display: none;
   }
   .barsNav {

@@ -43,14 +43,13 @@ function NavBar() {
     }
   };
   const [showNavbar, setShowNavbar] = useState(false);
-
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
 
   const closeNavbar = () => {
     setShowNavbar(false);
-  }
+  };
 
   return (
     <>
@@ -60,7 +59,12 @@ function NavBar() {
         }`}
         id="navbar"
       >
-        <div className="logoBox" onClick={() => { navigate('/') }}>
+        <div
+          className="logoBox"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <img src={image} alt="" className="imageNav" />
         </div>
         <div className="barsNav" onClick={handleShowNavbar}>
@@ -91,17 +95,29 @@ function NavBar() {
           </Link>
         )} */}
           {isAdmin && (
-            <Link to="/uploadnotice" className="headingNav" onClick={closeNavbar}>
+            <Link
+              to="/uploadnotice"
+              className="headingNav"
+              onClick={closeNavbar}
+            >
               Notice Upload
             </Link>
           )}
           {isAdmin && (
-            <Link to="/approveblog" className="headingNav" onClick={closeNavbar}>
+            <Link
+              to="/approveblog"
+              className="headingNav"
+              onClick={closeNavbar}
+            >
               Manage Blogs
             </Link>
           )}
           {isAdmin && (
-            <Link to="/approvepayment" className="headingNav" onClick={closeNavbar}>
+            <Link
+              to="/approvepayment"
+              className="headingNav"
+              onClick={closeNavbar}
+            >
               Approve Payment
             </Link>
           )}
