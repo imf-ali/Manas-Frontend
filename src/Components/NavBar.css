@@ -15,6 +15,7 @@
 .logoBox {
   position: absolute;
   left: 2%;
+  cursor: pointer;
 }
 .nav-links {
   width: 75%;

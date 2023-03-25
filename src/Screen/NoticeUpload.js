@@ -48,7 +48,7 @@ const NoticeUpload = () => {
       >
         <div className={styles.uploadHeading}>
           <label>New Notice</label>
-          <input type="text" ref={noticeRef} />
+          <textarea className={styles.textareaBox} ref={noticeRef} />
         </div>
         <button>Add notice to home</button>
       </form>

@@ -71,7 +71,6 @@
   border-top: none;
   border: 2px solid black;
   width: 25%;
-  height: 100%;
   overflow: hidden;
   /* margin: 5% auto; */
   /* background-color: rgb(189, 189, 189); */
@@ -91,7 +90,6 @@
   padding: 1vh;
   margin: 3vh 2vh;
   overflow: auto;
-  height: 40vh;
   text-align: left;
 }
 .notices > li {

@@ -36,6 +36,7 @@ function NavBar() {
   const logoutHandler = async () => {
     const user = localStorage.getItem("user");
     const res = await manasInstance.logoutHandler(user);
+    setShowNavbar(false);
     if (res.status === 200) {
       setIsLogin(false, false, undefined);
       navigate("/");
@@ -47,6 +48,10 @@ function NavBar() {
     setShowNavbar(!showNavbar);
   };
 
+  const closeNavbar = () => {
+    setShowNavbar(false);
+  }
+
   return (
     <>
       <nav
@@ -55,17 +60,20 @@ function NavBar() {
         }`}
         id="navbar"
       >
-        <div className="logoBox">
+        <div className="logoBox" onClick={() => { navigate('/') }}>
           <img src={image} alt="" className="imageNav" />
         </div>
         <div className="barsNav" onClick={handleShowNavbar}>
           <FaBars style={{ fontSize: "1.5em" }} />
         </div>
         <div className={`${showNavbar ? "" : "nav-links"}`}>
-          <Link to="/" className="headingNav">
+          <Link to="/" className="headingNav" onClick={closeNavbar}>
             Home
           </Link>
-          <Link to="/admissions" className="headingNav">
+          <Link to="/about" className="headingNav" onClick={closeNavbar}>
+            About us
+          </Link>
+          <Link to="/admissions" className="headingNav" onClick={closeNavbar}>
             Admissions
           </Link>
           {/* <Link to="/" className="headingNav">
@@ -74,7 +82,7 @@ function NavBar() {
           <Link to="/" className="headingNav">
             Gallery
           </Link> */}
-          <Link to="/blogs" className="headingNav">
+          <Link to="/blogs" className="headingNav" onClick={closeNavbar}>
             Blogs
           </Link>
           {/* {(isAdmin || isStudent) && (
@@ -83,17 +91,17 @@ function NavBar() {
           </Link>
         )} */}
           {isAdmin && (
-            <Link to="/uploadnotice" className="headingNav">
+            <Link to="/uploadnotice" className="headingNav" onClick={closeNavbar}>
               Notice Upload
             </Link>
           )}
           {isAdmin && (
-            <Link to="/approveblog" className="headingNav">
+            <Link to="/approveblog" className="headingNav" onClick={closeNavbar}>
               Manage Blogs
             </Link>
           )}
           {isAdmin && (
-            <Link to="/approvepayment" className="headingNav">
+            <Link to="/approvepayment" className="headingNav" onClick={closeNavbar}>
               Approve Payment
             </Link>
           )}
@@ -135,20 +143,17 @@ function NavBar() {
         </div> */}
 
           {isStudent && (
-            <Link to="/mtspage" className="headingNav">
+            <Link to="/mtspage" className="headingNav" onClick={closeNavbar}>
               MTS
             </Link>
           )}
-          <Link to="/about" className="headingNav">
-            About us
-          </Link>
           {!isStudent && !isAdmin && (
-            <Link to="/login" className="headingNav">
+            <Link to="/login" className="headingNav" onClick={closeNavbar}>
               Student
             </Link>
           )}
           {!isStudent && !isAdmin && (
-            <Link to="/admin" className="headingNav">
+            <Link to="/admin" className="headingNav" onClick={closeNavbar}>
               Admin
             </Link>
           )}
