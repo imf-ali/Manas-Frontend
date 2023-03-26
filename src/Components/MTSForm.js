@@ -2,6 +2,15 @@ import { useReducer, useContext, useEffect } from "react";
 import AuthContext from "../store/AuthContext";
 import userStore from "../store/userStore";
 import styles from "./MTSForm.module.css";
+import Resizer from "react-image-file-resizer";
+
+const resizeFile = (file, width, height) =>
+  new Promise((resolve) => {
+    Resizer.imageFileResizer(file,width,height,"JPEG",50,0,
+      (uri) => {
+        resolve(uri);
+      },"base64");
+});
 
 const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_CHANGE") {
@@ -58,25 +67,27 @@ const MTSForm = (props) => {
     }
   };
 
-  const toBase64 = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
+  // const toBase64 = (file) =>
+  //   new Promise((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => resolve(reader.result);
+  //     reader.onerror = (error) => reject(error);
+  // });
 
   const profilePicHandler = async (e) => {
     const file = e.target.files[0];
-    const base64img = await toBase64(file);
     if (e.target.name === 'avatar') {
-      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'avatar', value: base64img } });
+      const newImage = await resizeFile(file,246.3,246.3);
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'avatar', value: newImage } });
     }
     else if (e.target.name === 'signature') {
-      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'signature', value: base64img } });
+      const newImage = await resizeFile(file,205.25,410.5);
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'signature', value: newImage } });
     }
     else if (e.target.name === 'parentsign') {
-      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'parentsign', value: base64img } });
+      const newImage = await resizeFile(file,205.25,410.5);
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'parentsign', value: newImage } });
     }
   };
 
@@ -207,12 +218,14 @@ const MTSForm = (props) => {
           </div>
         </div>
         <div className={styles.containerRight}>
-          <label className={styles.avatarBox}>
+          <label 
+              className={styles.avatarBox} 
+              style={{ backgroundImage: `url(${inputValue.avatar})` 
+          }}>
             <span className={styles.avatarTitle}>Upload Image</span>
             <input
               id="image"
               className={styles.avatar}
-              style={{ background: "url" }}
               type="file"
               name="avatar"
               accept="image/*"
@@ -357,7 +370,10 @@ const MTSForm = (props) => {
       </div>
       <br></br>
       <div className={styles.container}>
-        <label className={`${styles.avatarBox} ${styles.sign}`}>
+        <label 
+          className={`${styles.avatarBox} ${styles.sign}`}
+          style={{ backgroundImage: `url(${inputValue.signature})`}}
+        >
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
@@ -368,7 +384,10 @@ const MTSForm = (props) => {
             onChange={profilePicHandler}
           />
         </label>
-        <label className={`${styles.avatarBox} ${styles.sign}`}>
+        <label 
+          className={`${styles.avatarBox} ${styles.sign}`}
+          style={{ backgroundImage: `url(${inputValue.parentsign})`}}
+          >
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
