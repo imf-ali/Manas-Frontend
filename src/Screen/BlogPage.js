@@ -4,7 +4,6 @@ import BlogForm from "../Components/BlogForm";
 import AuthContext from "../store/AuthContext";
 import UploadBlog from "./UploadBlog";
 import styles from "./BlogPage.module.css";
-import image from "../resource/displayPic/manasHand.jpeg";
 
 const BlogPage = () => {
   const { manasInstance } = useContext(AuthContext);
@@ -30,14 +29,14 @@ const BlogPage = () => {
       setBlog(res.data.blog);
     };
     loadBlog();
-  }, []);
+  }, [blogid, manasInstance]);
 
   return (
     <div className={styles.mainDiv}>
       {!upload && (
         <div className={styles.blogpart}>
           <h2>{blog.heading}</h2>
-          <img src={image} alt=" " className={styles.image} />
+          {/* <img src={image} alt=" " className={styles.image} /> */}
           <span dangerouslySetInnerHTML={{ __html: blog.data }}></span>
         </div>
       )}

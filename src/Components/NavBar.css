@@ -14,13 +14,20 @@
 }
 .logoBox {
   position: absolute;
-  left: 5%;
+  left: 2%;
+  cursor: pointer;
+}
+.nav-links {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .headingNav {
   text-align: center;
-  padding: 5vh 16px;
+  margin: 4vh 8px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   cursor: pointer;
@@ -28,20 +35,20 @@
 
 .imageNav {
   display: flex;
-  height: 60%;
-  width: 20vh;
+  height: 40%;
+  width: 15vh;
   float: left;
 }
 .imageNav2 {
   height: 100%;
-  width: 20vh;
+  width: 15vh;
   justify-self: end;
 }
 .linkRight {
   height: 9vh;
   width: 20vh;
   position: absolute;
-  right: 5%;
+  right: 0%;
 }
 .barsNav {
   display: none;
@@ -52,6 +59,16 @@
   width: 100%;
   z-index: 1;
 }
+.adminDropdownHide {
+  display: none;
+}
+.adminDropdownShow {
+  display: block;
+}
+/* .responsiveNav {
+  display: none;
+} */
+
 @media screen and (max-width: 769px) {
   .headingNav:not(:first-child) {
     display: none;
@@ -62,7 +79,7 @@
   }
   .navbar {
     justify-content: left;
-    padding-top: 1%;
+    padding: 4%;
   }
   .logoBox {
     position: unset;
@@ -74,6 +91,9 @@
     position: fixed;
     display: block;
     width: 100%;
+  }
+  .nav-links {
+    display: none;
   }
   .barsNav {
     position: fixed;
@@ -87,6 +107,6 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding: 2%;
+    padding: 1%;
   }
 }

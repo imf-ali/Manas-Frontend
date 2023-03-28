@@ -11,7 +11,6 @@ const inputReducer = (state, actions) => {
 };
 
 const BlogForm = ({ submitHandler }) => {
-
   const [inputValue, dispatchInput] = useReducer(inputReducer, {
     name: "",
     email: "",
@@ -25,7 +24,7 @@ const BlogForm = ({ submitHandler }) => {
   const mySubmitHandler = (e) => {
     e.preventDefault();
     submitHandler(inputValue);
-  }
+  };
 
   return (
     <div>
@@ -57,10 +56,10 @@ const BlogForm = ({ submitHandler }) => {
           onChange={inputChangeHandler}
           value={inputValue.phone}
         />
-        <button className={styles.blogButton}>UPLOAD BLOG</button>
+        <button className={styles.blogButton}>Upload Blog</button>
       </form>
     </div>
   );
-}; 
+};
 
 export default BlogForm;

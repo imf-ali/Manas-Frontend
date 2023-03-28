@@ -18,10 +18,6 @@ const Editor = ({ name, submitBlogHandler }) => {
     setMyState((state) => ({ ...state, heading: e.target.value }));
   };
 
-  const handleThemeChange = (newTheme) => {
-    if (newTheme === "core") newTheme = null;
-    setMyState((state) => ({ ...state, theme: newTheme }));
-  };
   return (
     <div className={styles.editor}>
       <div className={styles.editorH}>
@@ -41,14 +37,14 @@ const Editor = ({ name, submitBlogHandler }) => {
             value={myState.heading}
             onChange={headingChange}
           />
-          <div className={styles.themeSwitcher}>
+          {/* <div className={styles.themeSwitcher}>
             <label>Theme </label>
             <select onChange={(e) => handleThemeChange(e.target.value)}>
               <option value="snow">Snow</option>
               <option value="bubble">Bubble</option>
               <option value="core">Core</option>
             </select>
-          </div>
+          </div> */}
         </div>
         <div className={styles.editorR}>
           <ReactQuill

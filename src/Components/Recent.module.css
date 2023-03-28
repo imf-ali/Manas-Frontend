@@ -21,7 +21,7 @@
   border: 1px solid #d2d9e7;
   margin: auto;
 }
-.imageContainer:hover{
+.imageContainer:hover {
   cursor: pointer;
 }
 .leftbutton {
@@ -56,19 +56,22 @@
   -webkit-tap-highlight-color: transparent;
   transform: translateY(-50%);
 }
-.leftbutton:hover, .rightbutton:hover {
+.leftbutton:hover,
+.rightbutton:hover {
   background-color: #21743d;
 }
 .advertisement {
   width: 70%;
+  /* height: 80vh; */
   color: #4a4a4a;
 }
 .notice {
+  position: relative;
   border-radius: 15px;
   border-top: none;
   border: 2px solid black;
   width: 25%;
-  height: 400px;
+  overflow: hidden;
   /* margin: 5% auto; */
   /* background-color: rgb(189, 189, 189); */
   /* padding: 0.5%; */
@@ -84,19 +87,16 @@
 .notices {
   background-color: white;
   border-radius: 10px;
-  padding: 2vh;
-  height: 77%;
-  margin: 4%;
-  overflow-y:auto;
-
-  /* margin-top: 10%; */
+  padding: 1vh;
+  margin: 3vh 2vh;
+  overflow: auto;
   text-align: left;
 }
 .notices > li {
   padding: 1vh 0;
 }
 .image {
-  height: 400px;
+  height: 50vh;
   width: 100%;
 }
 
@@ -110,6 +110,10 @@
   }
   .notice {
     width: 32%;
+    height: 30vh;
+  }
+  .notices {
+    height: 20vh;
   }
   .image {
     height: 250px;
@@ -126,6 +130,9 @@
   }
   .notice {
     margin: 3vh 5vh;
-    height: 40vh;
+    height: 35vh;
+  }
+  .notices{
+    height: 22vh;
   }
 }

@@ -3,10 +3,10 @@ import styles from "./LoginPage.module.css";
 import Input from "../UI/Input";
 import AuthContext from "../store/AuthContext";
 import userStore from "../store/userStore";
+import { useNavigate } from "react-router-dom";
 
 const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_CHANGE") {
-    console.log(actions.input.name,actions.input.value)
     return { ...state, [actions.input.name] : actions.input.value };
   }
   return { ...state };
@@ -22,9 +22,10 @@ const LoginPageAdmin = () => {
     password: '',
   })
 
+  const navigate = useNavigate();
+
   const inputChangeHandler = (e) => {
     dispatchInput({ type: 'INPUT_CHANGE', input: e.target })
-    console.log(inputValue);
   }
 
   const submitHandler = async (event) => {
@@ -32,6 +33,7 @@ const LoginPageAdmin = () => {
     const res = await manasInstance.loginHandler(inputValue.email, inputValue.password,'admin');
     if (res.status === 201) {
       setIsLogin(true, false);
+      navigate('/');
     }
   };
   return (

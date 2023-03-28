@@ -1,11 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import styles from "./Payment.module.css";
 import AuthContext from "../store/AuthContext";
-import userStore from "../store/userStore";
 
 const Payment = (props) => {
   const { manasInstance } = useContext(AuthContext);
-  const userId = userStore((state) => state.userId);
 
   const displayRazorpay = async () => {
     const data = await manasInstance.makePayment(1);
@@ -13,14 +11,10 @@ const Payment = (props) => {
       key: process.env.REACT_APP_YOUR_KEY_ID,
       currency: data.data.currency,
       amount: data.data.amount,
-      description: "Solution transaction",
+      description: "MTS Form Payment",
       order_id: data.data.id,
       handler: async function (response) {
-        const res = await manasInstance.updateData(userId, {
-          isPaymentDone: true,
-        });
-        manasInstance.setPaymentToken();
-        if (res.status === 201) props.paymentHandler(true);
+        props.paymentHandler(3);
       },
       prefill: {
         name: props.name,
@@ -57,7 +51,7 @@ const Payment = (props) => {
         <button
           className={styles.back}
           onClick={() => {
-            props.paymentHandler(false);
+            props.paymentHandler(1);
           }}
         >
           Back
