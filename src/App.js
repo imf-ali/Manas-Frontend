@@ -18,11 +18,11 @@ import Blog from "./Screen/Blog";
 import ApproveBlog from "./Screen/ApproveBlog";
 import BlogPage from "./Screen/BlogPage";
 import ApprovePayment from "./Screen/ApprovePayment";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const backendUrl =
   process.env.NODE_ENV !== "production"
-    ? "http://localhost:9007"
+    ? "http://localhost"
     : "http://ecs-lg-1073622137.ap-south-1.elb.amazonaws.com";
 
 function App() {
