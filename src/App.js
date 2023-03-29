@@ -22,7 +22,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const backendUrl =
   process.env.NODE_ENV !== "production"
-    ? "http://localhost"
+    ? "http://localhost:9007"
     : "http://ecs-lg-1073622137.ap-south-1.elb.amazonaws.com";
 
 function App() {
