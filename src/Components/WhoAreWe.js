@@ -157,9 +157,9 @@ const WhoAreWe = () => {
                 Apart from his/her own, the most important role in a student’s
                 success is played by the faculty or the Teacher. Manas study
                 centre boasts of having one of the finest faculty team in terms
-                of quality, competence and most importantly care for the
-                students. Since they are themselves IlTian, they understand the
-                rigors of the lITJEE preparation very well.
+                of quality,competence and most importantly care for the
+                students.Since they are themselves IlTian, they understand the
+                rigors of the IITJEE preparation very well.
                 <br />
                 <h4 className={styles.innerHeadPara}>2. Regular Classes</h4>
                 Manas Study Centre maintains a rigorous classroom program

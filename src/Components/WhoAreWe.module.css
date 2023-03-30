@@ -137,11 +137,11 @@
 }
 .whyusinnerpara{
   margin-right: 15px;
-  font-size: 14px;
+  font-size: 15px;
 }
 .tagIIT{
   display: flex;
-  width: 60%;
+  width: 62%;
   justify-content: center;
   padding: 0%;
   margin-top: 20px;
@@ -155,7 +155,7 @@
   font-size: 18px;
   text-align: justify;
   color: #4a4a4a;
-  width: 62%;
+  width: 60%;
   justify-content: center;
   align-items: center;
   margin-left: auto;
@@ -168,26 +168,76 @@
   font-size: 20px;
   padding-top: 15px;
 }
-ul {
-  list-style: none;
-}
-
-.listBlock {
-  margin: 0% 0% 3% 0%;
-  line-height: 1.5;
-  color: #4a4a4a;
-}
 
 @media screen and (max-width: 768px) {
   .description {
     display: flex;
     flex-direction: column;
+    justify-content: left;
   }
-  .image {
-    width: 50%;
-    margin: 2% auto;
-  }
-  .paragraph {
-    margin-top: 5%;
-  }
+.headingWhoWeAre{
+  width: 70%;
+}
+.headingMessageToStudents{
+  width: 90%;
+}
+.headingWhyManas{
+  width: 100%;
+  margin-bottom: 0;
+}
+.paragraph{
+  text-align: left;
+  text-align: justify;
+  width: 100%;
+  padding: 0;
+  margin-top: 10px;
+}
+.paragraphWhyUs{
+  display: flex;
+  text-align: left;
+  font-size: 18px;
+  text-align: justify;
+  color: #4a4a4a;
+  width: 60%;
+}
+.ourTeamTag{
+  font-size: 25px;
+  width: 43%;
+  margin-top: 20px;
+}
+.profileimage{
+  height: 150px;
+  width: 110px;
+}
+.profileimageTeacher{
+  height: 150px;
+  width: 110px
+}
+.teachersInfo{
+  width: 100%;
+}
+.tagIIT{
+  width: 100%;
+  justify-content: left;
+}
+.paragraphTop > p{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 16px;
+}
+.paragraphWhyUs{
+  text-align:left;
+  width: 100%;
+}
+.whyusinnerpara{
+  margin-right: 15px;
+  font-size: 16px;
+}
+.innerHeadPara{
+  color: #21743d;
+  font-size: 16px;
+  margin: 0px;
+  padding: 10px 0 0 0;
+}
 }
