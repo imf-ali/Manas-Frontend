@@ -62,7 +62,7 @@ const WhoAreWe = () => {
   const Description = () => {
     return (
       <div className={styles.whoarewe}>
-        <h2 className={styles.headingMessageToStudents}>Message to Students</h2>
+        <h2 className={styles.headingMessageToStudents}>Message To Students</h2>
         <div className={styles.description}>
           <div className={styles.paragraph}>
             <p>
