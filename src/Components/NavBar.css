@@ -14,7 +14,7 @@
 }
 .logoBox {
   position: absolute;
-  left: 2%;
+  left: 5%;
   cursor: pointer;
 }
 .nav-links {
@@ -48,7 +48,7 @@
   height: 9vh;
   width: 20vh;
   position: absolute;
-  right: 0%;
+  right: 2%;
 }
 .barsNav {
   display: none;

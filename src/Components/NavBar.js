@@ -77,8 +77,8 @@ function NavBar() {
           <Link to="/about" className="headingNav" onClick={closeNavbar}>
             About us
           </Link>
-          <Link to="/admissions" className="headingNav" onClick={closeNavbar}>
-            Admissions
+          <Link to="/courses" className="headingNav" onClick={closeNavbar}>
+            Courses
           </Link>
           {/* <Link to="/" className="headingNav">
             Results
