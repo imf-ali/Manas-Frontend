@@ -2,68 +2,242 @@
   font-family: "Poppins", sans-serif;
   margin: 5%;
 }
-
-.advertisement > h2{
-  font-size: 40px;
-  width: 100%;
-  margin: 1% auto;
-  /* margin: 30px auto; */
-  color: #000000;
+.headingWhoWeAre{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  width:25%;
+  padding: 1% 3%;
+  border-radius: 7px;
+  margin-bottom: 0;
+  margin-top: 0;
+  color: #4a4a4a;
 }
-
+.headingMessageToStudents{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  margin-top: 0;
+  color: #4a4a4a;
+  width:30%;
+  padding: 1% 4%;
+  border-radius: 7px;
+  margin-bottom: 0;
+}
+.headingWhyManas{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  width:40%;
+  padding: 1% 4%;
+  border-radius: 7px;
+  margin-top: 80px;
+  margin-bottom: 60px;
+  color: #4a4a4a;
+}
 .description {
   display: flex;
+  justify-content: center;
 }
-
-.image {
-  width: 40%;
-  /* padding: 4% 5%; */
-}
-
-.paragraph {
-  /* margin: 4% 4% 4% 0%; */
-  padding: 4% 4%;
+.paragraph{
+  display: flex;
+  padding: 0% 4%;
   text-align: left;
   font-size: 18px;
+  text-align: justify;
   color: #4a4a4a;
-  background: #f6f8fb;
+  width: 70%;
 }
-
-.paragraph2 {
-  /* width: 100%; */
-  margin: 4%;
-  padding: 4% 4%;
+.paragraphWhyUs{
+  display: flex;
   text-align: left;
   font-size: 18px;
-  background: #f6f8fb;
-  font-family: "Poppins", sans-serif;
+  text-align: justify;
   color: #4a4a4a;
+  width: 60%;
 }
-ul {
-  list-style: none;
+.section1{
+  display: flex;
+  flex: 0.05;
 }
-
-.listBlock {
-  margin: 0% 0% 3% 0%;
-  line-height: 1.5;
+.section2{
+  display: flex;
+  flex:0.95;
+  margin-top: 24px;
+}
+.inBold{
+  display: flex;
+  font-size: 50px;
+  color: #21743d
+}
+.tagline{
+  display: flex;
+  justify-content: center;
+}
+.imageHead{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  object-fit: contain;
+  width: 60%;
+  margin-bottom: 0;
+}
+.teachersInfo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section11{
+  flex: .333;
+}
+.ourTeamTag{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  color: #fff;
+  background-color: orange;
+  width: 13%;
+  border-radius: 7px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.profileimageTeacher{
+  width: 15%;
+  margin-left: 20px;
+}
+.teacherName{
+  font-weight: 700;
+  color: #21743d;
+}
+.innerPara{
+  margin-top: 10px;
+  margin-left: 30px;
+}
+.Whyussection1{
+  display: flex;
+  flex: 0.5;
+}
+.Whyussection2{
+  display: flex;
+  flex: 0.5;
+}
+.whyusinnerpara{
+  margin-right: 15px;
+  font-size: 15px;
+}
+.tagIIT{
+  display: flex;
+  width: 62%;
+  justify-content: center;
+  padding: 0%;
+  margin-top: 20px;
+  font-size: 29px;
+  font-weight: 600;
+  color: #21743d;
+  margin-bottom: 0%;
+}
+.paragraphTop > p{
+  display: flex;
+  font-size: 18px;
+  text-align: justify;
   color: #4a4a4a;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-top: 0;
 }
-
-.heading {
-  margin-bottom: 10px;
-  color: #000000;
+.innerHeadPara{
+  color: #21743d;
+  font-size: 20px;
+  padding-top: 15px;
 }
 
 @media screen and (max-width: 768px) {
   .description {
     display: flex;
     flex-direction: column;
+    justify-content: left;
   }
-  .image {
-    width: 50%;
-    margin: 2% auto;
-  }
-  .paragraph {
-    margin-top: 5%;
-  }
+.headingWhoWeAre{
+  width: 70%;
+}
+.headingMessageToStudents{
+  width: 90%;
+}
+.headingWhyManas{
+  width: 100%;
+  margin-bottom: 0;
+}
+.paragraph{
+  text-align: left;
+  text-align: justify;
+  width: 100%;
+  padding: 0;
+  margin-top: 10px;
+}
+.paragraphWhyUs{
+  display: flex;
+  text-align: left;
+  font-size: 18px;
+  text-align: justify;
+  color: #4a4a4a;
+  width: 60%;
+}
+.ourTeamTag{
+  font-size: 25px;
+  width: 43%;
+  margin-top: 20px;
+}
+.profileimage{
+  height: 150px;
+  width: 110px;
+}
+.profileimageTeacher{
+  height: 150px;
+  width: 110px
+}
+.teachersInfo{
+  width: 100%;
+}
+.tagIIT{
+  width: 100%;
+  justify-content: left;
+}
+.paragraphTop > p{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 16px;
+}
+.paragraphWhyUs{
+  text-align:left;
+  width: 100%;
+}
+.whyusinnerpara{
+  margin-right: 15px;
+  font-size: 16px;
+}
+.innerHeadPara{
+  color: #21743d;
+  font-size: 16px;
+  margin: 0px;
+  padding: 10px 0 0 0;
+}
 }
