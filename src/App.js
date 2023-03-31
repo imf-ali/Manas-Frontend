@@ -48,7 +48,7 @@ function App() {
           <div className={styles.App}>
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/admissions" element={<Admissions />} />
+              <Route path="/courses" element={<Admissions />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/admin" element={<LoginPageAdmin />} />
