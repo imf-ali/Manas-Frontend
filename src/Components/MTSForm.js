@@ -45,6 +45,7 @@ const MTSForm = (props) => {
     pincode: undefined,
     phone: undefined,
     guardianPhone: undefined,
+    whatsappPhone: undefined,
     email: "",
     avatar: "",
     signature: "",
@@ -302,6 +303,17 @@ const MTSForm = (props) => {
             type="text"
             name="guardianPhone"
             value={inputValue.guardianPhone}
+            onChange={inputChangeHandler}
+          />
+        </div>
+        <div className={styles.inputBox}>
+          <label>Whatsapp number</label>
+          <input
+            className={styles.mtsInput}
+            required
+            type="text"
+            name="whatsappPhone"
+            value={inputValue.whatsappPhone}
             onChange={inputChangeHandler}
           />
         </div>
