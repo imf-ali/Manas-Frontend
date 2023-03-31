@@ -114,16 +114,16 @@ const MTSForm = (props) => {
           <h3>Applying for:</h3>
           <div className={styles.radioInput}>
             {" "}
-            <label>Xth pass</label>
+            <label>Foundation (X to XI moving students)</label>
             <input required type="radio" name="class" value="10" onChange={inputChangeHandler} checked={inputValue.class === "10"} />
           </div>
           <div className={styles.radioInput}>
             {" "}
-            <label>XIth pass</label>
+            <label>Fresher (XI to XII moving students)</label>
             <input type="radio" name="class" value="11" onChange={inputChangeHandler} checked={inputValue.class === "11"} />
           </div>
           <div className={styles.radioInput}>
-            <label>XIIth pass</label>
+            <label>Target (XII passout)</label>
             <input type="radio" name="class" value="12" onChange={inputChangeHandler} checked={inputValue.class === "12"} />
           </div>
         </div>
