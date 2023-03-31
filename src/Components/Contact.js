@@ -1,7 +1,9 @@
 import React from "react";
+import Map from "../UI/Map";
 import './Contact.css';
 
 const Contact = () => {
+    
   return (
     <div className="contact container-2">
             <form>
@@ -20,6 +22,7 @@ const Contact = () => {
                     </div>
                 </div>
             </form>
+            <Map />
         </div>
   );
 };
