@@ -80,6 +80,9 @@ function NavBar() {
           <Link to="/admissions" className="headingNav" onClick={closeNavbar}>
             Admissions
           </Link>
+          <Link to="/scholarship" className="headingNav" onClick={closeNavbar}>
+            Scholarship
+          </Link>
           {/* <Link to="/" className="headingNav">
             Results
           </Link>

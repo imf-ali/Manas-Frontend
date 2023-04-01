@@ -1,0 +1,13 @@
+.table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+}
+.head {
+  display: flex;
+  text-align: center;
+  /* flex-wrap: wrap; */
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+}

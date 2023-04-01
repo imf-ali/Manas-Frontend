@@ -18,7 +18,8 @@ import Blog from "./Screen/Blog";
 import ApproveBlog from "./Screen/ApproveBlog";
 import BlogPage from "./Screen/BlogPage";
 import ApprovePayment from "./Screen/ApprovePayment";
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import Scholarship from "./Screen/Scholarship";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const backendUrl =
   process.env.NODE_ENV !== "production"
@@ -56,6 +57,7 @@ function App() {
               <Route path="/uploadnotice" element={<NoticeUpload />} />
               <Route path="/mtspage" element={<MTSpage />} />
               <Route path="/blogs" element={<Blog />} />
+              <Route path="/scholarship" element={<Scholarship />} />
               <Route path="/blogs/:blogid" element={<BlogPage />} />
               <Route path="/approveblog" element={<ApproveBlog />} />
               <Route path="/approvepayment" element={<ApprovePayment />} />
