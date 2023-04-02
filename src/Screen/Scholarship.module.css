@@ -1,0 +1,17 @@
+.main {
+  margin: 3% 5%;
+}
+
+.container {
+  margin: 2% auto;
+  text-align: left;
+  line-height: 1.3;
+  font-size: 18px;
+}
+
+.content {
+  display: flex;
+  gap: 10%;
+  flex-direction: row;
+}
+
