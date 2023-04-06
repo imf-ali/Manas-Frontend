@@ -2,21 +2,17 @@ import React from "react";
 import styles from "./Table.module.css";
 const Table = ({ data, head }) => {
   return (
-    <table className={styles.table}>
-      <tr>
-        <th colSpan={10} className={styles.head}>
-          {head}
-        </th>
-      </tr>
-      <tbody>
+    <div className={styles.table}>
+      <h2>{head}</h2>
+      <div className={styles.container}>
         {data.map((item) => (
-          <td key={item.id}>
-            <tr className={styles.data}>{item.name}</tr>
-            <tr className={styles.data}>{item.value}</tr>
-          </td>
+          <div className={styles.row} key={item.id}>
+            <div className={styles.name}>{item.name}</div>
+            <div className={styles.value}>{item.value}</div>
+          </div>
         ))}
-      </tbody>
-    </table>
+      </div>
+    </div>
   );
 };
 

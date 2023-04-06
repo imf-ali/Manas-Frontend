@@ -12,7 +12,7 @@ const Scholarship = () => {
     { id: 7, name: "61-70%", value: "30%" },
     { id: 8, name: "51-60%", value: "20%" },
     { id: 9, name: "41-50%", value: "10%" },
-    { id: 9, name: "30-40%", value: "05%" },
+    { id: 10, name: "30-40%", value: "05%" },
   ];
   const data2 = [
     { id: 1, name: "Percentile", value: "Scholarship" },
@@ -24,7 +24,7 @@ const Scholarship = () => {
     { id: 7, name: "85-90", value: "30%" },
     { id: 8, name: "80-85", value: "20%" },
     { id: 9, name: "75-80 ", value: "10%" },
-    { id: 9, name: "70-75 ", value: "05%" },
+    { id: 10, name: "70-75 ", value: "05%" },
   ];
   const head1 = "Scholarship criteria based on MTS";
   const head2 = "Scholarship criteria based on JEE Mains Score";
