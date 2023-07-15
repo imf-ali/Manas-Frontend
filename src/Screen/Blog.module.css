@@ -1,6 +1,6 @@
 .mainDiv {
   display: flex;
-  flex-direction: row;
+  min-height: 100vh;
   margin: 2% 15%;
   gap: 10%;
 }

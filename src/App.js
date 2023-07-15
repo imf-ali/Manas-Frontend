@@ -22,7 +22,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const backendUrl =
   process.env.NODE_ENV !== "production"
-    ? "http://localhost"
+    ? "http://localhost:9007"
     : "http://ecs-lg-1073622137.ap-south-1.elb.amazonaws.com";
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
           <div className={styles.App}>
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/admissions" element={<Admissions />} />
+              <Route path="/courses" element={<Admissions />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/admin" element={<LoginPageAdmin />} />

@@ -29,7 +29,9 @@
   padding: 2vh 3vh;
   margin-left: auto;
 }
-
+.card > button:hover {
+  cursor: pointer;
+}
 @media screen and (max-width: 426px) {
   .card {
     margin: 6% 8%;

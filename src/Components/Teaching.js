@@ -1,4 +1,3 @@
-import { Card } from "../UI/Card";
 import { Card2 } from "../UI/Card2";
 import styles from "./Courses.module.css";
 
@@ -24,7 +23,7 @@ const Teaching = () => {
         ]}
       />
       <Card2
-        title="Our scholarship ProgramM"
+        title="Our scholarship Program"
         subtitle={[
           "Admission CUM Scholarship Program",
           "Aptitude Test CUM Scholarship Program",

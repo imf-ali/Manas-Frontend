@@ -2,6 +2,15 @@ import { useReducer, useContext, useEffect } from "react";
 import AuthContext from "../store/AuthContext";
 import userStore from "../store/userStore";
 import styles from "./MTSForm.module.css";
+import Resizer from "react-image-file-resizer";
+
+const resizeFile = (file, width, height) =>
+  new Promise((resolve) => {
+    Resizer.imageFileResizer(file,width,height,"JPEG",50,0,
+      (uri) => {
+        resolve(uri);
+      },"base64");
+});
 
 const inputReducer = (state, actions) => {
   if (actions.type === "INPUT_CHANGE") {
@@ -36,6 +45,7 @@ const MTSForm = (props) => {
     pincode: undefined,
     phone: undefined,
     guardianPhone: undefined,
+    whatsappPhone: undefined,
     email: "",
     avatar: "",
     signature: "",
@@ -58,25 +68,27 @@ const MTSForm = (props) => {
     }
   };
 
-  const toBase64 = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
+  // const toBase64 = (file) =>
+  //   new Promise((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => resolve(reader.result);
+  //     reader.onerror = (error) => reject(error);
+  // });
 
   const profilePicHandler = async (e) => {
     const file = e.target.files[0];
-    const base64img = await toBase64(file);
     if (e.target.name === 'avatar') {
-      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'avatar', value: base64img } });
+      const newImage = await resizeFile(file,246.3,246.3);
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'avatar', value: newImage } });
     }
     else if (e.target.name === 'signature') {
-      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'signature', value: base64img } });
+      const newImage = await resizeFile(file,205.25,410.5);
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'signature', value: newImage } });
     }
     else if (e.target.name === 'parentsign') {
-      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'parentsign', value: base64img } });
+      const newImage = await resizeFile(file,205.25,410.5);
+      dispatchInput({ type: "IMAGE_UPLOAD", input: { name: 'parentsign', value: newImage } });
     }
   };
 
@@ -102,16 +114,16 @@ const MTSForm = (props) => {
           <h3>Applying for:</h3>
           <div className={styles.radioInput}>
             {" "}
-            <label>Xth pass</label>
+            <label>Foundation (X to XI moving students)</label>
             <input required type="radio" name="class" value="10" onChange={inputChangeHandler} checked={inputValue.class === "10"} />
           </div>
           <div className={styles.radioInput}>
             {" "}
-            <label>XIth pass</label>
+            <label>Fresher (XI to XII moving students)</label>
             <input type="radio" name="class" value="11" onChange={inputChangeHandler} checked={inputValue.class === "11"} />
           </div>
           <div className={styles.radioInput}>
-            <label>XIIth pass</label>
+            <label>Target (XII passout)</label>
             <input type="radio" name="class" value="12" onChange={inputChangeHandler} checked={inputValue.class === "12"} />
           </div>
         </div>
@@ -207,12 +219,14 @@ const MTSForm = (props) => {
           </div>
         </div>
         <div className={styles.containerRight}>
-          <label className={styles.avatarBox}>
+          <label 
+              className={styles.avatarBox} 
+              style={{ backgroundImage: `url(${inputValue.avatar})` 
+          }}>
             <span className={styles.avatarTitle}>Upload Image</span>
             <input
               id="image"
               className={styles.avatar}
-              style={{ background: "url" }}
               type="file"
               name="avatar"
               accept="image/*"
@@ -292,6 +306,17 @@ const MTSForm = (props) => {
             onChange={inputChangeHandler}
           />
         </div>
+        <div className={styles.inputBox}>
+          <label>Whatsapp number</label>
+          <input
+            className={styles.mtsInput}
+            required
+            type="text"
+            name="whatsappPhone"
+            value={inputValue.whatsappPhone}
+            onChange={inputChangeHandler}
+          />
+        </div>
       </div>
       <div className={styles.container}>
         <div className={styles.inputBox}>
@@ -357,7 +382,10 @@ const MTSForm = (props) => {
       </div>
       <br></br>
       <div className={styles.container}>
-        <label className={`${styles.avatarBox} ${styles.sign}`}>
+        <label 
+          className={`${styles.avatarBox} ${styles.sign}`}
+          style={{ backgroundImage: `url(${inputValue.signature})`}}
+        >
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
@@ -368,7 +396,10 @@ const MTSForm = (props) => {
             onChange={profilePicHandler}
           />
         </label>
-        <label className={`${styles.avatarBox} ${styles.sign}`}>
+        <label 
+          className={`${styles.avatarBox} ${styles.sign}`}
+          style={{ backgroundImage: `url(${inputValue.parentsign})`}}
+          >
           <span className={styles.avatarTitle}>Upload Image</span>
           <input
             id="image"
