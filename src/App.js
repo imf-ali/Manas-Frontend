@@ -20,10 +20,7 @@ import BlogPage from "./Screen/BlogPage";
 import ApprovePayment from "./Screen/ApprovePayment";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-const backendUrl =
-  process.env.NODE_ENV !== "production"
-    ? "http://localhost:9007"
-    : "https://manas-api.onrender.com";
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
