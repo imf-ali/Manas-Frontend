@@ -5,7 +5,10 @@ export const Card = ({ subtitle, title }) => {
   return (
     <div className={styles.card}>
       <h3>{title}</h3>
-      <span>{subtitle}</span>
+      <h2>ggg</h2>
+      {subtitle.map((value, index) => {
+        return <span key={index}>{value}</span>;
+      })}
     </div>
   );
 };

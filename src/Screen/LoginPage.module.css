@@ -1,5 +1,5 @@
 .loginMain {
-  height: 100vh;
+  /* height: 100vh; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,20 @@
 .headingStudent {
   margin-bottom: 5%;
 }
-
+.googleSign {
+  z-index: 1;
+  border-radius: 5px;
+  font-size: 15px;
+  border: none;
+  margin: 5% 0%;
+  padding: 3%;
+  width: 100%;
+  color: white;
+  background-color: #4f86ec;
+}
+.googleSign:hover {
+  background-color: #5691ff;
+}
 .btn {
   position: absolute;
   border-bottom: 2px solid rebeccapurple;

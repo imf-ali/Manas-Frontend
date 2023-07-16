@@ -1,16 +1,17 @@
 import React from "react";
+import Map from "../UI/Map";
 import './Contact.css';
 
 const Contact = () => {
+    
   return (
     <div className="contact container-2">
             <form>
                 <div className="form">
                     <div className="form-txt">
                         <h1>Contact Us</h1>
-                        <h4>Gali no 2 Nearby milestone</h4>
-                        <h4>PNB Bank, Nutan Nagar Branch, Nutan Nagar</h4>
-                        <p>manas.education.research@gmail.com</p>
+                        <h4>Nutan Nagar</h4>
+                        <p>enquiry.manaseducation@gmail.com</p>
                         <p>Gaya, Bihar<br />823001</p>
                     </div>
                     <div className="form-details">
@@ -21,6 +22,7 @@ const Contact = () => {
                     </div>
                 </div>
             </form>
+            <Map />
         </div>
   );
 };

@@ -47,36 +47,35 @@
 }
 
 .submitBtn {
+  color: white;
   position: relative;
   margin: 5% auto;
-  background-color: #73ffc7;
+    background-color: #21743d;
   padding: 2vh 4vh;
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
 }
 .submitBtn:hover {
-  background-color: #2ee59d;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
+  box-shadow: 0px 15px 20px rgba(66, 157, 121, 0.4);
 }
 
 @media screen and (max-width: 426px) {
   .editorH {
     flex-direction: column;
   }
-  .editorL,.editorR{
+  .editorL,
+  .editorR {
     width: auto;
   }
-  .quillEditor{
+  .quillEditor {
     height: 40vh;
   }
-  .submitBtn{
+  .submitBtn {
     margin: 15% auto;
   }
 }

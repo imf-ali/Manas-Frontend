@@ -13,7 +13,7 @@
 
 .cardLeft,
 .cardRight {
-  width: 50%;
+  width: 100%;
 }
 .cardimage > img {
   margin-right: 2vh;
@@ -24,7 +24,7 @@
 
 .cardRight {
   text-align: left;
-  padding: 2vh 2vh 1vh 0;
+  padding: 2vh 2vh 1vh 2vh;
 }
 .cardRight > h2 {
   font-family: poppins;
