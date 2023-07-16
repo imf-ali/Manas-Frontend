@@ -23,7 +23,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 const backendUrl =
   process.env.NODE_ENV !== "production"
     ? "http://localhost:9007"
-    : "http://ecs-lg-1073622137.ap-south-1.elb.amazonaws.com";
+    : "https://manas-api.onrender.com";
 
 function App() {
   const setIsLogin = userStore((state) => state.setIsLogin);
