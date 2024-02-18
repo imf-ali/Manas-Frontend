@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
       <WhoAreWe />
-      <Aim />
+      {/* <Aim /> */}
       <Contact />
     </div>
   )

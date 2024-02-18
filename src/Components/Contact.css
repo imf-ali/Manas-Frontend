@@ -6,11 +6,13 @@
 }	
 
 .container-2 {
-    max-width: 1200px;
-    width: 90%;
+    /* max-width: 1200px; */
+    /* width: 90%; */
+    padding: 0px 30px 30px 30px;
     margin: 0 auto;
     margin-top: 20px;
 	text-align: left;
+    background-color: lightgray;
 }
 
 :root {

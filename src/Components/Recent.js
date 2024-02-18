@@ -5,38 +5,37 @@ import React, {
   useState,
 } from "react";
 import styles from "./Recent.module.css";
-import { displayPic } from "../lib/displayPhoto";
 import AuthContext from "../store/AuthContext";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
-function Recent() {
+function Recent({ displayPic }) {
   const { manasInstance } = useContext(AuthContext);
   const [allNotice, setAllNotice] = useState([]);
   const [index, setIndex] = useState(0);
   const [hoverImage, setHoverImage] = useState(false);
 
-  const checkNumber = (number) => {
+  const checkNumber = useCallback((number) => {
     if (number > displayPic.length - 1) {
       return 0;
     } else if (number < 0) {
       return displayPic.length - 1;
     }
     return number;
-  };
+  }, [displayPic]);
 
   const nextImage = useCallback(() => {
     setIndex((index) => {
       let newIndex = index + 1;
       return checkNumber(newIndex);
     });
-  }, []);
+  }, [checkNumber]);
 
   const prevImage = useCallback(() => {
     setIndex((index) => {
       let newIndex = index - 1;
       return checkNumber(newIndex);
     });
-  }, []);
+  }, [checkNumber]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -87,6 +86,7 @@ function Recent() {
                 className={styles.image}
                 src={displayPic[index]}
                 alt="contest"
+                loading="lazy"
               />
               <button
                 onClick={() => frontItem(false)}

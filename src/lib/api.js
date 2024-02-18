@@ -421,6 +421,62 @@ class ManasInstance {
       console.error(e);
     }
   }
+
+  async uploadImageData(tag, data, meta){
+    try {
+      const options = {
+        method: 'POST',
+        url: `${this.host}/admin/homepageimage`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        data: {
+          tag,
+          data,
+          ...(meta && { meta }),
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async getImageData(tag){
+    try {
+      const options = {
+        method: 'GET',
+        url: `${this.host}/admin/homepageimage`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        },
+        params: {
+          tag,
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async deleteImageData(imageid){
+    try {
+      const options = {
+        method: 'DELETE',
+        url: `${this.host}/admin/imagedata/${imageid}`,
+        headers: {
+          Authorization: `JWT ${this.getToken()}`
+        }
+      };
+      const res = await axios(options);
+      return res;
+    } catch (e) {
+      console.error(e);
+    }
+  }
 };
 
 export default ManasInstance;

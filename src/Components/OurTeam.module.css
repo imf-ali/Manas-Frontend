@@ -16,18 +16,31 @@
 }
 
 .team {
+  position: absolute;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-direction: row; */
+  overflow: hidden;
   margin: auto;
+  width: 100%;
+  border: 5px solid #ffffff;
+  border-radius: 10px;
   gap: 10vh;
 }
 .member {
   border: 1px solid #124122;
   box-shadow: 5px 5px 15px #21743d;
-  padding: 3vh;
-  width: 40vh;
+  padding: 3vh 10vh;
+  width: 80vh;
   margin: 0 auto ;
+}
+
+.buttonContianer {
+  height: 48vh;
+  top: 43%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
 }
 .imageTeam > img {
   border: 1px solid #ddd;
@@ -37,10 +50,17 @@
   box-shadow: 0 5px 10px rgb(187, 187, 187);
 }
 
+.fixDiv {
+  position: relative;
+  height: 48vh;
+}
+
 @media screen and (max-width:426px){
   .team{
-    flex-direction: column;
     margin: auto;
+  }
+  .fixDiv{
+    height: 70vh;
   }
   .member{
     width: auto;

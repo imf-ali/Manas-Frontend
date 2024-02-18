@@ -8,7 +8,7 @@ const WhoAreWe = () => {
   const Intro = () => {
     return (
       <div className={styles.whoarewe}>
-        <h2 className={styles.headingWhoWeAre}>Who Are We</h2>
+        <h2 className={styles.headingWhoWeAre}>About Us</h2>
         <div className={styles.description}>
           <div className={styles.paragraph}>
             <div className={styles.section1}>
@@ -62,7 +62,7 @@ const WhoAreWe = () => {
   const Description = () => {
     return (
       <div className={styles.whoarewe}>
-        <h2 className={styles.headingMessageToStudents}>Message To Students</h2>
+        <h2 className={styles.headingMessageToStudents}>Director's Message</h2>
         <div className={styles.description}>
           <div className={styles.paragraph}>
             <p>
@@ -105,10 +105,10 @@ const WhoAreWe = () => {
           </div>
         </div>
         <div>
-          <h4 className={styles.ourTeamTag}>Our Team</h4>
+          {/* <h4 className={styles.ourTeamTag}>Our Team</h4> */}
           <img className={styles.profileimage} src={pushkar} alt="director" />
-          <img className={styles.profileimageTeacher} src={teacherA} alt="A" />
-          <img className={styles.profileimageTeacher} src={teacherB} alt="B" />
+          {/* <img className={styles.profileimageTeacher} src={teacherA} alt="A" />
+          <img className={styles.profileimageTeacher} src={teacherB} alt="B" /> */}
           <div>
             <div className={styles.teachersInfo}>
               <div className={styles.section11}>
@@ -117,7 +117,7 @@ const WhoAreWe = () => {
                 <p>B.Tech,IIT Delhi</p>
                 <p>Humanistic Edu Enthusiast</p>
               </div>
-              <div className={styles.section11}>
+              {/* <div className={styles.section11}>
                 <p className={styles.teacherName}>Prabhakar Kumar</p>
                 <p>Ex. Netarhatian</p>
                 <p>Alumni of TS Chanakya</p>
@@ -128,7 +128,7 @@ const WhoAreWe = () => {
                 <p>Ex. Tilaiyan</p>
                 <p>Alumni of TS Chanakya</p>
                 <p>Mumbai</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

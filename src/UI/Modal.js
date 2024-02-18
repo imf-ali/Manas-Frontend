@@ -8,7 +8,7 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   return (
-    <div className={classes.modal}>
+    <div style={{ backgroundImage: `url(${props.image[0]})`}} className={classes.modal}>
       <div className={classes.cross}>
         <RxCrossCircled size={50} onClick={props.onClose} />
       </div>
@@ -19,7 +19,7 @@ const Modal = (props) => {
   return (
     <React.Fragment>
       <Backdrop onClose={props.onClose} />
-      <ModalOverlay onClose={props.onClose}/>
+      <ModalOverlay onClose={props.onClose} image={props.displayPic} />
     </React.Fragment>
   );
 };

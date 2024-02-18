@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 import image from "../resource/green.png";
-import mts from "../resource/mts.png";
 import userStore from "../store/userStore";
 import { FaBars } from "react-icons/fa";
 import AuthContext from "../store/AuthContext";
@@ -114,13 +113,22 @@ function NavBar() {
           )}
           {isAdmin && (
             <Link
+              to="/managedata"
+              className="headingNav"
+              onClick={closeNavbar}
+            >
+              Manage Data
+            </Link>
+          )}
+          {/* {isAdmin && (
+            <Link
               to="/approvepayment"
               className="headingNav"
               onClick={closeNavbar}
             >
               Approve Payment
             </Link>
-          )}
+          )} */}
           {/* <div
           className="headingNav adminDrop"
           onMouseEnter={toggleDropdown}
@@ -158,11 +166,11 @@ function NavBar() {
           </ul>
         </div> */}
 
-          {isStudent && (
+          {/* {isStudent && (
             <Link to="/mtspage" className="headingNav" onClick={closeNavbar}>
               MTS
             </Link>
-          )}
+          )} */}
           {!isStudent && !isAdmin && (
             <Link to="/login" className="headingNav" onClick={closeNavbar}>
               Student
@@ -178,9 +186,6 @@ function NavBar() {
               Logout
             </div>
           )}
-        </div>
-        <div className="linkRight">
-          <img src={mts} alt="" className="imageNav2" />
         </div>
       </nav>
     </>

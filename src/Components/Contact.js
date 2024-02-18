@@ -1,5 +1,7 @@
 import React from "react";
 import Map from "../UI/Map";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 import './Contact.css';
 
 const Contact = () => {
@@ -10,9 +12,10 @@ const Contact = () => {
                 <div className="form">
                     <div className="form-txt">
                         <h1>Contact Us</h1>
-                        <h4>Nutan Nagar</h4>
-                        <p>enquiry.manaseducation@gmail.com</p>
-                        <p>Gaya, Bihar<br />823001</p>
+                        <h4>Nutan Nagar, Gaya</h4>
+                        <p>Bihar, PIN - 823001</p>
+                        <p><FaPhoneAlt/> 8809552269</p>
+                        <p><IoMdMail/> enquiry.manaseducation@gmail.com</p>
                     </div>
                     <div className="form-details">
                         <input type="text" name="name" id="name" placeholder="Name" required />

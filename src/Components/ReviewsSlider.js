@@ -1,35 +1,34 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { reviews } from "../lib/data";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import styles from "./ReviewsSlider.module.css";
 
-const Review = () => {
+const Review = ({ displayPic }) => {
+
   const [index, setIndex] = useState(0);
-  const { name, job, image, text } = reviews[index];
   const [hoverImage, setHoverImage] = useState(false);
 
-  const checkNumber = (number) => {
-    if (number > reviews.length - 1) {
+  const checkNumber = useCallback((number) => {
+    if (number > displayPic.length - 1) {
       return 0;
     } else if (number < 0) {
-      return reviews.length - 1;
+      return displayPic.length - 1;
     }
     return number;
-  };
+  },[displayPic]);
 
   const nextPerson = useCallback(() => {
     setIndex((index) => {
       let newIndex = index + 1;
       return checkNumber(newIndex);
     });
-  },[]);
+  },[checkNumber]);
 
-  const prevPerson = () => {
+  const prevPerson = useCallback(() => {
     setIndex((index) => {
       let newIndex = index - 1;
       return checkNumber(newIndex);
     });
-  };
+  },[checkNumber]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,31 +49,40 @@ const Review = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
-        <h2>Testimonial of our Almuni</h2>
-        <div className={styles.buttonContainer}>
-          <button onClick={prevPerson}>
-            <AiOutlineArrowLeft />
-          </button>
-          <button onClick={nextPerson}>
-            <AiOutlineArrowRight />
-          </button>
-        </div>
-      </div>
-      <article 
-        className={styles.alumni} 
-        onMouseEnter={mouseEnterHander} 
-        onMouseLeave={mouseLeaveHander}
-      >
-        <p className={styles.info}>{text}</p>
-        <div className={styles.aboutAlmuni}>
-          <img src={image} alt={name} className={styles.image} />
-          <div className={styles.almuniDetails}>
-            <h4 className={styles.author}>{name}</h4>
-            <p className={styles.job}>{job}</p>
+      {(displayPic.length > index) && (
+        <>
+          <div className={styles.title}>
+            <h2>Testimonial of our Almuni</h2>
+            <div className={styles.buttonContainer}>
+              <button onClick={prevPerson}>
+                <AiOutlineArrowLeft />
+              </button>
+              <button onClick={nextPerson}>
+                <AiOutlineArrowRight />
+              </button>
+            </div>
           </div>
-        </div>
-      </article>
+          <article 
+            className={styles.alumni} 
+            onMouseEnter={mouseEnterHander} 
+            onMouseLeave={mouseLeaveHander}
+          >
+            <p className={styles.info}>{displayPic[index].meta.description}</p>
+            <div className={styles.aboutAlmuni}>
+              <img 
+                src={displayPic[index].data} 
+                alt={displayPic[index].data} 
+                className={styles.image} 
+                loading="lazy"
+              />
+              <div className={styles.almuniDetails}>
+                <h4 className={styles.author}>{displayPic[index].meta.name}</h4>
+                <p className={styles.job}>{displayPic[index].meta.designation}</p>
+              </div>
+            </div>
+          </article>
+        </>
+      )}
     </div>
   );
 };

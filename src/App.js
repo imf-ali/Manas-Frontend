@@ -19,6 +19,7 @@ import ApproveBlog from "./Screen/ApproveBlog";
 import BlogPage from "./Screen/BlogPage";
 import ApprovePayment from "./Screen/ApprovePayment";
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import ManageData from "./Screen/ManageData";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -56,6 +57,7 @@ function App() {
               <Route path="/blogs/:blogid" element={<BlogPage />} />
               <Route path="/approveblog" element={<ApproveBlog />} />
               <Route path="/approvepayment" element={<ApprovePayment />} />
+              <Route path="/managedata" element={<ManageData />} />
             </Routes>
           </div>
         </Router>

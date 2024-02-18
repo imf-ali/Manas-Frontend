@@ -1,0 +1,115 @@
+.parentDiv {
+  padding: 10px;
+}
+
+.buttonDiv { 
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin: auto;
+}
+
+.mainDiv{
+  padding: 30px;
+  margin: auto;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  background-color: #4a4a4a;
+  padding: 10px 16px;
+  color: white;
+  /* font-size: 1.25rem; */
+  cursor: pointer;
+  border: transparent;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  /* height: 35px; */
+  letter-spacing: 1px;
+  overflow: visible;
+  font-family: "Cabin", Sans-Serif;
+  font-size: 100%;
+  /* line-height: 1.15; */
+}
+.btn:hover {
+  background-color: #696363;
+  box-shadow: 0 10px 15px 5px rgba(0, 0, 0, 0.1);
+  transition: 300ms ease-in-out all;
+}
+
+.imgWrapper{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.imgData{
+  width: 30%;
+  margin: 10px;
+}
+
+.imgData:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  padding: 30px;
+  position: fixed;
+  width: 25%;
+  margin: auto 33%;
+  top: 42vh;
+  bottom: 42vh;
+  background-color: lightgray;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 20;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+.achieveDiv {
+  width: 50%;
+  margin: auto;
+}
+
+.achieveDiv2 {
+  width: 80%;
+  margin: auto;
+}
+
+.labelDiv {
+  width: 50%;
+}
+
+.inputDiv {
+  width: 70%;
+  padding: 2px;
+}
+
+.imgWrapper2{
+  width: 100%;
+  margin: 50px;
+  margin-bottom: 100px;
+}
+
+.textAreaDiv{
+  width: 70%;
+  height: 150px;
+  padding: 5px;
+}
