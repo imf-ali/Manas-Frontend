@@ -100,7 +100,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 820px) {
   .container {
     margin: 0 3vh;
     gap: 3%;
@@ -115,11 +115,8 @@
   .notices {
     height: 20vh;
   }
-  .image {
-    height: 250px;
-  }
 }
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 820px) {
   .container {
     flex-direction: column;
     margin: 0;
@@ -134,5 +131,17 @@
   }
   .notices{
     height: 22vh;
+  }
+}
+
+@media screen and (max-width: 820px){
+  .image {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .image {
+    height: 250px;
   }
 }

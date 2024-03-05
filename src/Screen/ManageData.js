@@ -17,7 +17,7 @@ const Modal = ({ onCloseHandler, onDeleteHandler }) => {
   )
 }
 
-const CarouselData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, imageList }) => {
+const CarouselData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, imageList, error }) => {
   return (
     <div>
       <h3>Home carousel</h3>
@@ -25,6 +25,7 @@ const CarouselData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, im
       <div>
         <label>Add Image</label>
         <input accept="image/*" type='file' onChange={fileChangeHandler} />
+        {error && <div style={{ color: 'red'}}>{error}</div>}
         <button className={styles.btn} onClick={() => { onSubmitHandler() }}>Upload</button>
         <div className={styles.imgWrapper}>
           {imageList.map((image, index) => (
@@ -41,7 +42,7 @@ const CarouselData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, im
   )
 }
 
-const PopUpData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, imageList }) => {
+const PopUpData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, imageList, error }) => {
   return (
     <div>
       <h3>Pop up Image</h3>
@@ -49,6 +50,7 @@ const PopUpData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, image
       <div>
         <label>Add Image</label>
         <input accept="image/*" type='file' onChange={fileChangeHandler} />
+        {error && <div style={{ color: 'red'}}>{error}</div>}
         <button className={styles.btn} onClick={() => { onSubmitHandler() }}>Upload</button>
         {(imageList.length !== 0) && (
           <img 
@@ -63,7 +65,7 @@ const PopUpData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, image
   )
 }
 
-const AchivementData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, imageList }) => {
+const AchivementData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, imageList, error }) => {
   
   const [name, setName] = useState('');
   const [designation, setDesignation] = useState('');
@@ -90,30 +92,31 @@ const AchivementData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, 
           <label className={styles.labelDiv}>Add Image</label>
           <input className={styles.inputDiv} accept="image/*" type='file' onChange={fileChangeHandler} />
         </div>
+        {error && <div style={{ color: 'red'}}>{error}</div>}
         <button className={styles.btn} onClick={() => onSubmitHandler({name, designation, description})}>Upload</button>
-          <div className={styles.imgWrapper2}>
-            {imageList.map((image, index) => (
-              <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <img 
-                  className={styles.imgData} 
-                  src={image.data} 
-                  alt='img' 
-                  onClick={() => { modalShowHandler(image._id) }} 
-                />
-                <div style={{ display: 'flex', flexDirection: 'column', width: '50%', margin: 'auto' }}>
-                  <h2>{image.meta.name}</h2>
-                  <h4>{image.meta.designation}</h4>
-                  <div>{image.meta.description}</div>
-                </div>
+        <div className={styles.imgWrapper2}>
+          {imageList.map((image, index) => (
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <img 
+                className={styles.imgData} 
+                src={image.data} 
+                alt='img' 
+                onClick={() => { modalShowHandler(image._id) }} 
+              />
+              <div style={{ display: 'flex', flexDirection: 'column', width: '50%', margin: 'auto' }}>
+                <h2>{image.meta.name}</h2>
+                <h4>{image.meta.designation}</h4>
+                <div>{image.meta.description}</div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
-const TestimonialData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, imageList }) => {
+const TestimonialData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler, imageList, error }) => {
   
   const [name, setName] = useState('');
   const [designation, setDesignation] = useState('');
@@ -140,24 +143,25 @@ const TestimonialData = ({ fileChangeHandler, onSubmitHandler, modalShowHandler,
           <label className={styles.labelDiv}>Add Image</label>
           <input className={styles.inputDiv} accept="image/*" type='file' onChange={fileChangeHandler} />
         </div>
+        {error && <div style={{ color: 'red'}}>{error}</div>}
         <button className={styles.btn} onClick={() => onSubmitHandler({name, designation, description})}>Upload</button>
-          <div className={styles.imgWrapper2}>
-            {imageList.map((image, index) => (
-              <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <img 
-                  className={styles.imgData} 
-                  src={image.data} 
-                  alt='img' 
-                  onClick={() => { modalShowHandler(image._id) }} 
-                />
-                <div style={{ display: 'flex', flexDirection: 'column', width: '50%', margin: 'auto' }}>
-                  <h2>{image.meta.name}</h2>
-                  <h4>{image.meta.designation}</h4>
-                  <div>{image.meta.description}</div>
-                </div>
+        <div className={styles.imgWrapper2}>
+          {imageList.map((image, index) => (
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <img 
+                className={styles.imgData} 
+                src={image.data} 
+                alt='img' 
+                onClick={() => { modalShowHandler(image._id) }} 
+              />
+              <div style={{ display: 'flex', flexDirection: 'column', width: '50%', margin: 'auto' }}>
+                <h2>{image.meta.name}</h2>
+                <h4>{image.meta.designation}</h4>
+                <div>{image.meta.description}</div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -176,6 +180,7 @@ const ManageData = () => {
   const [imageTag, setImageTag] = useState('');
   const [imgData, setImgData] = useState('');
   const [imageList, setImageList] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const getImages = async () => {
@@ -211,6 +216,9 @@ const ManageData = () => {
 
   const fileChangeHandler = async (e) => {
     const file = e.target.files[0];
+    if(file.size > 153600){
+      setError('Image size should be less than 150kB')
+    }
     const img = await toBase64(file);
     setImgData(img);
   }
@@ -222,7 +230,6 @@ const ManageData = () => {
   };
 
   const onSubmitHandler = async (meta) => {
-    console.log('here')
     const res = await manasInstance.uploadImageData(imageTag, imgData, meta);
     if(res){
       setImageList((prev) => [ ...prev, res.data.asset ])
@@ -255,6 +262,7 @@ const ManageData = () => {
             fileChangeHandler={fileChangeHandler} 
             modalShowHandler={modalShowHandler}
             onSubmitHandler={onSubmitHandler} 
+            error={error}
           />
         )}
         {isPopUp && (
@@ -263,6 +271,7 @@ const ManageData = () => {
             fileChangeHandler={fileChangeHandler} 
             modalShowHandler={modalShowHandler}
             onSubmitHandler={onSubmitHandler} 
+            error={error}
           />
         )}
         {isAchivement && (
@@ -271,6 +280,7 @@ const ManageData = () => {
             fileChangeHandler={fileChangeHandler} 
             modalShowHandler={modalShowHandler}
             onSubmitHandler={onSubmitHandler} 
+            error={error}
         />)}
         {isTestimonial && (
           <TestimonialData 
@@ -278,6 +288,7 @@ const ManageData = () => {
             fileChangeHandler={fileChangeHandler} 
             modalShowHandler={modalShowHandler}
             onSubmitHandler={onSubmitHandler} 
+            error={error}
         />)}
       </div>
       {showModal && (

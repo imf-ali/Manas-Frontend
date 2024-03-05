@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./OurTeam.module.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -23,6 +23,14 @@ const OurTeam = ({ displayPic }) => {
     }, speed);
   };
 
+  useEffect(() => {
+    if (elementRef.current) {
+      const scrollableDiv = elementRef.current;
+      const middle = (scrollableDiv.scrollWidth - scrollableDiv.offsetWidth) / 2;
+      scrollableDiv.scrollLeft = middle;
+    }
+  }, [displayPic]);
+
   return (
     <div className={styles.ourTeam}>
       <div className={styles.teamAbout}>
@@ -37,12 +45,13 @@ const OurTeam = ({ displayPic }) => {
           {displayPic.map((team,index) => {
             return (
               <div key={index} className={styles.member}>
-                <div className={styles.imageTeam}>
-                  <img src={team.data} alt="member" loading="lazy" />
+                <div style={{ position: 'relative', top: '3vh' }}>
+                  <div className={styles.imageTeam}>
+                    <img src={team.data} alt="member" loading="lazy" />
+                  </div>
+                  <div><h2>{team.meta.name}</h2></div>
+                  <div><h3>{team.meta.designation}</h3></div>                
                 </div>
-                <h2>{team.meta.name}</h2>
-                <h3>{team.meta.designation}</h3>
-                <p>{team.meta.description}</p>
               </div>
             );
           })}

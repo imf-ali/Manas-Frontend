@@ -1,7 +1,6 @@
 .ourTeam {
   display: flex;
   flex-direction: column;
-  margin-bottom: 7vh;
   font-family: Poppins, sans-serif;
 }
 
@@ -19,23 +18,28 @@
   position: absolute;
   display: flex;
   /* flex-direction: row; */
-  overflow: hidden;
+  overflow: auto;
   margin: auto;
   width: 100%;
   border: 5px solid #ffffff;
   border-radius: 10px;
   gap: 10vh;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.team::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
 }
 .member {
   border: 1px solid #124122;
-  box-shadow: 5px 5px 15px #21743d;
   padding: 3vh 10vh;
   width: 80vh;
+  height: 40vh;
   margin: 0 auto ;
 }
 
 .buttonContianer {
-  height: 48vh;
   top: 43%;
   width: 100%;
   position: absolute;
@@ -52,15 +56,12 @@
 
 .fixDiv {
   position: relative;
-  height: 48vh;
+  height: 45vh;
 }
 
 @media screen and (max-width:426px){
   .team{
     margin: auto;
-  }
-  .fixDiv{
-    height: 70vh;
   }
   .member{
     width: auto;
