@@ -112,7 +112,7 @@ const WhoAreWe = () => {
           <div>
             <div className={styles.teachersInfo}>
               <div className={styles.section11}>
-                <p className={styles.teacherName}>Phuskar Srigyan</p>
+                <p className={styles.teacherName}>Pushkar Srigyan</p>
                 <p>Ex. Netarhatian</p>
                 <p>B.Tech,IIT Delhi</p>
                 <p>Humanistic Edu Enthusiast</p>
