@@ -75,9 +75,10 @@
   margin-top: 24px;
 }
 .inBold{
-  display: flex;
-  font-size: 50px;
-  color: #21743d
+  /* display: flex; */
+  font-size: 32px;
+  color: #21743d;
+  font-weight: bold;
 }
 .tagline{
   display: flex;
@@ -125,7 +126,6 @@
 }
 .innerPara{
   margin-top: 10px;
-  margin-left: 30px;
 }
 .Whyussection1{
   display: flex;
@@ -204,10 +204,6 @@
   font-size: 25px;
   width: 43%;
   margin-top: 20px;
-}
-.profileimage{
-  height: 150px;
-  width: 110px;
 }
 .profileimageTeacher{
   height: 150px;

@@ -11,11 +11,9 @@ const WhoAreWe = () => {
         <h2 className={styles.headingWhoWeAre}>About Us</h2>
         <div className={styles.description}>
           <div className={styles.paragraph}>
-            <div className={styles.section1}>
-              <b className={styles.inBold}>In </b>
-            </div>
             <div className={styles.section2}>
               <p>
+                <span className={styles.inBold}>In </span>
                 Sanskrit MANAS means Mind. Here we constantly work on young
                 minds to train them to produce the best result. The team of
                 experienced and stable faculties along with strength, social,
@@ -33,7 +31,7 @@ const WhoAreWe = () => {
                 opportunity, to ensure a rich and awarding intellectual climate
                 for the students to rise and shine in all her/his future
                 endeavors. The Prodigy of Manas has already gathered a lot of
-                attention of ITT aspirants all across the South Bihar. The class
+                attention of IIT aspirants all across the South Bihar. The class
                 room students of JEE division has proved their excellence by
                 producing best result in IIT-JEE Since 2014. We are dedicated to
                 improve every aspect of competitive preparation ¡n a very
@@ -66,9 +64,8 @@ const WhoAreWe = () => {
         <div className={styles.description}>
           <div className={styles.paragraph}>
             <p>
-              Dear Students, <br></br>
-              <br></br>Welcome to Manas Education Centre!<br></br>
-              <br></br>Cracking any Top Level Competitive Examinations is all
+              Dear Students, 
+              <br></br>Welcome to Manas Education Centre! Cracking any Top Level Competitive Examinations is all
               about your perseverance quotient, learning ability, managing time
               & stress and zeal to model the path of success drawn by the
               connoisseur.<br></br>
@@ -95,11 +92,8 @@ const WhoAreWe = () => {
                 us in achieving our dream.
               </p>
               <br />
-              <br />
               <p>
-                With Warm Wishes,
-                <br />
-                <b>Team Manas</b>
+                With Warm Wishes
               </p>
             </p>
           </div>
@@ -113,9 +107,9 @@ const WhoAreWe = () => {
             <div className={styles.teachersInfo}>
               <div className={styles.section11}>
                 <p className={styles.teacherName}>Pushkar Srigyan</p>
-                <p>Ex. Netarhatian</p>
-                <p>B.Tech,IIT Delhi</p>
-                <p>Humanistic Edu Enthusiast</p>
+                <p><b>Ex. Netarhatian</b></p>
+                <p><b>B.Tech,IIT Delhi</b></p>
+                <p><b>Humanistic Edu Enthusiast</b></p>
               </div>
               {/* <div className={styles.section11}>
                 <p className={styles.teacherName}>Prabhakar Kumar</p>
