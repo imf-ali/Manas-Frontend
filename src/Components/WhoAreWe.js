@@ -98,6 +98,7 @@ const WhoAreWe = () => {
             </p>
           </div>
         </div>
+        <br />
         <div>
           {/* <h4 className={styles.ourTeamTag}>Our Team</h4> */}
           <img className={styles.profileimage} src={pushkar} alt="director" />

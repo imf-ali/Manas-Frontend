@@ -40,7 +40,7 @@
   width:40%;
   padding: 1% 4%;
   border-radius: 7px;
-  margin-top: 80px;
+  margin-top: 40px;
   margin-bottom: 60px;
   color: #4a4a4a;
 }
@@ -71,7 +71,6 @@
 }
 .section2{
   display: flex;
-  flex:0.95;
   margin-top: 24px;
 }
 .inBold{
@@ -100,9 +99,6 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-}
-.section11{
-  flex: .333;
 }
 .ourTeamTag{
   display: block;
@@ -194,6 +190,7 @@
 }
 .paragraphWhyUs{
   display: flex;
+  flex-direction: column;
   text-align: left;
   font-size: 18px;
   text-align: justify;
@@ -223,11 +220,11 @@
   font-size: 16px;
 }
 .paragraphWhyUs{
-  text-align:left;
+  text-align:justify;
   width: 100%;
 }
 .whyusinnerpara{
-  margin-right: 15px;
+  margin-right: 0px;
   font-size: 16px;
 }
 .innerHeadPara{
