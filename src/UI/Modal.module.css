@@ -39,8 +39,9 @@
 
 @media (max-width: 768px) {
   .modal {
-    width: 80%;
-    margin: auto 10%;
+    width: 92%;
+    height: 56%;
+    margin: auto 4%;
   }
 }
 @media (max-width: 425px) {
